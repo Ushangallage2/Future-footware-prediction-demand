@@ -1,11 +1,13 @@
 import React from 'react';
 import '../App.css';
 import { sidebarData } from './sidebarData';
+import logo from './fdfs.png';
 
 export function Sidebar(props) {
     return (
         <div className='sidebar'>
-            <ul className='sidebarList'>
+        <img className= 'slidebarIcon' src={logo} alt = "logo" />
+        <ul className='sidebarList'>
             {sidebarData.map((val,key)=>{
             return (
                 <li 
