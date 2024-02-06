@@ -2,10 +2,15 @@
   width: 100vw;
   height: 100vh;
 }
+header{
+  height: 0%;
+  width: 0%;
+}
 
 body{
   margin: 0;
   padding: 0;
+  background-color: #002952;
 }
 
 .sidebar {
@@ -16,7 +21,7 @@ body{
 
 .sidebarList {
   height: auto;
-  padding: 0;
+  padding: 0%;
   width: 100%;
 }
 
@@ -38,7 +43,7 @@ body{
   background-color: #FF4076;
 }
 .sidebarList #active {
-  background-color: #fff;
+  background-color: #FF4076;
 }
 
 .row #icon {
