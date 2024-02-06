@@ -10,36 +10,36 @@ export const sidebarData = [
     {
         title: "My Profile",
         icon: <HomeIcon/>,
-        link: "profile/"
+        link: "/profile"
     },
 
     {
         title: "Demand Prediction",
         icon: <OnlinePredictionIcon/>,
-        link: "prediction/"
+        link: "/prediction"
     },
 
     {
         title: "New Models",
         icon: <RollerSkatingIcon/>,
-        link: "models/"
+        link: "/models"
     },
 
     {
         title: "Update Database",
         icon: <StorageIcon/>,
-        link: "updateDatabase/"
+        link: "/updateDatabase"
     },
 
     {
         title: "Settings",
         icon: <SettingsIcon/>,
-        link: "settings/"
+        link: "/settings"
     },
 
     {
         title: "Logout",
         icon: <LogoutIcon/>,
-        link: "logout/"
+        link: "/logout"
     },
 ];
