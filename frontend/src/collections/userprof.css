@@ -20,3 +20,7 @@
     font-size: 18px;
     font-style: italic;
 }
+
+.user-sec {
+    display: flex;
+}
