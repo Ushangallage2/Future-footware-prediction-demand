@@ -10,12 +10,9 @@ function App() {
     <div className="App">
 
 <BrowserRouter>
-      {/* <Sidebar/> */}
-      {/* <UserProf/> */}
       <Routes>
       <Route path='/' element={<Home/>}/> 
-      <Route path='/userprofile' element={<UserProf/>}/> // use element prop instead of children prop
-          {/* You can add more routes for other sidebar items here */}
+      <Route path='/userprofile' element={<UserProf/>}/> 
       </Routes>
       </BrowserRouter>
       </div>
