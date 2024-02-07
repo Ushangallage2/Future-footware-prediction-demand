@@ -1,11 +1,20 @@
 
 import './App.css';
-import { Sidebar } from './collections/sidebar';
+import { Home } from './collections/home';
+import { UserProf } from './collections/userprof';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 function App() {
   return (
     <div className="App">
-      <Sidebar/>
-    </div>
+
+<BrowserRouter>
+      <Routes>
+      <Route path='/' element={<Home/>}/> 
+      <Route path='/userprofile' element={<UserProf/>}/> 
+      </Routes>
+      </BrowserRouter>
+      </div>
   );
 }
 

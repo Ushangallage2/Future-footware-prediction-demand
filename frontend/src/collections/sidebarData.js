@@ -8,9 +8,9 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 export const sidebarData = [
     {
-        title: "My Profile",
+        title: "UserProfile",
         icon: <HomeIcon/>,
-        link: "/profile"
+        link: "/userprofile"
     },
 
     {
