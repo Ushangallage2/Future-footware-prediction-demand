@@ -1,7 +1,6 @@
 
 import './App.css';
 import { Home } from './collections/home';
-// import { Sidebar } from './collections/sidebar';
 import { UserProf } from './collections/userprof';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
