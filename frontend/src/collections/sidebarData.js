@@ -22,7 +22,7 @@ export const sidebarData = [
     {
         title: "New Models",
         icon: <RollerSkatingIcon/>,
-        link: "/models"
+        link: "/newModel"
     },
 
     {
