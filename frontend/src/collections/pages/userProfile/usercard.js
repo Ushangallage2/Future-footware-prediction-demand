@@ -9,9 +9,9 @@ function Card(props) {
       <div className="container"> 
 
         {/* create container1 inside main container */}
-        <div class="container1">
+        <div class="ucontainer1">
           {/* create card1 componant in container1 */}
-          <div className="card1">
+          <div className="ucard1">
           {/* insert an image and card-content1 to card1 */}
           <img src={userimg} alt="card image" className="card-image1" /> 
             <div className="card-content1">
@@ -26,9 +26,9 @@ function Card(props) {
         </div>
 
         {/* create container2 inside main container */}
-        <div class="container2">
+        <div class="ucontainer2">
           {/* create card2 componant in container2 */}
-          <div class="card2">
+          <div class="ucard2">
 
             {/* insert an image and card-content2 to card2 */}
             <div className="card-content2">
