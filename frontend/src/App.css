@@ -17,7 +17,8 @@ header{
 body{
   margin: 0;
   padding: 0;
-  background-color: #002952;
+  /* background-color: #002952; */
+  background: linear-gradient(245.59deg, #7c8de3 0%, #308ae4 28.53%, #034e8f 75.52%);
 }
 
 .sidebar {
