@@ -22,3 +22,6 @@ body{
     display: flex;
     background-color: #0000;
   }
+  .p{
+    color: aliceblue;
+  }
