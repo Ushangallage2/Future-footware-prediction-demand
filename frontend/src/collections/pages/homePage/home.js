@@ -66,15 +66,13 @@ class Home extends Component {
 
 export default Home;
 
-<<<<<<< HEAD
-export function Home(props) {
-=======
+
 
 
 
 
 // export function Home(props) {
->>>>>>> dev-sandali
+
     
 //     return (
 //         <>
