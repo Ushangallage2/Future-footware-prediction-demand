@@ -1,14 +1,13 @@
 import React from 'react';
-import './newModel.css';
-import { Sidebar } from './sidebar';
-import ModelCard from "./newmodelCard";
-
-export function NewModel(props) {
+import './userprof.css';
+import { Sidebar } from '../../sidebar/sidebar';
+import Card from "./usercard";
+export function UserProf(props) {
     return (
         <>
         <div className='user-sec'>
           <Sidebar/>
-          <ModelCard
+          <Card
             body1="Name :- Sandia Perera"
             body2="Age :- 28"
             body3="Position :- Marketing Executive"
@@ -33,4 +32,4 @@ export function NewModel(props) {
     );
 }
 
-export default NewModel;
+export default UserProf;
