@@ -64,6 +64,7 @@ class Home extends Component {
     }
 }
 
+<<<<<<< HEAD
 export default Home;
 
 
@@ -105,3 +106,6 @@ export default Home;
         
 //     )
 // }
+=======
+export default Home;
+>>>>>>> dev-sandali
