@@ -1,6 +1,6 @@
 import React from 'react';
 import './userprof.css';
-import { Sidebar } from './sidebar';
+import { Sidebar } from '../../sidebar/sidebar';
 import Card from "./usercard";
 export function UserProf(props) {
     return (

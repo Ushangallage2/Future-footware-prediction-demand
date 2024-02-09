@@ -1,7 +1,7 @@
 
 import './App.css';
-import { Home } from './collections/home';
-import { UserProf } from './collections/userprof';
+import { Home } from './collections/pages/homePage/home';
+import { UserProf } from './collections/pages/userProfile/userprof';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
