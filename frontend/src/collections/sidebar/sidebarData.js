@@ -35,11 +35,13 @@ export const sidebarData = [
     },
 
     {
-<<<<<<< HEAD
+
         title: "New Models",
         icon: <RollerSkatingIcon/>,
         link: "/newModel"
-=======
+    },
+    {
+
         title: "Generate new model",
         // view previous generated model
         // icon: <RollerSkatingIcon/>,
@@ -49,7 +51,7 @@ export const sidebarData = [
         title: "View reports",
         // icon: <RollerSkatingIcon/>,
         link: "/models"
->>>>>>> dev-sandali
+
     },
 
     // {
