@@ -15,44 +15,44 @@ export const sidebarData = [
         link: "/userprofile"
     },
     {
-        title: "Manage users",
+        title: "Manage Users",
         // create user account 
         // delete user account
         // icon: <HomeIcon/>,
         link: "/useraccount"
     },
     {
-        title: "Manage sales data",
-        // add sales data
-        // icon: <HomeIcon/>,
-        link: "/useraccount"
-    },
-    {
-        title: "Predict demand",
+        title: "Predict Demand",
         // view previous sales
         // icon: <OnlinePredictionIcon/>,
         link: "/prediction"
     },
-
     {
+        title: "View Reports",
+        // icon: <RollerSkatingIcon/>,
+        link: "/models"
 
-        title: "New Models",
-        icon: <RollerSkatingIcon/>,
-        link: "/newModel"
     },
     {
 
-        title: "Generate new model",
+        title: "Generate New Model",
         // view previous generated model
         // icon: <RollerSkatingIcon/>,
         link: "/models"
     },
     {
-        title: "View reports",
-        // icon: <RollerSkatingIcon/>,
-        link: "/models"
-
+        title: "Manage Sales Data",
+        // add sales data
+        // icon: <HomeIcon/>,
+        link: "/useraccount"
     },
+
+    // {
+
+    //     title: "New Models",
+    //     // icon: <RollerSkatingIcon/>,
+    //     link: "/newModel"
+    // },
 
     // {
     //     title: "Update Database",
@@ -64,13 +64,13 @@ export const sidebarData = [
         title: "Settings",
         //edit profile
         //change password
-        icon: <SettingsIcon/>,
+        // icon: <SettingsIcon/>,
         link: "/settings"
     },
 
     {
         title: "Logout",
-        icon: <LogoutIcon/>,
+        // icon: <LogoutIcon/>,
         link: "/logout"
     },
 ];

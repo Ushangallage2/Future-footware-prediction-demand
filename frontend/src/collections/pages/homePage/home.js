@@ -10,6 +10,7 @@
 import React, { Component } from "react";
 import ScrollReveal from "scrollreveal";
 import fti from "./fti.png";
+import fdfs from "../../sidebar/fdfs.png";
 import "./home.css";
 import "boxicons/css/boxicons.min.css";
 import 'remixicon/fonts/remixicon.css';
@@ -23,9 +24,9 @@ class Home extends Component {
     componentDidMount() {
         const config = {
             origin: "top",
-            duration: 1000,
-            delay: 150,
-            distance: "500px",
+            duration: 800,
+            delay: 1,
+            distance: "80px",
             scale: 1,
             easing: "ease",
         };
@@ -37,7 +38,7 @@ class Home extends Component {
         return (
             <>
                 <header>
-                    <a className="logo">FDFS</a>
+                    <img src={fdfs} alt="logo" className="logo" />
                 </header>
 
                 <section className="hero">
@@ -46,7 +47,7 @@ class Home extends Component {
                         <p ref={this.myRef}>
                             Step into the future of footwear with our cutting-edge demand prediction and model forecasting AI, guiding you through the next wave of industry trends.
                         </p>
-                        <a href="# ">Get Started</a>
+                        <a href="/userprofile">Get Started</a>
                     </div>
 
                     <div className="hero-img">
