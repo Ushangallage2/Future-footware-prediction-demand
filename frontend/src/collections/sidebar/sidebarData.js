@@ -5,34 +5,63 @@ import RollerSkatingIcon from '@mui/icons-material/RollerSkating';
 import StorageIcon from '@mui/icons-material/Storage';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { getAccordionUtilityClass } from "@mui/material";
 
 export const sidebarData = [
     {
-        title: "UserProfile",
-        icon: <HomeIcon/>,
+        title: "My Profile",
+        // View profie
+        // icon: <HomeIcon/>,
         link: "/userprofile"
     },
-
     {
-        title: "Demand Prediction",
-        icon: <OnlinePredictionIcon/>,
+        title: "Manage users",
+        // create user account 
+        // delete user account
+        // icon: <HomeIcon/>,
+        link: "/useraccount"
+    },
+    {
+        title: "Manage sales data",
+        // add sales data
+        // icon: <HomeIcon/>,
+        link: "/useraccount"
+    },
+    {
+        title: "Predict demand",
+        // view previous sales
+        // icon: <OnlinePredictionIcon/>,
         link: "/prediction"
     },
 
     {
+<<<<<<< HEAD
         title: "New Models",
         icon: <RollerSkatingIcon/>,
         link: "/newModel"
+=======
+        title: "Generate new model",
+        // view previous generated model
+        // icon: <RollerSkatingIcon/>,
+        link: "/models"
+    },
+    {
+        title: "View reports",
+        // icon: <RollerSkatingIcon/>,
+        link: "/models"
+>>>>>>> dev-sandali
     },
 
-    {
-        title: "Update Database",
-        icon: <StorageIcon/>,
-        link: "/updateDatabase"
-    },
+    // {
+    //     title: "Update Database",
+    //     icon: <StorageIcon/>,
+    //     link: "/updateDatabase"
+    // },
 
     {
         title: "Settings",
+        //edit profile
+        //change password
         icon: <SettingsIcon/>,
         link: "/settings"
     },
