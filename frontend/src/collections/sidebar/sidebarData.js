@@ -5,41 +5,72 @@ import RollerSkatingIcon from '@mui/icons-material/RollerSkating';
 import StorageIcon from '@mui/icons-material/Storage';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { getAccordionUtilityClass } from "@mui/material";
 
 export const sidebarData = [
     {
-        title: "UserProfile",
-        icon: <HomeIcon/>,
+        title: "My Profile",
+        // View profie
+        // icon: <HomeIcon/>,
         link: "/userprofile"
     },
-
     {
-        title: "Demand Prediction",
-        icon: <OnlinePredictionIcon/>,
+        title: "Manage Users",
+        // create user account 
+        // delete user account
+        // icon: <HomeIcon/>,
+        link: "/useraccount"
+    },
+    {
+        title: "Predict Demand",
+        // view previous sales
+        // icon: <OnlinePredictionIcon/>,
         link: "/prediction"
     },
-
     {
-        title: "New Models",
-        icon: <RollerSkatingIcon/>,
-        link: "/newModel"
+        title: "View Reports",
+        // icon: <RollerSkatingIcon/>,
+        link: "/models"
+
+    },
+    {
+
+        title: "Generate New Model",
+        // view previous generated model
+        // icon: <RollerSkatingIcon/>,
+        link: "/models"
+    },
+    {
+        title: "Manage Sales Data",
+        // add sales data
+        // icon: <HomeIcon/>,
+        link: "/useraccount"
     },
 
-    {
-        title: "Update Database",
-        icon: <StorageIcon/>,
-        link: "/updateDatabase"
-    },
+    // {
+
+    //     title: "New Models",
+    //     // icon: <RollerSkatingIcon/>,
+    //     link: "/newModel"
+    // },
+
+    // {
+    //     title: "Update Database",
+    //     icon: <StorageIcon/>,
+    //     link: "/updateDatabase"
+    // },
 
     {
         title: "Settings",
-        icon: <SettingsIcon/>,
+        //edit profile
+        //change password
+        // icon: <SettingsIcon/>,
         link: "/settings"
     },
 
     {
         title: "Logout",
-        icon: <LogoutIcon/>,
+        // icon: <LogoutIcon/>,
         link: "/logout"
     },
 ];

@@ -2,25 +2,11 @@
 /* @import url('https://fonts.googleapis.com/css?family=Permanent+Marker'); */
 .logo {
     font-family: 'Josefin Sans', cursive;
-    position: fixed;
-    width: 100%;
+    position:absolute;
+    width: 28%;
     display: flex;
     align-items: center;
-    font-size: 30px;
-    font-weight: 700;
-    /* font-family: "Permanent Marker", cursive; */
-    color: white;
     padding: 33px 9%;
-    /* background: linear-gradient(245.59deg, #7c8de3 0%, #308ae4 28.53%, #034e8f 75.52%); */
-  }
-  .fdfs{
-    font-family: 'Josefin Sans', cursive;
-    font-size: 30px;
-    font-weight: 700;
-    color: white;
-    padding: 33px 9%;
-    padding-top: -20px;
-
   }
   .slidebarIcon{
     width: 45%;
@@ -63,6 +49,7 @@
   }
   .hero-text a{
     display: inline-block;
+    text-decoration: none;
     color: white;
     background: #192665;
     border: 1px solid transparent;
@@ -78,7 +65,13 @@
   .hero-text a:hover{
     background: transparent;
     border: 1px solid white;
-    transform: translateX(8px);
+  }
+
+  .hero-text a:active{
+    color:white;
+    border: 1px solid white;
+    scale: 98%;
+    background: #192665;
   }
 
   .icons{
