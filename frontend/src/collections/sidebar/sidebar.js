@@ -6,8 +6,8 @@ import logo from './fdfs.png';
 export function Sidebar(props) {
     return (
         <div className='sidebar'>
-        <img className= 'slidebarIcon' src={logo} alt = "logo" />
-        <ul className='sidebarList'>
+            <img className= 'slidebarIcon' src={logo} alt = "logo" />
+            <ul className='sidebarList'>
             {sidebarData.map((val,key)=>{
             return (
                 <li 
@@ -22,8 +22,8 @@ export function Sidebar(props) {
                 <div id='title'>{val.title}</div>
                  </li>
             )
-        })}
-        </ul>
+            })}
+            </ul>
         </div>
     )
 }

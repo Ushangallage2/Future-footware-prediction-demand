@@ -9,20 +9,15 @@
   height: 100vh;
   display: flex;
 }
-header{
-  height: 0%;
-  width: 0%;
-}
 
 body{
-  margin: 0;
-  padding: 0;
   /* background-color: #002952; */
   background: linear-gradient(245.59deg, #7c8de3 0%, #308ae4 28.53%, #034e8f 75.52%);
 }
 
+
 .sidebar {
-  height: auto;
+  height: 100%;
   width: 300px;
   background-image: linear-gradient(to right, #002952 1%,#ff4076c6 125%);
   border: 0.1px solid rgba(0, 42, 255, 0);
@@ -31,27 +26,24 @@ body{
 .slidebarIcon{
   width: 45%;
   margin-top: 15%;
-  margin-left: 25%;
+  margin-left: 26%;
   display: flex;
   position: relative;
   background-color: #0000;
 }
 
-.sidebarList {
-  height: auto;
-  margin-top: 0%;
-  padding: 0%;
-  width: 100%;
 
+.sidebarList {
+  width: 100%;
 }
 
 .sidebarList .row {
   width:65%;
-  height: 43px;
+  height: 40px;
   background-color: #1f5294;
   border-radius: 25px;
   list-style-type: none;
-  margin-top: 14%;
+  margin-top: 10%;
   margin-bottom: 14%;
   margin-left: 18%;
   display: flex;
