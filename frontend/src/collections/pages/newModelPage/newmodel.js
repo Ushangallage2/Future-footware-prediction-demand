@@ -2,6 +2,10 @@ import React from 'react';
 import './newmodel.css';
 import { Sidebar } from '../../sidebar/sidebar';
 import SearchAppBar from './searchbar';
+import shoe01 from '../Shoe_Images/shoe01.png';
+import shoe02 from '../Shoe_Images/shoe02.png';
+import shoe03 from '../Shoe_Images/shoe03.png';
+import shoe04 from '../Shoe_Images/shoe04.png';
 
 export function NewModel(props) {
   return (
@@ -13,17 +17,15 @@ export function NewModel(props) {
         <h1>New Models</h1>
       <div className="search-bar">
         <SearchAppBar/>
-        <button className='searchButton'>
-          <a href="/userprofile">Enter</a>
-        </button>
-        
       </div>
+      <p>New models designed according to the model number submitted</p>
       <div className='old-models'>
-        <p>New models designed according to the model number submitted</p>
-        <img src="#" alt="pic1" className='pic1'/>
-        <img src="#" alt="pic2" className='pic2'/>
-        <img src="#" alt="pic3" className='pic3'/>
-        <img src="#" alt="pic4" className='pic4'/>
+        {/* <dev className="shoepics"> */}
+        <img src={shoe01} alt="pic1" className='pic1'/>
+        <img src={shoe02} alt="pic1" className='pic2'/>
+        <img src={shoe03} alt="pic1" className='pic3'/>
+        <img src={shoe04} alt="pic1" className='pic4'/>
+        {/* </dev> */}
       </div>
     </div>
     </>

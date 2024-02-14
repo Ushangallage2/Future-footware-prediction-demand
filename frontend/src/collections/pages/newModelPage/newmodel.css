@@ -1,15 +1,105 @@
 .model-container{
     display:block;
-    width: 60%;
-    height: 70%;
-    border: 3px solid #ccc;
+    width: 50%;
+    height: 85%;
+    border: 2px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 5%;
+    margin: 6%;
     margin-left: 12%;
-    border-color: black; /* added border color */
-    border-radius: 15px; /* added border roundness */
-    -moz-border-radius: 15px; /* added for compatibility */
-    -webkit-border-radius: 15px; /* added for compatibility */
-    background-color: #126180;
-    padding-top: 20px; /* added padding */
+    border-color: black;
+    border-radius: 20px;
+    background-color: #14498f;
+}
+h1{
+    /* border: 2px solid rgb(153, 0, 255); */
+    color: white;
+    margin: 3%;
+    margin-left: 35%;
+}
+.searchButton{
+    margin-left: 60px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.661);
+    background: rgba(255, 255, 255, 0.08);
+    border: 2.5px solid #ff39b0e7;
+    padding: 10px 25px;
+    line-height: 1;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: all .55s ease;
+}
+
+.searchButton:hover{
+    background: transparent;
+    color: #cc4395e8;
+  }
+
+  .searchButton:active{
+    color:rgb(142, 43, 255);
+    scale: 95%;
+  }
+                                                                    
+  p{
+    color: white;
+    margin-top: 9%;
+    margin-left: 40px;
+  }
+.old-models{
+    display:contents;
+    flex-direction:row;
+    align-items: center;
+    /* margin: 60px; */
+}
+/* .shoepics{
+    height: 460px;
+    width: 750px;
+    align-items: center;
+    border: 3px solid #000000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 15px;
+    transition: 0.3s;
+    background-color: #0f4f8e;
+    margin-left: 50px;
+} */
+
+.pic1{
+    width: 250px;
+    border: 3px solid #00000000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 35px;
+    transition: 0.3s;
+    background-color: #1e64aa;
+    margin-top: 25px;   
+    margin-left: 70px;
+    margin-bottom: 30px;
+    /* margin: 10px; */
+    padding: 30px;
+}.pic2{
+    width: 264px;
+    border: 3px solid #00000000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 35px;
+    transition: 0.3s;
+    background-color: #1e64aa;
+    margin-left: 60px;
+    margin-bottom: 30px;
+    /* padding: 20px; */
+}.pic3{
+    width: 250px;
+    border: 3px solid #00000000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 35px;
+    transition: 0.3s;
+    background-color: #1e64aa;
+    margin-left: 70px;
+    padding: 28px;
+}.pic4{
+    width: 255px;
+    border: 3px solid #00000000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 35px;
+    transition: 0.3s;
+    background-color: #1e64aa;
+    margin-left: 60px;
+    padding: 30px;
 }
