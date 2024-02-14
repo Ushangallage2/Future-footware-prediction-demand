@@ -8,13 +8,7 @@
     align-items: center;
     padding: 33px 9%;
   }
-  .slidebarIcon{
-    width: 45%;
-    margin-top: 20%;
-    margin-left: 25%;
-    display: flex;
-    background-color: #0000;
-  }
+  
   .p{
     color: aliceblue;
   }

@@ -38,7 +38,7 @@ export const sidebarData = [
         title: "Generate New Model",
         // view previous generated model
         // icon: <RollerSkatingIcon/>,
-        link: "/models"
+        link: "/newmodel"
     },
     {
         title: "Manage Sales Data",

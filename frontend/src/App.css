@@ -5,24 +5,19 @@
   font-family: 'Open Sans', sans-serif;
 }
 .App {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
 }
-header{
-  height: 0%;
-  width: 0%;
-}
 
 body{
-  margin: 0;
-  padding: 0;
   /* background-color: #002952; */
   background: linear-gradient(245.59deg, #7c8de3 0%, #308ae4 28.53%, #034e8f 75.52%);
 }
 
+
 .sidebar {
-  height: 100vh;
+  height: 100%;
   width: 300px;
   background-image: linear-gradient(to right, #002952 1%,#ff4076c6 125%);
   border: 0.1px solid rgba(0, 42, 255, 0);
@@ -30,16 +25,15 @@ body{
 
 .slidebarIcon{
   width: 45%;
-  margin-top: 20%;
-  margin-left: 25%;
+  margin-top: 15%;
+  margin-left: 26%;
   display: flex;
+  position: relative;
   background-color: #0000;
 }
 
+
 .sidebarList {
-  height: auto;
-  margin-top: 0%;
-  padding: 0%;
   width: 100%;
 }
 
@@ -47,9 +41,9 @@ body{
   width:65%;
   height: 40px;
   background-color: #1f5294;
-  border-radius: 10px;
+  border-radius: 25px;
   list-style-type: none;
-  margin-top: 1%;
+  margin-top: 10%;
   margin-bottom: 14%;
   margin-left: 18%;
   display: flex;
@@ -60,13 +54,17 @@ body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   transition: 0.3s ease;
 }
+.sidebarList #active{
+  background-color: #FF4076;
+}
 
 .sidebarList .row:hover {
   cursor: pointer;
   background-color: #FF4076;
 }
-.sidebarList #active {
-  background-color: #FF4076;
+
+.sidebarList :active {
+  scale: 95%;
 }
 
 .row #icon {
@@ -74,9 +72,3 @@ body{
   display: grid;
   place-items: center;
 }
-.slidebarIcon {
-  height: 0;
-}
-/* .row #title {
-  flex: 70%;
-} */

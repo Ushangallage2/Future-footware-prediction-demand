@@ -1,0 +1,15 @@
+.model-container{
+    display:block;
+    width: 60%;
+    height: 70%;
+    border: 3px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5%;
+    margin-left: 12%;
+    border-color: black; /* added border color */
+    border-radius: 15px; /* added border roundness */
+    -moz-border-radius: 15px; /* added for compatibility */
+    -webkit-border-radius: 15px; /* added for compatibility */
+    background-color: #126180;
+    padding-top: 20px; /* added padding */
+}
