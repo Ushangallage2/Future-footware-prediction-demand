@@ -9,7 +9,6 @@ function Card(props) {
       <div className="container"> 
 
         {/* create container1 inside main container */}
-        <div class="ucontainer1">
           {/* create card1 componant in container1 */}
           <div className="ucard1">
           {/* insert an image and card-content1 to card1 */}
@@ -23,7 +22,6 @@ function Card(props) {
               <p className="card-body">{props.body6}</p>
             </div>
           </div>
-        </div>
 
         {/* create container2 inside main container */}
         <div class="ucontainer2">
@@ -32,17 +30,17 @@ function Card(props) {
 
             {/* insert an image and card-content2 to card2 */}
             <div className="card-content2">
-              <p className="card-body">{props.body7}</p>
+              <p className="card-topic1">{props.body7}</p>
             </div>
               <img src={usershoe} alt="card image" className="card-image2" />
-          </div>
+          </div> 
 
           {/* create card3 componant in container2 */}
           <div class="card3">
             {/* insert card-content2 to card3 */}
             <div className="card-content2">
-              <p className="card-body">{props.body8}</p>
-            </div>
+              <p className="card-topic2">{props.body8}</p>
+            </div> 
 
              {/* insert card-content3 in card3 */}
             <div className="card-content3">
