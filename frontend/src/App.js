@@ -3,9 +3,8 @@ import './App.css';
 import Home from './collections/pages/homePage/home';
 // import { Home } from './collections/pages/homePage/home';
 import { UserProf } from './collections/pages/userProfile/userprof';
-import { Settings } from './collections/pages/settingsPage/settings';
 import { NewModel } from './collections/pages/newModelPage/newmodel';
-
+import { Settings } from './collections/pages/settingsPage/settings';
 // import Settings from './settings';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
