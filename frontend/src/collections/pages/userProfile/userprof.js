@@ -7,6 +7,9 @@ export function UserProf(props) {
         <>
         <div className='user-sec'>
           <Sidebar/>
+<<<<<<< HEAD:frontend/src/collections/newModel.js
+          <ModelCard/>
+=======
           <Card
             body1="Name :- Sandia Perera"
             body2="Age :- 28"
@@ -21,12 +24,8 @@ export function UserProf(props) {
             body11="Model no :- 773h65"
             body12="Most models will increase in demand by more than 50%"
           />
+>>>>>>> main:frontend/src/collections/pages/userProfile/userprof.js
         </div>
-       
-        {/* <div className="user-profile">
-          <h1>{props.name}</h1>
-          <p>{props.bio}</p>
-        </div> */}
     </>
         
     );
