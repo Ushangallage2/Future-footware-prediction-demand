@@ -21,7 +21,13 @@ function App() {
       <Route path='/' element={<Home/>}/> 
       <Route path='/userprofile' element={<UserProf/>}/>
       <Route path='/settings' element={<Settings/>}/> 
+<<<<<<< HEAD
       <Route path='/demandPrediction' element={<DemandPrediction />} />
+=======
+
+      // <Route path='/demandPrediction' element={<DemandPrediction />} />
+
+>>>>>>> 5ba21d75c76bb0f20a74a31e3cfba169aaa9c43a
       <Route path='/newmodel' element={<NewModel/>}/> 
       </Routes>
       </BrowserRouter>
