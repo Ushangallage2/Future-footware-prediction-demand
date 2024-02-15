@@ -55,11 +55,11 @@ class Home extends Component {
                     </div>
                 </section>
 
-                <div className="icons">
+                {/* <div className="icons">
                     <a href="#"><i className="ri-instagram-line"></i></a>
                     <a href="#"><i className="ri-facebook-box-line"></i></a>
                     <a href="#"><i className="ri-twitter-line"></i></a>
-                </div>
+                </div> */}
             </>
         );
     }

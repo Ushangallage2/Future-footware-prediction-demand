@@ -1,4 +1,3 @@
-
 import './App.css';
 import Home from './collections/pages/homePage/home';
 // import { Home } from './collections/pages/homePage/home';
