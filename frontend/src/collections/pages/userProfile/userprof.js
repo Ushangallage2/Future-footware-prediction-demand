@@ -22,11 +22,6 @@ export function UserProf(props) {
             body12="Most models will increase in demand by more than 50%"
           />
         </div>
-       
-        {/* <div className="user-profile">
-          <h1>{props.name}</h1>
-          <p>{props.bio}</p>
-        </div> */}
     </>
         
     );

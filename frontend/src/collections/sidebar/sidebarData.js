@@ -25,7 +25,7 @@ export const sidebarData = [
         title: "Predict Demand",
         // view previous sales
         // icon: <OnlinePredictionIcon/>,
-        link: "/prediction"
+        link: '/demandPrediction',
     },
     {
         title: "View Reports",
