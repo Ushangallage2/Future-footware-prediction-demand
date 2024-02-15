@@ -21,10 +21,7 @@ function App() {
       <Route path='/' element={<Home/>}/> 
       <Route path='/userprofile' element={<UserProf/>}/>
       <Route path='/settings' element={<Settings/>}/> 
-
       <Route path='/demandPrediction' element={<DemandPrediction />} />
-
-      // <Route path='/demandPrediction' element={<DemandPrediction />} />
       <Route path='/newmodel' element={<NewModel/>}/> 
       </Routes>
       </BrowserRouter>
