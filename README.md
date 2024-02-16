@@ -7,3 +7,5 @@
  <br>
  npm i to install all needed things
  <br>
+npm install styled-components
+<br>
