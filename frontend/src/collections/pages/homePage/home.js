@@ -47,7 +47,7 @@ class Home extends Component {
                         <p ref={this.myRef}>
                             Step into the future of footwear with our cutting-edge demand prediction and model forecasting AI, guiding you through the next wave of industry trends.
                         </p>
-                        <a href="/userprofile">Get Started</a>
+                        <a href="/login">Get Started</a>
                     </div>
 
                     <div className="hero-img">
