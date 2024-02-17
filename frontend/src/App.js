@@ -1,23 +1,12 @@
 import './App.css';
 import Home from './collections/pages/homePage/home';
-// import { Home } from './collections/pages/homePage/home';
 import { UserProf } from './collections/pages/userProfile/userprof';
 import { NewModel } from './collections/pages/newModelPage/newmodel';
 import { Settings } from './collections/pages/settingsPage/settings';
-<<<<<<< HEAD
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-// import Login from './collections/pages/loginPage/loginPage';
 import React, { useState } from 'react';
-=======
 import {Login} from './collections/pages/loginPage/login'
 import DemandPrediction from './collections/pages/demandPrediction/demandPrediction';
-
-// import Settings from './settings';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-
->>>>>>> main
 
 function App() {
   return (
