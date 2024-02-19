@@ -8,7 +8,7 @@ export function UserProf(props) {
         <div className='user-sec'>
           <Sidebar/>
           <Card
-            body1="Name : - Sandia Perera"
+            body1="Name : - Sandia silva"
             body2="Age : - 28"
             body3="Position : - Marketing Executive"
             body4="AI Trained : - 57 times"
