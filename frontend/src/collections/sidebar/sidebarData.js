@@ -30,7 +30,7 @@ export const sidebarData = [
     {
         title: "View Reports",
         // icon: <RollerSkatingIcon/>,
-        link: "/models"
+        link: "/nothing"
 
     },
     {
