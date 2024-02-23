@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import {Testing} from './collections/pages/loginPage/loginPage';
 import DemandPrediction from './collections/pages/demandPrediction/demandPrediction';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ManageUsers } from './collections/pages/manageUser/manageUsers';
 
 function App() {
   return (
@@ -19,12 +20,15 @@ function App() {
     <div className="App">
  <BrowserRouter>
       <Routes>
+     
       <Route path='/' element={<Home/>}/> 
+      <Route  path='/demandPrediction' element={<DemandPrediction />} />
+      <Route path='/loginPage' element={<Testing/>}/> 
       <Route path='/userprofile' element={<UserProf/>}/>
       <Route path='/settings' element={<Settings/>}/> 
-      <Route path='/demandPrediction' element={<DemandPrediction />} />
-      <Route path='/newmodel' element={<NewModel/>}/>
-      <Route path='/Testing' element={<Testing/>}/>
+      <Route path='/newmodel' element={<NewModel/>}/> 
+      <Route path='/manageUsers' element={<ManageUsers/>}/> 
+
       </Routes>
       </BrowserRouter>
       </div>
