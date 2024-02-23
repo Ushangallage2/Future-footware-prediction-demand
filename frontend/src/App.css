@@ -44,7 +44,7 @@ body{
   border-radius: 25px;
   list-style-type: none;
   margin-top: 10%;
-  margin-bottom: 14%;
+  /*margin-bottom: 14%;*/
   margin-left: 18%;
   display: flex;
   flex-direction: row;
@@ -72,4 +72,3 @@ body{
   display: grid;
   place-items: center;
 }
-

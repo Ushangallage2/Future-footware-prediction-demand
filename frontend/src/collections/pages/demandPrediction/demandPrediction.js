@@ -16,7 +16,7 @@ const DemandPrediction = () => {
     };
 
     return (
-        <div className='container'>
+        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
             <Sidebar />
             <div className='content'>
                 <div className='prediction-box'>
@@ -31,7 +31,6 @@ const DemandPrediction = () => {
                         <select>
                             <option>Filter Option 1</option>
                             <option>Filter Option 2</option>
-                           
                         </select>
                         <button onClick={handleFilterSubmit}>Submit</button>
                     </div>

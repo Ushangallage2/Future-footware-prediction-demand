@@ -13,13 +13,14 @@ export const sidebarData = [
         // View profie
         // icon: <HomeIcon/>,
         link: "/userprofile"
+
     },
     {
         title: "Manage Users",
         // create user account 
         // delete user account
         // icon: <HomeIcon/>,
-        link: "/useraccount"
+        link: "/manageUsers"
     },
     {
         title: "Predict Demand",
@@ -74,3 +75,4 @@ export const sidebarData = [
         link: "/"
     },
 ];
+
