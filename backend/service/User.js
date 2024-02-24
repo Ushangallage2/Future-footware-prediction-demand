@@ -16,7 +16,7 @@ const GetUserById = async (id) => {
 
 // Returns List of Users
 const GetListOfUsers = async () => {
-  console.log("came")
+  console.log("line4569999")
   const queryString = 'SELECT * FROM users';
   try {
     const results = await query(queryString);

@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react';
 import {
   MRT_EditActionButtons,
   MaterialReactTable,
-  // createRow,
   useMaterialReactTable,
 } from 'material-react-table';
 import {
@@ -37,33 +36,59 @@ const Example = () => {
         size: 80,
       },
       {
-        accessorKey: 'firstName',
+        accessorKey: 'fName',
         header: 'First Name',
         muiEditTextFieldProps: {
           required: true,
           error: !!validationErrors?.firstName,
           helperText: validationErrors?.firstName,
-          //remove any previous validation errors when user focuses on the input
           onFocus: () =>
             setValidationErrors({
               ...validationErrors,
               firstName: undefined,
             }),
-          //optionally add validation checking for onBlur or onChange
         },
       },
       {
-        accessorKey: 'lastName',
+        accessorKey: 'lName',
         header: 'Last Name',
         muiEditTextFieldProps: {
           required: true,
           error: !!validationErrors?.lastName,
           helperText: validationErrors?.lastName,
-          //remove any previous validation errors when user focuses on the input
           onFocus: () =>
             setValidationErrors({
               ...validationErrors,
               lastName: undefined,
+            }),
+        },
+      },
+      {
+        accessorKey: 'username',
+        header: 'Username',
+        muiEditTextFieldProps: {
+          required: true,
+          error: !!validationErrors?.username,
+          helperText: validationErrors?.username,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              username: undefined,
+            }),
+        },
+      },
+      {
+        accessorKey: 'password',
+        header: 'Password',
+        muiEditTextFieldProps: {
+          type: 'password',
+          required: true,
+          error: !!validationErrors?.password,
+          helperText: validationErrors?.password,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              password: undefined,
             }),
         },
       },
@@ -75,7 +100,6 @@ const Example = () => {
           required: true,
           error: !!validationErrors?.email,
           helperText: validationErrors?.email,
-          //remove any previous validation errors when user focuses on the input
           onFocus: () =>
             setValidationErrors({
               ...validationErrors,
@@ -84,8 +108,8 @@ const Example = () => {
         },
       },
       {
-        accessorKey: 'state',
-        header: 'State',
+        accessorKey: 'role',
+        header: 'Role',
         editVariant: 'select',
         editSelectOptions: usStates,
         muiEditTextFieldProps: {
@@ -95,27 +119,19 @@ const Example = () => {
         },
       },
     ],
-    [validationErrors],
+    [validationErrors]
   );
 
-  //call CREATE hook
-  const { mutateAsync: createUser, isPending: isCreatingUser } =
-    useCreateUser();
-  //call READ hook
+  const { mutateAsync: createUser, isPending: isCreatingUser } = useCreateUser();
   const {
     data: fetchedUsers = [],
     isError: isLoadingUsersError,
     isFetching: isFetchingUsers,
     isLoading: isLoadingUsers,
   } = useGetUsers();
-  //call UPDATE hook
-  const { mutateAsync: updateUser, isPending: isUpdatingUser } =
-    useUpdateUser();
-  //call DELETE hook
-  const { mutateAsync: deleteUser, isPending: isDeletingUser } =
-    useDeleteUser();
+  const { mutateAsync: updateUser, isPending: isUpdatingUser } = useUpdateUser();
+  const { mutateAsync: deleteUser, isPending: isDeletingUser } = useDeleteUser();
 
-  //CREATE action
   const handleCreateUser = async ({ values, table }) => {
     const newValidationErrors = validateUser(values);
     if (Object.values(newValidationErrors).some((error) => error)) {
@@ -124,10 +140,9 @@ const Example = () => {
     }
     setValidationErrors({});
     await createUser(values);
-    table.setCreatingRow(null); //exit creating mode
+    table.setCreatingRow(null);
   };
 
-  //UPDATE action
   const handleSaveUser = async ({ values, table }) => {
     const newValidationErrors = validateUser(values);
     if (Object.values(newValidationErrors).some((error) => error)) {
@@ -136,10 +151,9 @@ const Example = () => {
     }
     setValidationErrors({});
     await updateUser(values);
-    table.setEditingRow(null); //exit editing mode
+    table.setEditingRow(null);
   };
 
-  //DELETE action
   const openDeleteConfirmModal = (row) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       deleteUser(row.original.id);
@@ -149,8 +163,8 @@ const Example = () => {
   const table = useMaterialReactTable({
     columns,
     data: fetchedUsers,
-    createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
-    editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
+    createDisplayMode: 'modal',
+    editDisplayMode: 'modal',
     enableEditing: true,
     getRowId: (row) => row.id,
     muiToolbarAlertBannerProps: isLoadingUsersError
@@ -168,34 +182,6 @@ const Example = () => {
     onCreatingRowSave: handleCreateUser,
     onEditingRowCancel: () => setValidationErrors({}),
     onEditingRowSave: handleSaveUser,
-    //optionally customize modal content
-    renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
-      <>
-        <DialogTitle variant="h3">Create New User</DialogTitle>
-        <DialogContent
-          sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
-        >
-          {internalEditComponents} {/* or render custom edit components here */}
-        </DialogContent>
-        <DialogActions>
-          <MRT_EditActionButtons variant="text" table={table} row={row} />
-        </DialogActions>
-      </>
-    ),
-    //optionally customize modal content
-    renderEditRowDialogContent: ({ table, row, internalEditComponents }) => (
-      <>
-        <DialogTitle variant="h3">Edit User</DialogTitle>
-        <DialogContent
-          sx={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
-        >
-          {internalEditComponents} {/* or render custom edit components here */}
-        </DialogContent>
-        <DialogActions>
-          <MRT_EditActionButtons variant="text" table={table} row={row} />
-        </DialogActions>
-      </>
-    ),
     renderRowActions: ({ row, table }) => (
       <Box sx={{ display: 'flex', gap: '1rem' }}>
         <Tooltip title="Edit">
@@ -214,13 +200,7 @@ const Example = () => {
       <Button
         variant="contained"
         onClick={() => {
-          table.setCreatingRow(true); //simplest way to open the create row modal with no default values
-          //or you can pass in a row object to set default values with the `createRow` helper function
-          // table.setCreatingRow(
-          //   createRow(table, {
-          //     //optionally pass in default values for the new row, useful for nested data or other complex scenarios
-          //   }),
-          // );
+          table.setCreatingRow(true);
         }}
       >
         Create New User
@@ -237,17 +217,34 @@ const Example = () => {
   return <MaterialReactTable table={table} />;
 };
 
-//CREATE hook (post new user to api)
 function useCreateUser() {
   const queryClient = useQueryClient();
+
   return useMutation({
-    mutationFn: async (user) => {
-      //send api update request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve();
+    mutationFn: async (newUserInfo) => {
+      try {
+        const response = await fetch('http://localhost:8080/user/addUser', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newUserInfo),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to create user');
+        }
+
+        const createdData = await response.json();
+
+        return createdData;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     },
-    //client side optimistic update
     onMutate: (newUserInfo) => {
+      // Optimistically update the local data before the mutation is complete
       queryClient.setQueryData(['users'], (prevUsers) => [
         ...prevUsers,
         {
@@ -256,67 +253,107 @@ function useCreateUser() {
         },
       ]);
     },
-    // onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
+    // If the mutation fails, roll back to the previous state
+    onError: (err, newUserInfo, context) => {
+      queryClient.setQueryData(['users'], context.prevUsers);
+    },
+    // Invalidate and refetch the 'users' query after a successful mutation
+    onSettled: () => {
+      queryClient.invalidateQueries(['users']);
+    },
   });
 }
 
-//READ hook (get users from api)
+
 function useGetUsers() {
   return useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      //send api request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve(fakeData);
+      try {
+        const response = await fetch('http://localhost:8080/user/allUsers');
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     },
     refetchOnWindowFocus: false,
   });
 }
 
-//UPDATE hook (put user in api)
+
 function useUpdateUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (user) => {
-      //send api update request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve();
+    mutationFn: async (updatedUser) => {
+      // Assuming 'id' is the unique identifier for a user
+      try {
+        const response = await fetch(`http://localhost:8080/user/byId/${updatedUser.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedUser),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to update user');
+        }
+
+        const updatedData = await response.json();
+        return updatedData;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     },
-    //client side optimistic update
     onMutate: (newUserInfo) => {
       queryClient.setQueryData(['users'], (prevUsers) =>
         prevUsers?.map((prevUser) =>
-          prevUser.id === newUserInfo.id ? newUserInfo : prevUser,
+          prevUser.id === newUserInfo.id ? newUserInfo : prevUser
         ),
       );
     },
-    // onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
   });
 }
 
-//DELETE hook (delete user in api)
+
+
 function useDeleteUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (userId) => {
-      //send api update request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve();
+    mutationFn: async (id) => {
+      try {
+        const response = await fetch(`http://localhost:8080/user/deleteUser/${id}`, {
+          method: 'DELETE',
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to delete user');
+        }
+
+        const deletedData = await response.json();
+        return deletedData;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     },
-    //client side optimistic update
     onMutate: (userId) => {
       queryClient.setQueryData(['users'], (prevUsers) =>
-        prevUsers?.filter((user) => user.id !== userId),
+        prevUsers?.filter((user) => user.id !== userId)
       );
     },
-    // onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
   });
 }
 
 const queryClient = new QueryClient();
 
 const ExampleWithProviders = () => (
-  //Put this with your other react-query providers near root of your app
   <QueryClientProvider client={queryClient}>
     <Example />
   </QueryClientProvider>
@@ -340,5 +377,6 @@ function validateUser(user) {
       : '',
     lastName: !validateRequired(user.lastName) ? 'Last Name is Required' : '',
     email: !validateEmail(user.email) ? 'Incorrect Email Format' : '',
+    username: !validateRequired(user.username) ? 'Username is Required' : '',
   };
 }

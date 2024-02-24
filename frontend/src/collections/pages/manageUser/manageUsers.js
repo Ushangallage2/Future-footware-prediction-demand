@@ -1,19 +1,22 @@
 // ManageUsers.js
 import React from 'react';
-import MaterialTableComponent from '../../components/MaterialTableComponent';
-import ExampleWithProviders from '../../components/MaterialTableComponent';
-
-
+import ExampleWithProviders from './MaterialTableComponent';
+import './manageUsers.css'; 
 
 
 function ManageUsers() {
   return (
-    <div>
-      <h1>Manage Users</h1>
-      <ExampleWithProviders />
+   
+<div className="container"> 
+<h1 >Manage Users
+</h1>
+      <div className="form-container"> 
+        <ExampleWithProviders />
+      </div>
     </div>
     
-  );
-}
+)}
 
-export { ManageUsers};
+export { ManageUsers };
+
+
