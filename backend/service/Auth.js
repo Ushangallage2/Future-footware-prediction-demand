@@ -210,8 +210,8 @@ const LoginNow = async (authData) => {
           user: {
             username: results[0].username,
             token: accessToken
-            
           }
+          
           
         };
       } else {

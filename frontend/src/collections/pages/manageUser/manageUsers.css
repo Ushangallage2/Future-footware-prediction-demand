@@ -1,0 +1,23 @@
+
+.container {
+   
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 5px;
+
+  }
+  
+  .form-container {
+    margin-top: 20px;
+    width: 75%; 
+  padding: 30px;
+  left: 10px;
+  }
+  
+  h1 {
+    text-align:center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
