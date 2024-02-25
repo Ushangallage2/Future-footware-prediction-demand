@@ -5,7 +5,7 @@ const query = util.promisify(db.query).bind(db);
 // Returns User With Id
 const GetUserById = async (id) => {
 
-  const queryString = 'SELECT * FROM users WHERE user_id = ?';
+  const queryString = 'SELECT * FROM users WHERE id = ?';
   try {
     const results = await query(queryString, [id]);
     return results[0]; // Assuming the query returns only one user
@@ -28,7 +28,7 @@ const GetListOfUsers = async () => {
 };
 
 const DeleteUserById = async (id) => {
-  const queryString = 'DELETE FROM users WHERE user_id = ?';
+  const queryString = 'DELETE FROM users WHERE id = ?';
   try {
     const results = await query(queryString, [id]);
     return results.affectedRows > 0; // Check if any row was affected
@@ -38,9 +38,9 @@ const DeleteUserById = async (id) => {
 };
 
 
-const AddNewUser = async (user) => {
+AddNewUser = async (user) => {
   const { name, email, company, Telephone, password, date } = user;
-  const queryString = 'INSERT INTO users (name, email, company, Telephone, password, date) VALUES (?, ?, ?, ?, ?, ?)';
+  const queryString = 'INSERT INTO users (id, fName, lName, username, password, email,role,status) VALUES (?, ?, ?, ?, ?, ?,?,?)';
   try {
     const results = await query(queryString, [name, email, company, Telephone, password, date]);
     return results.insertId; // Return the ID of the newly inserted user
