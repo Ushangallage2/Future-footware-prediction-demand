@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "boxicons": "^2.1.4",
     "react-router-dom": "^6.22.0",
     "remixicon": "^4.1.0",

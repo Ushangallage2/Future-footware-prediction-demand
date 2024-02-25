@@ -17,7 +17,7 @@
     "boxicons": "^2.0.7",
     "google-fonts": "^1.0.0",
     "material-react-table": "^2.11.3",
-    "material-table": "^2.0.5",
+    "material-table": "^1.69.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",

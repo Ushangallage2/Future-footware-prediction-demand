@@ -1,23 +1,51 @@
+/* manageUsers.css */
 
+/* Style the container */
 .container {
-   
-    margin: 10px auto;
+    display: flex;
+  }
+  
+  /* Style the sidebar */
+  .sidebar {
+    width: 250px; /* Adjust the width as needed */
     padding: 20px;
-    border-radius: 8px;
-    margin-left: 5px;
-
+    background-color: #333; /* Sidebar background color */
+    height: 100vh; /* Make the sidebar full height */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow on the right */
   }
   
+  /* Style sidebar links */
+  .sidebar a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  /* Change the color when the link is active */
+  .sidebar a.active {
+    background-color: #555;
+  }
+  
+  /* Add spacing between sidebar and form container */
   .form-container {
-    margin-top: 20px;
-    width: 75%; 
-  padding: 30px;
-  left: 10px;
+    flex: 1;
+    padding: 20px;
   }
   
-  h1 {
-    text-align:center;
-    color: #333;
-    margin-bottom: 20px;
+  /* Add rounded corners to the form container */
+  .form-container #contentcard {
+    border-radius: 10px;
+    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
   }
+  
+  /* Add styling for the table */
+  .form-container .MuiPaper-root {
+    border-radius: 10px;
+    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add any additional styling as needed */
   
