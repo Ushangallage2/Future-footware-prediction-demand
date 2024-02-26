@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from 'react';
-// import { Paper, Button, Tooltip, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from "@material-ui/core"; 
+// import { Paper, Button, Tooltip, IconButton, Modal, Backdrop, Fade, TextField } from "@material-ui/core"; 
 // import MaterialTable from "material-table";
 // import DeleteIcon from '@material-ui/icons/Delete';
 // import EditIcon from '@material-ui/icons/Edit';
@@ -31,8 +31,8 @@
 
 // const Table = (props) => {
 //   const [tblData, setTblData] = useState([]);
-//   const [editDialogOpen, setEditDialogOpen] = useState(false);
-//   const [editingUser, setEditingUser] = useState({});
+//   const [editUser, setEditUser] = useState(null);
+//   const [openModal, setOpenModal] = useState(false);
 
 //   // Function to fetch user data from the database
 //   const fetchUsers = async () => {
@@ -59,39 +59,46 @@
 //   };
 
 //   // Function to handle editing a user
-//   const handleEditUser = (rowData) => {
-//     setEditingUser(rowData);
-//     setEditDialogOpen(true);
+//   const handleEditUser = (updatedUser) => {
+//     console.log(updatedUser)
+//     setEditUser(updatedUser);
+//     setOpenModal(true);
 //   };
 
-//   // Function to handle saving the edited user
-// const handleSaveEdit = async () => {
-//   try {
-//       if (editUser && editUser.id !== null && editUser.id !== undefined) {
-//           await makeApiRequest(`http://localhost:8080/user/updateUser/${editUser.id}`, 'POST', editUser);
-//           setOpenModal(false);
-//           fetchUsers();
-//       } else {
-//           console.error('Cannot save edited user: editUser or its id is null or undefined');
-//       }
-//   } catch (error) {
-//       console.error('Error saving edited user:', error);
+//   const handleSaveEditedUser = (inputdata) =>{
+//     console.log("Saved");
 //   }
+//   // Function to handle saving the edited user
+// //   const handleSaveEditedUser = async () => {
+ 
+// //     try {
+// //       await makeApiRequest(`http://localhost:8080/user/editUser/${editUser.id}`, 'PUT', editUser);
+// //       setOpenModal(false);
+// //       fetchUsers(); // Refresh user data after saving the edited user
+// //     } catch (error) {
+// //       console.error('Error saving edited user:', error);
+// //     }
+// //   };
+
+//   // Function to handle closing the edit modal
+//   const handleCloseModal = () => {
+//     setOpenModal(false);
+//     setEditUser(null);
+//   };
+
+//   const handleDeleteUser = async (deletedUser) => {
+//     console.log(deletedUser.id)
+//     console.log(`http://localhost:8080/user/deleteUser/${deletedUser.id}`)
+//     try {
+        
+//         await makeApiRequest(`http://localhost:8080/user/deleteUser/${deletedUser.id}`, 'DELETE');
+//         fetchUsers(); // Refresh user data after deleting the user
+//     } catch (error) {
+//         console.error('Error deleting user:', error);
+//     }
 // };
 
 
-//   // Function to handle deleting a user
-//   const handleDeleteUser = async (deletedUser) => {
-//     try {
-//       // Make API request to delete user
-//       await makeApiRequest(`http://localhost:8080/user/deleteUser/${deletedUser.id}`, 'DELETE');
-
-//       // Update state to reflect the changes
-//       setTblData(prevData => prevData.filter(user => user.id !== deletedUser.id));
-//     } catch (error) {
-//       console.error('Error deleting user:', error);
-//     }
-//   };
 
 //   return (
 //     <>
@@ -106,6 +113,9 @@
 //                     Container: (props) => <Paper {...props} elevation={0} style={{ borderRadius: '10px' }} />,
 //                     Toolbar: (props) => (
 //                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 16px' }}>
+//                         <div>
+//                           {/* Add your existing toolbar components here if needed */}
+//                         </div>
 //                         <div>
 //                           <Tooltip title="Add new User" enterTouchDelay={0}>
 //                             <Button
@@ -133,11 +143,11 @@
 //                         <IconButton
 //                           color="default"
 //                           size="small"
-//                           onClick={(event,deletedUser) => handleDeleteUser(deletedUser)}
+                          
 //                         >
 //                           <DeleteIcon style={{ color: 'silver' }} />
 //                         </IconButton>
-//                       ),
+//                       ),onClick:(event, rowData) =>  handleDeleteUser(rowData),
 //                       tooltip: "Delete",
 //                     },
 //                     {
@@ -145,49 +155,66 @@
 //                         <IconButton
 //                           color="default"
 //                           size="small"
-//                           onClick={(event, rowData) => handleEditUser(rowData)}
+                         
 //                         >
 //                           <EditIcon style={{ color: 'silver' }} />
 //                         </IconButton>
-//                       ),
+//                       ), onClick:(event, rowData) => handleEditUser(rowData),
 //                       tooltip: "Edit",
 //                     },
 //                   ]}
-//                   editable={{
-//                     onRowUpdate: (newData, oldData) =>
-//                       new Promise((resolve, reject) => {
-//                         handleEditUser(newData);
-//                         resolve();
-//                       }),
-//                   }}
 //                 />
 //               </div>
 //             </div>
 //           </div>
 //         </div>
 //       </div>
-//       {/* Edit Dialog */}
-//       <Dialog open={editDialogOpen} onClose={() => setEditDialogOpen(false)} aria-labelledby="form-dialog-title">
-//         <DialogTitle>Edit User</DialogTitle>
-//         <DialogContent>
-          
-//           <TextField
-//             label="Name"
-//             value={editingUser.name || ''}
-//             onChange={(e) => setEditingUser({ ...editingUser, name: e.target.value })}
-//             fullWidth
-//           />
-//           {/* Add more fields as needed */}
-//         </DialogContent>
-//         <DialogActions>
-//           <Button onClick={() => setEditDialogOpen(false)} color="primary">
-//             Cancel
-//           </Button>
-//           <Button onClick={handleSaveEdit} color="primary">
-//             Save
-//           </Button>
-//         </DialogActions>
-//       </Dialog>
+//       {/* Edit Modal */}
+//       <Modal
+//         open={openModal}
+//         onClose={handleCloseModal}
+//         closeAfterTransition
+//         BackdropComponent={Backdrop}
+//         BackdropProps={{
+//           timeout: 500,
+//         }}
+//       >
+//         <Fade in={openModal}>
+//           <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '10px', maxWidth: '400px', margin: 'auto', marginTop: '50px' }}>
+//             <h3>Edit User</h3>
+//             {/* Render form fields based on your user data structure */}
+//             <TextField
+//               label="First Name"
+//               value={editUser ? editUser.fName : ''}
+//               onChange={(e) => setEditUser({ ...editUser, fName: e.target.value })}
+//             />
+//             <TextField
+//               label="Last Name"
+//               value={editUser ? editUser.lName : ''}
+//               onChange={(e) => setEditUser({ ...editUser, lName: e.target.value })}
+//             />
+//             <TextField
+//               label="Email"
+//               value={editUser ? editUser.email : ''}
+//               onChange={(e) => setEditUser({ ...editUser, email: e.target.value })}
+//             />
+//             <TextField
+//               label="Role"
+//               value={editUser ? editUser.role : ''}
+//               onChange={(e) => setEditUser({ ...editUser, role: e.target.value })}
+//             />
+//             {/* Add other fields as needed */}
+//             <div style={{ marginTop: '20px', textAlign: 'right' }}>
+//               <Button onClick={handleCloseModal} color="primary" style={{ marginRight: '10px' }}>
+//                 Cancel
+//               </Button>
+//               <Button onClick={handleSaveEditedUser} color="primary">
+//                 Save 
+//               </Button>
+//             </div>
+//           </div>
+//         </Fade>
+//       </Modal>
 //     </>
 //   );
 // };

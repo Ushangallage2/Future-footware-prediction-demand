@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const cors = require('cors')
-const {admin} = require("./service/initializeUser")
+//const {admin} = require("./service/initializeUser")
 const port = process.env.PORT || 8080;
 app.use(express.json());
 

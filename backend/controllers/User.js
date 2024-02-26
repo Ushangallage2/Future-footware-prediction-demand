@@ -1,4 +1,5 @@
 const {
+    UpdateUserById,
     GetListOfUsers,
     GetUserById,
     DeleteUserById,
@@ -36,10 +37,32 @@ const {
     // DO SOMETHING WITH THE USER OR JUST RETURN IT
     return res.json(newUser);
   };
+ 
+  const UpdateUser = async (req, res) => {
+    const userId = req.params.id;
+    const updatedUserData = req.body;
+  
+    try {
+      const success = await UpdateUserById(userId, updatedUserData);
+  
+      if (success) {
+        return res.json({ message: 'User updated successfully' });
+      } else {
+        return res.status(404).json({ message: 'User not found or no changes made' });
+      }
+    } catch (error) {
+      console.error('Error updating user:', error);
+      return res.status(500).json({ message: 'Internal server error' });
+    }
+  };
+  
+
+  
   
   module.exports = {
     GetAllUsers,
     GetUser,
     DeleteUser,
-    AddUser
+    AddUser,
+    UpdateUser
   };
