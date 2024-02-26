@@ -1,3 +1,4 @@
+const { log } = require("console");
 const { db } = require("../db");
 const util = require("util");
 const query = util.promisify(db.query).bind(db);
@@ -14,21 +15,58 @@ const GetUserById = async (id) => {
   }
 };
 
+
 // Returns List of Users
+const UpdateUserById = async (id, updatedUserData) => {
+  const {
+    fName,
+    lName,
+    username,
+    password,
+    email,
+    role,
+    status
+  } = updatedUserData;
+ console.log(updatedUserData)
+  const queryString = `UPDATE users SET fName = ?, lName = ?, username = ?, password = ?, email = ?, role = ?, status = ? WHERE id = ?`;
+  console.log(queryString)
+  try {
+    const results = await query(queryString, [fName, lName, username, password, email, role, status, id]);
+    return results.affectedRows > 0; 
+    
+  } catch (error) {
+    throw error;
+  }
+  
+};
+
+
+
+
+
 const GetListOfUsers = async () => {
-  console.log("line4569999")
-  const queryString = 'SELECT * FROM users';
+  const queryString = 'SELECT * FROM users WHERE status = 1';
   try {
     const results = await query(queryString);
-    //console.log(results)
+   console.log(results)
     return results;
   } catch (error) {
     throw error;
   }
 };
 
+
+// const DeleteUserById = async (id) => {
+//   const queryString = 'DELETE FROM users WHERE id = ?';
+//   try {
+//     const results = await query(queryString, [id]);
+//     return results.affectedRows > 0; // Check if any row was affected
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 const DeleteUserById = async (id) => {
-  const queryString = 'DELETE FROM users WHERE id = ?';
+  const queryString = 'UPDATE users SET status = 0 WHERE id = ?';
   try {
     const results = await query(queryString, [id]);
     return results.affectedRows > 0; // Check if any row was affected
@@ -37,22 +75,25 @@ const DeleteUserById = async (id) => {
   }
 };
 
+const AddNewUser = async (user) => {
+  const { id, fName, lName, username, password, email, role, status } = user;
+  const queryString = 'INSERT INTO users (id, fName, lName, username, password, email, role, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+  const values = [id, fName, lName, username, password, email, role, status];
 
-AddNewUser = async (user) => {
-  const { name, email, company, Telephone, password, date } = user;
-  const queryString = 'INSERT INTO users (id, fName, lName, username, password, email,role,status) VALUES (?, ?, ?, ?, ?, ?,?,?)';
   try {
-    const results = await query(queryString, [name, email, company, Telephone, password, date]);
-    return results.insertId; // Return the ID of the newly inserted user
+    const results = await query(queryString, values);
+    return results.id; // Return the ID of the newly inserted user
   } catch (error) {
     throw error;
   }
 };
 
 
+
 module.exports = {
   GetUserById,
   GetListOfUsers,
   DeleteUserById,
-  AddNewUser
+  AddNewUser,
+  UpdateUserById
 };

@@ -2,6 +2,7 @@
 import React from 'react';
 import ExampleWithProviders from './manageUserTable';
 import './manageUsers.css';
+//import Table from './materialtbl';
 import Table from './materialtable';
 import { Sidebar } from '../../sidebar/sidebar';
 
