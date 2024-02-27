@@ -8,7 +8,7 @@
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.15.7",
-    "@mui/material": "^5.15.7",
+    "@mui/material": "^5.15.11",
     "@tanstack/react-query": "^5.22.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
