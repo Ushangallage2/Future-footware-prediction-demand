@@ -279,12 +279,13 @@ export function Testing() {
             }}
           />
           {loginError.message && (
-            <p style={{ color: 'red', textAlign: 'center' }}>
+            <p style={{ color: 'red', textAlign: 'center', marginLeft: '-10px' }}>
               {loginError.message}{' '}
               {loginError.attemptsLeft > 0 && `You have ${loginError.attemptsLeft} attempts left.`}
             </p>
           )}
-          <Components.Anchor style={{ cursor: 'pointer' }} onClick={forgotPassword}>
+
+          <Components.Anchor style={{ cursor: 'pointer', marginLeft: '-10px' }} onClick={forgotPassword}>
             Forgot password?
           </Components.Anchor>
           <Components.Button onClick={login}>Login</Components.Button>
