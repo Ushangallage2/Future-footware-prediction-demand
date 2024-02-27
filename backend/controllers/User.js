@@ -41,7 +41,8 @@ const {
   const UpdateUser = async (req, res) => {
     const userId = req.params.id;
     const updatedUserData = req.body;
-  
+    console.log(userId , updatedUserData)
+
     try {
       const success = await UpdateUserById(userId, updatedUserData);
   

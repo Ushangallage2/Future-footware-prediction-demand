@@ -7,7 +7,7 @@ router.get("/allUsers", GetAllUsers);
 router.get("/byId/:id", GetUser);
 router.delete("/deleteUser/:id", DeleteUser);
 router.post("/addUser", AddUser);
-router.post("/editUser/:id", UpdateUser);
+router.put("/editUser/:id", UpdateUser);
 
 
 module.exports = router;
