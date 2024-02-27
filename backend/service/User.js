@@ -29,7 +29,7 @@ const UpdateUserById = async (id, updatedUserData) => {
   } = updatedUserData;
  console.log(updatedUserData)
   const queryString = `UPDATE users SET fName = ?, lName = ?, username = ?, password = ?, email = ?, role = ?, status = ? WHERE id = ?`;
-  console.log(queryString)
+ 
   try {
     const results = await query(queryString, [fName, lName, username, password, email, role, status, id]);
     return results.affectedRows > 0; 
@@ -44,10 +44,12 @@ const UpdateUserById = async (id, updatedUserData) => {
 
 
 
+
 const GetListOfUsers = async () => {
   const queryString = 'SELECT * FROM users WHERE status = 1';
   try {
     const results = await query(queryString);
+    console.log("this is from getlistofallusers") 
    console.log(results)
     return results;
   } catch (error) {
@@ -76,9 +78,10 @@ const DeleteUserById = async (id) => {
 };
 
 const AddNewUser = async (user) => {
-  const { id, fName, lName, username, password, email, role, status } = user;
-  const queryString = 'INSERT INTO users (id, fName, lName, username, password, email, role, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-  const values = [id, fName, lName, username, password, email, role, status];
+  const { fName, lName, username, password, email, role  } = user;
+  const queryString = 'INSERT INTO users ( fName, lName, username, password, email, role) VALUES (?, ?, ?, ?, ?, ?)';
+  
+  const values = [ fName, lName, username, password, email, role];
 
   try {
     const results = await query(queryString, values);
@@ -87,6 +90,7 @@ const AddNewUser = async (user) => {
     throw error;
   }
 };
+
 
 
 
