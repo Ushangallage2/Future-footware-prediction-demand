@@ -7,6 +7,66 @@
 // import 'remixicon/fonts/remixicon.css'
 // import fti from './fti.png';
 
+// import React, { useEffect, useRef, useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import ScrollReveal from "scrollreveal";
+// import fti from "./fti.png";
+// import fdfs from "../../sidebar/fdfs.png";
+// import "./home.css";
+// import "boxicons/css/boxicons.min.css";
+// import 'remixicon/fonts/remixicon.css';
+// import sound from "./buttonaudio.mp3";
+
+// const Home = () => {
+//     const myRef = useRef(null);
+//     const [value, setValue] = useState(0);
+//     const navigate = useNavigate();
+
+//     useEffect(() => {
+//         const config = {
+//             origin: "top",
+//             duration: 800,
+//             delay: 1,
+//             distance: "80px",
+//             scale: 1,
+//             easing: "ease",
+//         };
+
+//         ScrollReveal().reveal(myRef.current, config);
+//     }, [value]);
+
+//     const play = () => {
+//         new Audio(sound).play();
+//     }
+
+//     const navigateToLoginPage = () => {
+//         navigate("/loginPage");
+//     }
+
+//     return (
+//         <>
+//             <header>
+//                 <img src={fdfs} alt="logo" className="logo" />
+//             </header>
+
+//             <section className="hero">
+//                 <div className="hero-text">
+//                     <h3 ref={myRef}>Footewar Demand Forecasting System</h3>
+//                     <p ref={myRef}>
+//                         Step into the future of footwear with our cutting-edge demand prediction and model forecasting AI, guiding you through the next wave of industry trends.
+//                     </p>
+//                     <button onClick={() => { setValue(value + 1); play(); navigateToLoginPage(); }} type="button">Get Started</button>
+//                 </div>
+
+//                 <div className="hero-img">
+//                     <img src={fti} alt="card image" className="card-image1" />
+//                 </div>
+//             </section>
+//         </>
+//     );
+// }
+
+// export default Home;
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
@@ -20,6 +80,7 @@ import sound from "./buttonaudio.mp3";
 const Home = () => {
     const myRef = useRef(null);
     const [value, setValue] = useState(0);
+    const [text, setText] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -33,6 +94,24 @@ const Home = () => {
         };
 
         ScrollReveal().reveal(myRef.current, config);
+
+        // Typewriter effect
+        const originalText = "Step into the future of footwear with our cutting-edge demand prediction and model forecasting AI, guiding you through the next wave of industry trends.";
+        let index = 0;
+
+        const typewriterInterval = setInterval(() => {
+            setText(originalText.substring(0, index));
+            index++;
+
+            if (index > originalText.length) {
+                clearInterval(typewriterInterval);
+            }
+        }, 50);
+
+        return () => {
+            // Cleanup the interval on component unmount
+            clearInterval(typewriterInterval);
+        };
     }, [value]);
 
     const play = () => {
@@ -51,9 +130,9 @@ const Home = () => {
 
             <section className="hero">
                 <div className="hero-text">
-                    <h3 ref={myRef}>Footewar Demand Forecasting System</h3>
+                    <h3 ref={myRef}>{text}</h3>
                     <p ref={myRef}>
-                        Step into the future of footwear with our cutting-edge demand prediction and model forecasting AI, guiding you through the next wave of industry trends.
+                        {/* Remaining content */}
                     </p>
                     <button onClick={() => { setValue(value + 1); play(); navigateToLoginPage(); }} type="button">Get Started</button>
                 </div>

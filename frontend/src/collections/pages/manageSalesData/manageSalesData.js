@@ -2,7 +2,7 @@ import React from 'react';
 import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter';
 
-const NewModel = () => {
+const ManageSalesData = () => {
   return (
     
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
@@ -17,4 +17,4 @@ const NewModel = () => {
   );
 };
 
-export {NewModel};
+export {ManageSalesData};

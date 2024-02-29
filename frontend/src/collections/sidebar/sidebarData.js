@@ -21,7 +21,7 @@ export const sidebarData = [
   },
   {
     title: "View Reports",
-    link: "/nothing",
+    link: "/viewReport",
   },
   {
     title: "Generate New Model",
@@ -29,12 +29,12 @@ export const sidebarData = [
   },
   {
     title: "Manage Sales Data",
-    link: "/useraccount",
+    link: "/manageSalesData",
   },
-  {
-    title: "Settings",
-    link: "/settings",
-  },
+//   {
+//     title: "Settings",
+//     link: "/settings",
+//   },
   {
     title: "Logout",
     handleLogout: () => {}, //type logout logic here

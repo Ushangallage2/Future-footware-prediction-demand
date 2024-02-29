@@ -14,7 +14,12 @@ app.use("/user", userRoutes);
 const authRoutes = require("./routes/Auth");
 app.use("/auth", authRoutes);
  
+
+const demandPredictRoutes = require("./routes/Demandprediction");
+app.use("/demandpred", demandPredictRoutes);
+
 //admin()
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

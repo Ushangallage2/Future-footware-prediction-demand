@@ -1,3 +1,4 @@
+// Import necessary libraries and components
 import React, { useEffect, useState } from 'react';
 import { Paper, Button, Tooltip, IconButton, Modal, Backdrop, Fade, TextField } from "@material-ui/core";
 import MaterialTable from "material-table";
@@ -9,36 +10,9 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { Select, MenuItem, FormControl, InputLabel } from "@material-ui/core";
+import './Table.css'; // Import the CSS file
 
-
-
-
-
-  
-
-//Define the makeApiRequest function
-// const makeApiRequest = async (url, method = 'GET', data) => {
-//   try {
-//     const response = await fetch(url, {
-//       method,
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: method !== 'GET' ? JSON.stringify(data) : undefined,
-//     });
-
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! Status: ${response.status}`);
-//     }
-
-//     // Parse JSON response
-//     const responseData = await response.json();
-//     return responseData;
-//   } catch (error) {
-//   //  console.error('API Request Error:', error.message);
-//     throw error;
-//   }
-// };
+// Define the makeApiRequest function
 const makeApiRequest = async (url, method = 'GET', data) => {
     try {
         const response = await fetch(url, {
@@ -64,17 +38,11 @@ const makeApiRequest = async (url, method = 'GET', data) => {
     }
 };
 
-
 const Table = (props) => {
-
-
-    
     const [tblData, setTblData] = useState([]);
     const [editUser, setEditUser] = useState(null);
     const [openModal, setOpenModal] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-
-    // New state for adding a new user
     const [newUser, setNewUser] = useState({
         fName: '',
         lName: '',
@@ -82,30 +50,32 @@ const Table = (props) => {
         role: '',
         username: '',
         password: '',
-
     });
 
+    const [fadeIn, setFadeIn] = useState(false);
 
-
-
-    // Function to fetch user data from the database
     const fetchUsers = async () => {
         try {
             const users = await makeApiRequest('http://localhost:8080/user/allUsers');
             setTblData(users);
             console.log(users);
         } catch (error) {
-            // console.error('Error fetching users:', error);
+            console.error('Error fetching users:', error);
         }
     };
 
     useEffect(() => {
         fetchUsers();
+
+        // Set fade-in to true after a short delay to trigger the fade-in effect
+        const delay = setTimeout(() => {
+            setFadeIn(true);
+        }, 500);
+
+        return () => clearTimeout(delay);
     }, []);
 
-    // Function to handle opening the add new user modal
     const handleOpenAddUserModal = () => {
-        // Reset both editUser and newUser states
         setEditUser(null);
         setNewUser({
             fName: '',
@@ -118,25 +88,17 @@ const Table = (props) => {
         setOpenModal(true);
     };
 
-    // Function to handle adding a new user
     const handleAddUser = async () => {
         try {
-            // Hash the password using bcrypt
             const hashedPassword = newUser.password ? await bcrypt.hash(newUser.password, 10) : undefined;
-
-            // Prepare data to send to the server, including the hashed password
             const dataToSend = {
                 ...newUser,
                 password: hashedPassword
             };
 
-
-            // Make API request
             const response = await makeApiRequest('http://localhost:8080/user/addUser', 'POST', dataToSend);
-            console.log("this is the error")
-            console.log('Insert Query:', response?.query);
+            console.log("this is the error");
 
-            // Fetch users and close the modal
             fetchUsers();
             setOpenModal(false);
 
@@ -144,59 +106,22 @@ const Table = (props) => {
             console.log('Error adding user:', error);
         }
     };
-    // Function to handle adding a new user
-    // const handleAddUser = async () => {
-    //     try {
-    //       // Hash the password using bcrypt
-    //       const hashedPassword = newUser.password ? await bcrypt.hash(newUser.password, 10) : undefined;
 
-    //       // Prepare data to send to the server, including the hashed password
-    //       const dataToSend = {
-    //         ...newUser,
-    //         password: hashedPassword
-    //       };
-
-    //       // Make API request
-    //       const response = await makeApiRequest('http://localhost:8080/user/addUser', 'POST', dataToSend);
-    //       console.log('Insert Query:', response.query); 
-
-    //       // Close the modal
-    //       setOpenModal(false);
-
-    //       // Fetch users (if needed)
-    //       // fetchUsers();
-    //     } catch (error) {
-    //       console.log('Error adding user:', error);
-    //     }
-    //   };
-
-
-    // Function to handle editing a user
     const handleEditUser = (updatedUser) => {
         setEditUser(updatedUser);
         setOpenModal(true);
     };
 
-    //   const handleSaveEditedUser = () => {
-    //     console.log(editUser)}
-
-    // Function to handle saving the edited user
     const handleSaveEditedUser = async () => {
         try {
             await makeApiRequest(`http://localhost:8080/user/editUser/${editUser.id}`, 'PUT', editUser);
             setOpenModal(false);
-            fetchUsers(); // Refresh user data after saving the edited user
+            fetchUsers();
         } catch (error) {
             console.log('Error saving edited user:', error);
         }
     };
 
-    // Function to handle closing the modal
-    //   const handleCloseModal = () => {
-    //     setOpenModal(false);
-    //     setEditUser(null);
-    //   };
-    // Function to handle closing the modal
     const handleCloseModal = () => {
         setOpenModal(false);
         setEditUser(null);
@@ -210,19 +135,17 @@ const Table = (props) => {
         });
     };
 
-
-    // Function to handle deleting a user
     const handleDeleteUser = async (deletedUser) => {
         try {
             await makeApiRequest(`http://localhost:8080/user/deleteUser/${deletedUser.id}`, 'DELETE');
-            fetchUsers(); // Refresh user data after deleting the user
+            fetchUsers();
         } catch (error) {
             console.log('Error deleting user:', error);
         }
     };
 
     return (
-        <>
+        <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             <div className="container-fluid calculated-bodywidth" style={{}} id="bla">
                 <div className="row gutters mt-3">
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -288,8 +211,6 @@ const Table = (props) => {
                 </div>
             </div>
 
-
-
             {/* Add new user modal */}
             <Modal
                 open={openModal}
@@ -345,13 +266,12 @@ const Table = (props) => {
                             onChange={(e) => editUser ? setEditUser({ ...editUser, username: e.target.value }) : setNewUser({ ...newUser, username: e.target.value })}
                         />
 
-                        {/* Only show password field when adding a new user */}
                         {!editUser && (
                             <TextField
                                 label="Password"
                                 value={newUser.password}
                                 onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
-                                type={showPassword ? 'text' : 'password'} // Show/hide password based on state
+                                type={showPassword ? 'text' : 'password'}
                                 InputProps={{
                                     endAdornment: (
                                         <InputAdornment position="end">
@@ -377,13 +297,8 @@ const Table = (props) => {
                     </div>
                 </Fade>
             </Modal>
-        </>
+        </div>
     );
 };
 
-
-
-
-
 export default Table;
-
