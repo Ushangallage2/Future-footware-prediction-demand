@@ -302,10 +302,10 @@ import React, { useState } from 'react';
 import * as Components from './Components';
 import logo from '../../sidebar/fdfs.png';
 import shoe05 from '../../pages/Shoe_Images/shoe05.png';
-import axios from '../../../intercepter';
+// import axios from '../../../intercepter';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../components/UserContext';
-//import axios from 'axios'; 
+import axios from 'axios'; 
 
 const successSound = new Audio(require('./loginbutton.mp3'));
 const alertSound = new Audio(require('./alertsound.mp3'));
