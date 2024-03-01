@@ -1,120 +1,49 @@
+
 const { db } = require('../db');
 const util = require('util');
+const fs = require('fs').promises;
 const query = util.promisify(db.query).bind(db);
 
-// // // Service function to handle image upload to the database
-// // const UploadImageNow = async (imageData) => {
-// //   const queryString = 'INSERT INTO modeldetails (modelImage) VALUES (?)';
-// //   const values = [imageData];
-
-// //   try {
-// //     const results = await query(queryString, values);
-// //     return { success: true, imageID: results.insertId };
-// //   } catch (error) {
-// //     console.error(error);
-// //     return { success: false, error: 'Internal Server Error' };
-// //   }
-// // };
-
-// // module.exports = {
-// //   UploadImageNow,
-// // };
-// // Service function to handle image upload to the database
-// const UploadImageNow = async (imageData) => {
-//     console.log("img data is here!!!!!!")
-//     console.log(imageData)
-//     const queryString = 'INSERT INTO modeldetails (modelImage) VALUES (?)';
-//     const values = [imageData];
-
-//     console.log(imageData)
-
-//     try {
-//         if (!imageData) {
-//             throw new Error('Image data cannot be null');
-//         }
-
-//         const results = await query(queryString, values);
-//         return { success: true, imageID: results.insertId };
-//     } catch (error) {
-//         console.log(error);
-//         return { success: false, error: error.message || 'Internal Server Error' };
-//     }
 
 
+
+
+// const updateModelImage = async (modelImage) => {
+//   const sql =  "INSERT INTO modeldetails (modelImage) VALUES (?)";
+//   try {
+//     await query(sql, [modelImage]);
+//     return { status: 'Success' };
+//   } catch (error) {
+//     console.error('Error updating model image:', error);
+//     throw new Error('Internal Server Error');
+//   }
 // };
-
-const UploadImageService = async (modelNumber, files) => {
-//   console.log(`Image uploaded for modelNumber ${modelNumber}: ${files.E1500[0].originalFilename}`);
-  console.log("file is here");
-  console.log('Files:', files);
-  const insertQuery = "INSERT INTO modeldetails (modelNumber, modelImage) VALUES (?, ?)";
-  const insertParams = [modelNumber, files.originalFilename];
-
-
-  
-
-  try {
-      const result = await executeQuery(insertQuery, insertParams);
-      console.log("-------------------------------------")
-      console.log(result)
-      return { success: true, message: 'Image uploaded successfully', insertedId: result.insertId };
-  } catch (error) {
-      console.log('Error uploading image:', error);
-      return { success: false, message: 'Failed to upload image' };
-  }
-};
-
-
-const executeQuery = (query, params) => {
-  return new Promise((resolve, reject) => {
-      db.query(query, params, (error, result) => {
-          if (error) {
-              reject(error);
-          } else {
-              resolve(result);
-          }
-      });
-  });
-};
-
-
-
-
-
-
-const getImageURLByModelNumber = async (modelNumber) => {
-    const queryString = 'SELECT DISTINCT modelImage FROM modeldetails WHERE modelNumber =?';
-    console.log(queryString )
-    const values = [modelNumber];
-    console.log("image from db is here!")
-    console.log(values)
-
+const updateModelImage = async (imageNumber, modelImage) => {
+    const sql = "INSERT INTO modeldetails (modelNumber, modelImage) VALUES (?, ?)";
     try {
-        const result = await query(queryString, values);
-
-        if (result.length > 0 && result[0].modelImage) {
-            return result[0].modelImage;
-        } else {
-            throw new Error('Image not found for the given modelNumber');
-        }
+      await query(sql, [ imageNumber,modelImage]);
+      return { status: 'Success' };
     } catch (error) {
-        console.log(error);
-        throw new Error('Internal Server Error');
+      console.log('Error updating model image:', error);
+      throw new Error('Internal Server Error');
     }
-};
+  };
 
 
 
 
-
-const GetAllModelNumbersNow = async () => {
-    const queryString = 'SELECT DISTINCT modelNumber FROM modeldetails';
+  const getImageByModelNumber = async (modelNumber) => {
+    const queryString = 'SELECT modelImage FROM modeldetails WHERE modelNumber = ?';
   
     try {
-      const modelNumbers = await query(queryString);
-      return modelNumbers.map((result) => result.modelNumber);
+      const result = await query(queryString, [modelNumber]);
+      if (result.length > 0) {
+        return result[0].modelImage;
+      } else {
+        throw new Error('Image not found');
+      }
     } catch (error) {
-      console.log('Error fetching model numbers:', error);
+      console.log('Error fetching image by model number:', error);
       throw new Error('Internal Server Error');
     }
   };
@@ -124,8 +53,22 @@ const GetAllModelNumbersNow = async () => {
 
 
 
-module.exports = {
-    getImageURLByModelNumber,
-    UploadImageService,
-    GetAllModelNumbersNow
-}
+
+
+
+
+
+
+const getAllModels = async () => {
+  const queryString = 'SELECT DISTINCT modelNumber FROM modeldetails';
+
+  try {
+    const modelNumbers = await query(queryString);
+    return modelNumbers.map((result) => result.modelNumber);
+  } catch (error) {
+    console.error('Error fetching model numbers:', error);
+    throw new Error('Internal Server Error');
+  }
+};
+
+module.exports = {  getImageByModelNumber,updateModelImage ,getAllModels };
