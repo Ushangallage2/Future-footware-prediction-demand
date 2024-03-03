@@ -44,7 +44,7 @@ const sendAllChatController = async (req, res) => {
 
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4-turbo-preview",
+      model: "gpt-3.5-turbo",
       messages: [{ role: "assistant", content: prompt }],
       temperature: 1,
       max_tokens: 256,
