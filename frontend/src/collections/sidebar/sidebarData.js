@@ -31,10 +31,10 @@ export const sidebarData = [
     title: "Manage Sales Data",
     link: "/manageSalesData",
   },
-//   {
-//     title: "Settings",
-//     link: "/settings",
-//   },
+  {
+    title: "ChatGPT",
+    link: "/chatPage",
+  },
   {
     title: "Logout",
     handleLogout: () => {}, //type logout logic here

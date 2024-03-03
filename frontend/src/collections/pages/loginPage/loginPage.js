@@ -306,6 +306,7 @@ import shoe05 from '../../pages/Shoe_Images/shoe05.png';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../components/UserContext';
 import axios from 'axios'; 
+import { jwtDecode } from 'jwt-decode';
 
 const successSound = new Audio(require('./loginbutton.mp3'));
 const alertSound = new Audio(require('./alertsound.mp3'));
@@ -328,8 +329,9 @@ export function Testing() {
         if (res.data.status === 'success') {
           localStorage.setItem('token', res.data.user.token);
 
+
           // Set the user context after successful login
-          setUser({ username: res.data.user.username });
+          setUser({ username: jwtDecode(localStorage.getItem('token')).fName });
           console.log("im inside login")
           console.log(res.data.user.username)
 

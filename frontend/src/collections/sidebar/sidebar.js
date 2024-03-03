@@ -93,8 +93,7 @@ export function Sidebar() {
   };
 
   const handleExitModalExit = () => {
-    // Your logout logic here
-    // ...
+    localStorage.clear();
 
     setExitModalOpen(false);
     navigate('/');
