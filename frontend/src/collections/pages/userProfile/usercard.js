@@ -1,58 +1,86 @@
-import React from "react";
-import "./usercard.css";
-import userimg from './girl.png';
-import usershoe from './usershoe.png'
+// import React from "react";
+// import "./usercard.css";
+// import userimg from './girl.png';
+// import usershoe from './usershoe.png'
 
-function Card(props) {
-    return (
-      //create main container
-      <div className="container"> 
+// function Card(props) {
+//     return (
+//       //create main container
+//       <div className="container"> 
 
-        {/* create container1 inside main container */}
-          {/* create card1 componant in container1 */}
-          <div className="ucard1">
-          {/* insert an image and card-content1 to card1 */}
-          <img src={userimg} alt="card image" className="card-image1" /> 
-            <div className="card-content1">
-              <p className="card-body">{props.body1}</p>
-              <p className="card-body">{props.body2}</p>
-              <p className="card-body">{props.body3}</p>
-              <p className="card-body">{props.body4}</p>
-              <p className="card-body">{props.body5}</p>
-              <p className="card-body">{props.body6}</p>
-            </div>
-          </div>
+//         {/* create container1 inside main container */}
+//           {/* create card1 componant in container1 */}
+//           <div className="ucard1">
+//           {/* insert an image and card-content1 to card1 */}
+//           <img src={userimg} alt="card image" className="card-image1" /> 
+//             <div className="card-content1">
+//               <p className="card-body">{props.body1}</p>
+//               <p className="card-body">{props.body2}</p>
+//               <p className="card-body">{props.body3}</p>
+//               <p className="card-body">{props.body4}</p>
+//               <p className="card-body">{props.body5}</p>
+//               <p className="card-body">{props.body6}</p>
+//             </div>
+//           </div>
 
-        {/* create container2 inside main container */}
-        <div class="ucontainer2">
-          {/* create card2 componant in container2 */}
-          <div class="ucard2">
+//         {/* create container2 inside main container */}
+//         <div class="ucontainer2">
+//           {/* create card2 componant in container2 */}
+//           <div class="ucard2">
 
-            {/* insert an image and card-content2 to card2 */}
-            <div className="card-content2">
-              <p className="card-topic1">{props.body7}</p>
-            </div>
-              <img src={usershoe} alt="card image" className="card-image2" />
-          </div> 
+//             {/* insert an image and card-content2 to card2 */}
+//             <div className="card-content2">
+//               <p className="card-topic1">{props.body7}</p>
+//             </div>
+//               <img src={usershoe} alt="card image" className="card-image2" />
+//           </div> 
 
-          {/* create card3 componant in container2 */}
-          <div class="card3">
-            {/* insert card-content2 to card3 */}
-            <div className="card-content2">
-              <p className="card-topic2">{props.body8}</p>
-            </div> 
+//           {/* create card3 componant in container2 */}
+//           <div class="card3">
+//             {/* insert card-content2 to card3 */}
+//             <div className="card-content2">
+//               <p className="card-topic2">{props.body8}</p>
+//             </div> 
 
-             {/* insert card-content3 in card3 */}
-            <div className="card-content3">
-              <p className="card-body">{props.body9}</p>
-              <p className="card-body">{props.body10}</p>
-              <p className="card-body">{props.body11}</p>
-              <p className="card-body">{props.body12}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-    }
+//              {/* insert card-content3 in card3 */}
+//             <div className="card-content3">
+//               <p className="card-body">{props.body9}</p>
+//               <p className="card-body">{props.body10}</p>
+//               <p className="card-body">{props.body11}</p>
+//               <p className="card-body">{props.body12}</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//     }
     
-    export default Card;   
+//     export default Card;   
+
+import React, { useState } from 'react';
+import EditProfileForm from './EditProfileForm'; // Import the edit form
+import './usercard.css';
+import userimg from './girl.png';
+
+const Card = () => {
+  const [showEditForm, setShowEditForm] = useState(false);
+
+  const handleEditClick = () => {
+    setShowEditForm(true);
+  };
+
+  return (
+    <div className="profile-card">
+      <img src={userimg} alt="Profile Photo" />
+      <p>Name : - Sandia silva</p>
+      <p>Age : - 28</p>
+      <p>Position : - Marketing Executive</p>
+      <p>AI Trained : - 57 times</p>
+      <p>Demands Predicted : - 140 times</p>
+      <p>New Models Created : - 50 times</p>
+      
+    </div>
+  );
+};
+
+export default Card;

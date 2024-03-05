@@ -24,6 +24,19 @@
 .user-sec {
     display: flex;
 }
+.user-sec button {
+    height: 25px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.user-sec button:hover{
+    background-color: #0056b3;
+}
 body{
     background-color: #002952;
 }
