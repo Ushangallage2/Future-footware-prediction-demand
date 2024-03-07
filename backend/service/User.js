@@ -89,9 +89,115 @@ const AddNewUser = async (user) => {
   } catch (error) {
     throw error;
   }
+
 };
 
 
+
+
+
+
+
+// const  SendMessage = async (message) => {
+//   try {
+//     const updateQuery = 'UPDATE users SET request = ?';
+//     const [result] = await connection.execute(updateQuery, [message]);
+    
+//     // Check if the affectedRows property exists in the result
+//     const affectedRows = result && result.affectedRows;
+
+//     return affectedRows > 0;
+//   } catch (error) {
+//     console.log('Error sending message to all users:', error);
+//     throw error;
+//   }
+// };
+// const SendMessage = async (message) => {
+//   try {
+//     const connection = await mysql.createConnection(DATABASE_CONFIG);
+
+//     const updateQuery = 'UPDATE users SET request = ?';
+//     const [result] = await connection.execute(updateQuery, [message]);
+
+//     // Check if the result exists and has the affectedRows property
+//     const affectedRows = result && result.affectedRows;
+
+//     connection.end();
+
+//     return affectedRows > 0;
+//   } catch (error) {
+//     console.error('Error sending message to all users:', error);
+//     throw error;
+//   }
+// };
+
+
+
+// const SendMessage = async (message) => {
+//   try {
+//     // Assuming your users table has a "request" column
+//     const updateQuery = 'UPDATE users SET request = ?';
+//     const result = await query(updateQuery, [message]);
+    
+//     console.log('Query Result:', result);
+
+//     // Check if the result exists and has the affectedRows property
+//     const affectedRows = result && result.affectedRows;
+
+//     return affectedRows > 0;
+//   } catch (error) {
+//     console.log('Error sending message to all users:', error);
+//     throw error;
+//   }
+// };
+
+// const SendMessage = async (message, senderUserId) => {
+//   try {
+//     // Assuming your users table has a "request" column
+//     const updateQuery = 'INSERT users SET request = ? WHERE id <> ?';
+//     const result = await query(updateQuery, [message, senderUserId]);
+    
+//     console.log('Query Result:', result);
+
+//     // Check if the result exists and has the affectedRows property
+//     const affectedRows = result && result.affectedRows;
+
+//     return affectedRows > 0;
+//   } catch (error) {
+//     console.log('Error sending message to all users:', error);
+//     throw error;
+//   }
+// };
+
+const SendMessage = async (message, senderUserId) => {
+  try {
+    
+
+    const insertQuery = 'INSERT INTO messages (userId, content, createdAt) VALUES (?, ?, NOW())';
+    await query(insertQuery, [senderUserId ,message]);
+    console.log("----------------")
+    console.log(senderUserId)
+    // Remove older messages if more than three
+    const deleteQuery = `
+    DELETE FROM messages
+    WHERE id NOT IN (
+      SELECT id
+      FROM (
+        SELECT id
+        FROM messages
+        ORDER BY createdAt DESC
+        LIMIT 3
+      ) as subquery
+    );
+    `;
+    await query(deleteQuery, [senderUserId]);
+
+    return true;
+  } catch (error) {
+    console.log('Error sending message and managing messages:', error);
+    throw error;
+  }
+};
 
 
 module.exports = {
@@ -99,5 +205,6 @@ module.exports = {
   GetListOfUsers,
   DeleteUserById,
   AddNewUser,
-  UpdateUserById
+  UpdateUserById,
+  SendMessage
 };

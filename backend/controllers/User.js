@@ -3,7 +3,8 @@ const {
     GetListOfUsers,
     GetUserById,
     DeleteUserById,
-    AddNewUser
+    AddNewUser,
+    SendMessage
   } = require("../service/User");
   
   const  GetAllUsers = async (req, res) => {
@@ -58,6 +59,80 @@ const {
   };
   
 
+
+  
+
+
+// const SendRequestController = async (req, res) => {
+//   try {
+//     const { message } = req.body;
+
+//  console.log(req.body)
+    
+//     if (!message) {
+//       return res.status(400).json({ message: 'Message is required in the request body' });
+//     }
+
+//     // Call the service function to send the message
+//     const success = await SendMessage(message);
+//     console.log("========")
+//     console.log(success)
+
+//     if (success) {
+//       return res.json({ message: 'Message sent successfully' });
+//     } else {
+//       return res.status(404).json({ message: 'Message is not found' });
+//     }
+//   } catch (error) {
+//     console.log('Error sending message:', error);
+//     return res.status(500).json({ message: 'Internal server error' });
+//   }
+// };
+
+
+// const SendRequestController = async (req, res) => {
+//   const { message, id } = req.body;
+//   console.log("message")
+//   console.log(req.body.message)
+//   try {
+//     const success = await SendMessage(message, id);
+
+//     if (success) {
+//       return res.json({ message: 'Message sent successfully' });
+//     } else {
+//       return res.status(404).json({ message: 'Message not sent' });
+//     }
+//   } catch (error) {
+//     console.error('Error sending message:', error);
+//     return res.status(500).json({ message: 'Internal server error' });
+//   }
+// };
+
+const SendRequestController = async (req, res) => {
+  try {
+    const { message } = req.body;
+    console.log(req.params)
+    const senderUserId = req.params.id;
+    console.log(message)
+    console.log("this is the id")
+    console.log(senderUserId)  // Assuming you have user information in the request
+    console.log("this is the id")
+    // Call the SendMessage function passing the message and senderUserId
+    const success = await SendMessage(message, senderUserId);
+ console.log(success)
+    if (success) {
+      return res.json({ message: 'Message sent successfully' });
+    } else {
+      return res.status(404).json({ message: 'Failed to send message' });
+    }
+  } catch (error) {
+    console.log('Error sending message:', error);
+    return res.status(500).json({ message: 'Internal server error' });
+  
+  }
+};
+
+
   
   
   module.exports = {
@@ -65,5 +140,6 @@ const {
     GetUser,
     DeleteUser,
     AddUser,
-    UpdateUser
+    UpdateUser,
+    SendRequestController
   };
