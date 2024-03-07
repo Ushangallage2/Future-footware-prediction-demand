@@ -33,7 +33,7 @@ const makeApiRequest = async (url, method = 'GET', data) => {
 
         return responseData;
     } catch (error) {
-        console.error('API Request Error:', error);
+        console.log('API Request Error:', error);
         throw error;
     }
 };

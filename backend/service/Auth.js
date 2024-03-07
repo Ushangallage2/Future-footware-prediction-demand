@@ -338,7 +338,7 @@ const LoginNow = async (authData) => {
     const passwordMatch = results.length > 0 ? await bcrypt.compare(password, results[0].password) : false;
 
     if (passwordMatch) {
-      const accessToken = jwt.sign({ fName: results[0].fName, role: results[0].role }, 'secret', { expiresIn: "24h" });
+      const accessToken = jwt.sign({ fName: results[0].fName, role: results[0].role ,id:results[0].id}, 'secret', { expiresIn: "24h" });
 
       // Reset userlock count upon successful login
       if (userlock > 0) {

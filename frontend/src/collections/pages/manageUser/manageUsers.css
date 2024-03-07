@@ -54,12 +54,12 @@
 /* Add styles for the username-typewriter */
 
 
-/* Style the container */
-.container {
+/* ==============================Style the container =============================*/
+/* .container {
   display: flex;
 }
 
-/* Style the sidebar */
+
 .sidebar {
   width: 250px; 
   padding: 20px;
@@ -68,7 +68,7 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
 }
 
-/* Style sidebar links */
+
 .sidebar a {
   display: block;
   padding: 10px;
@@ -94,11 +94,62 @@
   overflow: hidden; 
 }
 
-/* Add styling for the table */
+
 .form-container .MuiPaper-root {
   border-radius: 10px;
   overflow: hidden; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+/*========================== Add any additional styling as needed ================================*/
+/* manageUsers.css */
+
+/* ... your existing styles ... */
+
+/* Add styles for the new message area and button */
+
+
+
+/* ... your existing styles ... */
+
+/* Add styles for the new message area and button */
+
+.new-message-container {
+  margin-top: 20px;
 }
 
-/* Add any additional styling as needed */
+.new-message-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  /* Add 3D effect */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.new-message-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.send-message-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  /* Add 3D effect */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.send-message-button:hover {
+  background-color: #45a049;
+}

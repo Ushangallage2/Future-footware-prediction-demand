@@ -307,6 +307,8 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../components/UserContext';
 import axios from 'axios'; 
 import { jwtDecode } from 'jwt-decode';
+import "./loginPage.css";
+
 
 const successSound = new Audio(require('./loginbutton.mp3'));
 const alertSound = new Audio(require('./alertsound.mp3'));
@@ -332,10 +334,19 @@ export function Testing() {
 
           // Set the user context after successful login
           setUser({ username: jwtDecode(localStorage.getItem('token')).fName });
+          const userRole = jwtDecode(localStorage.getItem('token')).role;
+          localStorage.setItem('role', userRole);
+
+
+         
+
+
+
+          // console.log(roleitem)
           console.log("im inside login")
           console.log(res.data.user.username)
 
-          Navigate('/userprofile');
+          Navigate('/BackgroundVideoPage');
           successSound.play().catch((error) => {
             console.error('Error playing sound:', error);
           });
