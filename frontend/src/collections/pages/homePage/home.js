@@ -41,9 +41,11 @@ const Home = () => {
 
     const navigateToLoginPage = () => {
         navigate("/loginPage");
+     
     }
 
     return (
+        
         <>
             <header>
                 <img src={fdfs} alt="logo" className="logo" />
