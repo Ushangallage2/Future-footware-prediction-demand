@@ -174,11 +174,33 @@ export const setSidebarData = (userRole) => {
       {
         title: "Logout",
         handleLogout: () => {
-          
+          localStorage.removeItem("userRole");
         },
       },
     ];
-  } else {
+  } else if (userRole === "product") {
+    sidebarData = [
+      {
+        title: "My Profile",
+        link: "/backgroundVideoPage",
+      }, {
+        title: "Generate New Model",
+        link: "/newmodel",
+      },
+      {
+        title: "View Reports",
+        link: "/viewReport",
+      },
+
+
+      {
+        title: "Logout",
+        handleLogout: () => {
+          localStorage.removeItem("userRole");
+        },
+      },
+    ];
+  }else {
    
     sidebarData = [
       {
