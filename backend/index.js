@@ -103,6 +103,8 @@ io.on("connection", (socket) => {
 const port = process.env.PORT || 8080;
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: false }));
+
 const userRoutes = require("./routes/User");
 app.use("/user", userRoutes);
 
@@ -114,6 +116,8 @@ app.use("/demandpred", demandPredictRoutes);
 
 const chatRoutes = require("./routes/ChatRoutes");
 app.use("/abc", chatRoutes);
+
+
 
 app.use(express.static('public'));
 

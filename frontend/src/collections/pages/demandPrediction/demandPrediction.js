@@ -199,6 +199,7 @@ const DemandPrediction = () => {
           if (!response.ok) {
             throw new Error(`Failed to fetch model image. Status: ${response.status}`);
           }
+          console.log(response)
 
           const blob = await response.blob();
           setSelectedModelImage(URL.createObjectURL(blob));
