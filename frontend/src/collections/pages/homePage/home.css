@@ -11,6 +11,7 @@
   
   .p{
     color: aliceblue;
+    font-size:smaller;
   }
   .hero{
     height: 100%;
@@ -41,7 +42,7 @@
     margin-bottom: 40px;
 
   }
-  .hero-text a{
+  .hero-text button{
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -56,12 +57,12 @@
     transition: all .55s ease;
   }
 
-  .hero-text a:hover{
+  .hero-text button:hover{
     background: transparent;
     border: 1px solid white;
   }
 
-  .hero-text a:active{
+  .hero-text button:active{
     color:white;
     border: 1px solid white;
     scale: 98%;

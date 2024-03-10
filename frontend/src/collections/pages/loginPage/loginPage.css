@@ -38,3 +38,7 @@
     width: 550px;
     transition: 0.3s;
 }
+.Anchor {
+    cursor: pointer;
+    
+  }

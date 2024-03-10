@@ -1,6 +1,6 @@
-/* demandPrediction.css */
+/* //demandPrediction.css */
 
-.prediction-box {
+/* .prediction-box {
     border: 2px solid blue;
     padding: 20px;
     margin: 20px;
@@ -10,4 +10,103 @@
     display: flex;
     gap: 10px;
     margin-top: 10px;
-}
+} */
+
+/* demandPrediction.css */
+
+/* Updated styles for the typewriter username */
+/* Updated styles for the typewriter username */
+/* demandprediction.css */
+
+/* .prediction-box {
+    border: 2px solid blue;
+    padding: 20px;
+    margin: 20px;
+    position: relative; } */
+
+/* Updated styles for the typewriter username */
+
+/* demandprediction.css
+................................... */
+/* 
+.page-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    Your sidebar styles go here
+    width: 200px; /* Adjust the width based on your design */
+    /* background-color: #333;
+    color: #fff;
+    padding: 20px;
+     */
+  /* } */
+  
+  /* .content {
+    flex: 1;
+    padding: 100px;
+    margin-left: 400px;
+    
+  }
+   /* */
+  /* .center-container {
+    display: flex; */ 
+    /* justify-content: center;
+    align-items: center; */
+    /* height: 40px; */
+   
+   
+  /* } */
+  
+  /* .class1 {
+    max-width: 1000px; Adjust the max-width based on your preference
+   
+  } */
+  
+
+  /* Add your additional styles for the Select component here */
+  
+  .page-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px; /* Adjust the width as needed */
+    background-color: #333; /* Sidebar background color */
+    color: white; /* Text color in the sidebar */
+    padding: 20px;
+  }
+  
+  .content {
+    flex: 1; /* Take remaining space */
+    padding: 20px;
+  }
+  
+  .center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .class1 {
+    margin-top: 20px;
+  }
+  
+  /* Styles for the Select component (you may need to customize it based on your UI library) */
+  .Select {
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  /* Styles for the selected model info */
+  .selected-info {
+    margin-top: 20px;
+  }
+  
+  /* Styles for the image */
+  img {
+    max-width: 100%; /* Ensure the image does not exceed its container */
+    margin-top: 10px;
+  }
+  
+  /* Additional styling as needed */
+  

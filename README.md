@@ -9,3 +9,5 @@
  <br>
 npm install styled-components
 <br>
+npm install express formidable mysql
+

@@ -18,7 +18,7 @@ overflow: hidden;
 width: 500px;
 // max-width: 100%;
 // max-height: 50%;
-height: 350px;
+height: 400px;
 `;
 
 // sign in pettiya
