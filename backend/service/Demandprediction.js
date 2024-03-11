@@ -3,7 +3,7 @@ const { db } = require('../db');
 const util = require('util');
 const fs = require('fs').promises;
 const query = util.promisify(db.query).bind(db);
-
+const axios = require("axios");
 
 
 
@@ -71,4 +71,36 @@ const getAllModels = async () => {
   }
 };
 
-module.exports = {  getImageByModelNumber,updateModelImage ,getAllModels };
+
+const SalesCount = async (days,shoeModel) => {
+  try {
+    // Specify the URL where your Flask server is running
+    const apiUrl = "http://127.0.0.1:5000/predict";
+    
+
+    // Make a GET request to the Flask API
+    // const response = await axios.get(apiUrl);
+
+    const response = await axios.get(apiUrl, {
+      params: {
+        shoeModel: shoeModel,
+        days: days,
+      },
+    });
+
+    // Extract the predicted sales from the response
+    const predictedSales = response.data.predictedSales;
+
+    // Do something with the predictedSales data
+    console.log("Predicted Sales:", predictedSales);
+    return predictedSales;
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+};
+
+
+
+
+
+module.exports = {  getImageByModelNumber,updateModelImage ,getAllModels ,  SalesCount};
