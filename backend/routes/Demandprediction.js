@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const { uploadImageController,  getImageController,  getAllModelsController} = require('../controllers/Demandprediction');
+const { uploadImageController,  getImageController,  getAllModelsController,predictSales} = require('../controllers/Demandprediction');
 const path = require('path');
 const { verifyAdmin, verifyMarketing,verifyprduct } = require('../authMiddleware');
 
@@ -37,7 +37,7 @@ router.get("/allModels",  getAllModelsController);
 // router.post('/upload/:modelNumber',UploadImage);
 
 
-
+router.post("/predict", predictSales);
 
 
 module.exports = router;

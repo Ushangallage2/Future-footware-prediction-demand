@@ -48,5 +48,5 @@ model = Sequential([
 model.compile(optimizer='adam', loss='mse')
 
 # Train the model
-model.fit(X_train, y_train, epochs=1000, batch_size=32, verbose=2)
+model.fit(X_train, y_train, epochs=1200, batch_size=32, verbose=2)
 model.save("./lstm_model_a.h5")

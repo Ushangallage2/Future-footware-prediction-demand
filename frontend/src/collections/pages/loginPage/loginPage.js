@@ -407,7 +407,7 @@ export function Testing() {
           <Components.Anchor style={{ cursor: 'pointer', marginLeft: '-10px' }} onClick={forgotPassword}>
             Forgot password?
           </Components.Anchor>
-          <Components.Button onClick={login}>Login</Components.Button>
+          <Components.Button disabled={!userName || !passWord} onClick={login}>Login</Components.Button>
         </Components.Form>
       </Components.Container>
     </Components.Page>
