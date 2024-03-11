@@ -69,7 +69,7 @@ def predict_sales():
 
 
         model = tf.keras.models.load_model(saved_model_path)
-# =============================================================================
+# ============================================================================= #
 
         # Initialize the last known sequence
         last_known_sequence = X_test[-1].reshape(1, seq_length, 1)
