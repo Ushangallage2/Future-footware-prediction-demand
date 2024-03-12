@@ -84,7 +84,7 @@ const sendAllChatController = async (req, res) => {
   try {
     const response = await openai.images.generate({
       model: "dall-e-3",
-      prompt: "a cat", 
+      prompt: "Elevate your formal attire with the Model E dress shoes, exuding sophistication and elegance. Crafted from premium leather and featuring classic brogue detailing, these shoes add a touch of refinement to any ensemble. The cushioned insole ensures all-day comfort, while the leather sole provides durability and a polished finish.", 
       n: 1,
       size: "1024x1024",
       quality: "hd" // Optional: Use this line if you want HD quality images

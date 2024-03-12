@@ -14,6 +14,14 @@ const { updateModelImage,getImageByModelNumber} = require('../service/Demandpred
 
 
 
+
+
+
+
+
+
+
+
 // const uploadImageController = (req, res) => {
 //   const image = req.file.filename;
 //   const { modelNumber } = req.params;
@@ -84,10 +92,32 @@ const getAllModelsController = async (req, res) => {
   }
 };
 
+
+
+const predictSales =  async (req, res) => {
+  console.log(req.body)
+  const days= req.body.days;
+  const shoeModel = req.body.shoe_model;
+  try {
+    const predictedSales = await SalesCount(days,shoeModel);
+    res.json({ predictedSales }); // Send the results in the response
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+
+};
+
+
+
+
+
 module.exports = {uploadImageController,getImageController,
  
-  getAllModelsController,
+  getAllModelsController, predictSales
 };
+
+
 
 
 
