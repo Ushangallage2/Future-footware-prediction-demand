@@ -1,23 +1,24 @@
 
+
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter';
 import Datepicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; 
+import 'react-datepicker/dist/react-datepicker.css';
 import './demandprediction.css';
-
-
 
 const DemandPrediction = () => {
   const [modelNumbers, setModelNumbers] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [loading, setLoading] = useState(false);
   const [selectedModelImage, setSelectedModelImage] = useState(null);
-  const [selectedDate, setSelectedDate] = useState(null); // State for selected date
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [warningMessage, setWarningMessage] = useState('');
 
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
+    setWarningMessage('');
   };
 
   const handleInputChange = (inputValue) => {
@@ -25,7 +26,8 @@ const DemandPrediction = () => {
   };
 
   const handleDateChange = (date) => {
-    setSelectedDate(date); // Update the selected date
+    setSelectedDate(date);
+    setWarningMessage('');
   };
 
   useEffect(() => {
@@ -64,6 +66,20 @@ const DemandPrediction = () => {
     fetchModelImage();
   }, [selectedOption]);
 
+  const handleSubmit = () => {
+    if (!selectedOption && !selectedDate) {
+      setWarningMessage('Please choose a date and a model number.');
+    } else if (!selectedOption) {
+      setWarningMessage('Please choose a model number.');
+    } else if (!selectedDate) {
+      setWarningMessage('Please choose a date.');
+    } else {
+      // Proceed with submitting form data
+      console.log("Submission successful.");
+      setWarningMessage(''); // Clear warning message if submission is successful
+    }
+  };
+
   return (
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
       <Sidebar />
@@ -81,26 +97,40 @@ const DemandPrediction = () => {
             isLoading={loading}
             placeholder="Select a model number"
           />
+
+{warningMessage && (
+            <div style={{ color: 'red', marginTop: '10px' }}>
+              <span className="warning-icon" style={{ marginRight: '5px' }}>⚠️</span>
+              {warningMessage}
+            </div>
+          )}
           {selectedModelImage && (
             <img src={selectedModelImage} alt="Model" />
           )}
-          {/* Date picker component */}
+          
           <Datepicker
-            selected={selectedDate} // Pass the selected date
-            onChange={handleDateChange} // Handle date change
-            placeholderText="Select a date" // Placeholder text
+            className="custom-datepicker"
+            selected={selectedDate}
+            onChange={handleDateChange}
+            placeholderText="Select a date"
             minDate={new Date()}
           />
-          <button
+            <button
             className="clear-button"
             onClick={() => {
-              setSelectedOption(null); // Clear selected model
-              setSelectedDate(null); // Clear selected date
+              setSelectedOption(null);
+              setSelectedDate(null);
+              setWarningMessage('');
             }}
           >
             Clear Selection
           </button>
-
+          <button
+            className="submit-button"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>
