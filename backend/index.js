@@ -99,8 +99,6 @@ io.on("connection", (socket) => {
 
 
 
-
-
 // const {admin} = require("./service/initializeUser")
 const port = process.env.PORT || 8080;
 app.use(express.json());
