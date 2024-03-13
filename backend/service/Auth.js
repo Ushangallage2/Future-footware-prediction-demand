@@ -162,7 +162,8 @@ const LoginNow = async (authData) => {
     const results = await query(queryString, [username]);
     console.log(results[0])
 
-    let { userlock, status } = results.length > 0 ? results[0] : { userlock: 0, status: 0 };
+    // let { userlock, status } = results.length > 0 ? results[0] : { userlock: 0, status: 0 };
+    let { userlock = 0, status = 0 } = results.length > 0 ? results[0] : {};
 
     // Check if the account is already locked
     if (status === 3) {
@@ -227,11 +228,21 @@ const LoginNow = async (authData) => {
         message: 'Invalid credentials',
         attemptsLeft: attemptsLeft,
       };
+    
     }
   } catch (error) {
-    console.log('LoginNow Error:', error);
-    throw new Error('Authentication failed. Please try again.');
+    // console.log('LoginNow Error:', error);
+    // throw new Error('Authentication failed. Please try again.');
+    console.error('LoginNow Error:', error);
+    return {
+      status: 'error',
+      message: 'Authentication failed. Please try again.',
+      // attemptsLeft: 'N/A', // Error case, attempts left not applicable
+    };
+
+    
   }
+
 };
 
 const getGeneralAttemptsLeft = async () => {
@@ -240,3 +251,4 @@ const getGeneralAttemptsLeft = async () => {
 };
 
 module.exports = { LoginNow };
+

@@ -120,6 +120,9 @@ const chatRoutes = require("./routes/ChatRoutes");
 app.use("/abc", chatRoutes);
 
 
+const userProf = require("./routes/userprof");
+app.use("/profile", userProf);
+
 
 app.use(express.static('public'));
 
