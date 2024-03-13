@@ -139,7 +139,7 @@ export const setSidebarData = (userRole) => {
       },
       {
         title: "Predict Demand",
-        link: '/demandPrediction',
+        link: '/demandprediction',
       },
       {
         title: "View Reports",
