@@ -195,6 +195,11 @@ export function Testing() {
     alert('Contact the administration for password recovery.');
   };
 
+  // const forgotPassword = () => {
+  //   // Navigate to Backgroundvideo page when "Forgot password?" is clicked
+  //   return <Navigate to="/backgroundvideo" replace />;
+  // };
+
   return (
     <Components.Page>
       <div className="welcome">

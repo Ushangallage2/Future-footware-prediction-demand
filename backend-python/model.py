@@ -5,6 +5,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
+from tensorflow.keras.metrics import MeanSquaredError
+
 
 # Load your sales data (replace this with your data loading logic)
 df = pd.read_csv('./DataFiles/model A [MConverter.eu].csv')
@@ -46,7 +48,10 @@ model = Sequential([
     Dense(1)
 ])
 model.compile(optimizer='adam', loss='mse')
+# model.compile(optimizer='adam', loss='mse', metrics=[MeanSquaredError()])
+
+
 
 # Train the model
-model.fit(X_train, y_train, epochs=1200, batch_size=32, verbose=2)
+model.fit(X_train, y_train, epochs=800, batch_size=32, verbose=2)
 model.save("./lstm_model_a.h5")
