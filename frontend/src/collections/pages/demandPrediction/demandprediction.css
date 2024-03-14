@@ -1,112 +1,180 @@
-/* //demandPrediction.css */
 
-/* .prediction-box {
-    border: 2px solid blue;
-    padding: 20px;
-    margin: 20px;
+
+/* 
+.react-datepicker {
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3); 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
 }
 
-.input-container {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
+
+.react-datepicker__input-container input {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #120237; 
+  color: white;
+  cursor: pointer; 
+  transition: background-color 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+
+
+
+.react-datepicker__input-container input:hover {
+  background-color: #50053b;
 } */
 
-/* demandPrediction.css */
+.react-datepicker {
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(33, 4, 88, 0.4); /* Transparent white background */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for 3D effect */
+ 
+}
 
-/* Updated styles for the typewriter username */
-/* Updated styles for the typewriter username */
-/* demandprediction.css */
+.react-datepicker__input-container{
+  margin-left: 0px;
+ 
+}
 
-/* .prediction-box {
-    border: 2px solid blue;
-    padding: 20px;
-    margin: 20px;
-    position: relative; } */
 
-/* Updated styles for the typewriter username */
 
-/* demandprediction.css
-................................... */
-/* 
-.page-container {
-    display: flex;
-  }
-  
-  .sidebar {
-    Your sidebar styles go here
-    width: 200px; /* Adjust the width based on your design */
-    /* background-color: #333;
-    color: #fff;
-    padding: 20px;
-     */
-  /* } */
-  
-  /* .content {
-    flex: 1;
-    padding: 100px;
-    margin-left: 400px;
-    
-  }
-   /* */
-  /* .center-container {
-    display: flex; */ 
-    /* justify-content: center;
-    align-items: center; */
-    /* height: 40px; */
-   
-   
-  /* } */
-  
-  /* .class1 {
-    max-width: 1000px; Adjust the max-width based on your preference
-   
-  } */
+
+/* Add 3D button effect to the date select button */
+.react-datepicker__input-container input {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); /* Mirror-like gradient background */
+  color: rgb(27, 5, 72);
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s ease-in-out;
+  /* Add box shadow for 3D effect */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+.react-datepicker__input-container input:hover {
+  background-color: #388e3c; /* Darker green color on hover */
+}
+
+
+.custom-datepicker {
+ font-weight:400;
+  color: black;
+}
+
+
+
+.content{
+
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+
+/* .clear-button {
+  background-color: #4caf50; 
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease-in-out; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.clear-button:hover {
+  background-color: #388e3c; 
+}
+
+.clear-button:active {
+  transform: translateY(2px); 
+} */
+.clear-button {
+  background-color: #4f0b0b; /* Green background */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor type */
+  transition: background-color 0.3s ease-in-out; /* Transition effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+  position: relative; /* Position for pseudo-element */
+  overflow: hidden; /* Hide overflow */
+}
+
+.clear-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+.clear-button:active {
+  transform: translateY(2px); /* Push the button down when clicked */
+}
+
+
+.clear-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent);
+  pointer-events: none; /* Don't interfere with button interactions */
+}
+
+
+/* Apply mirror shining effect to the Select component */
+.Select {
+  background-color: rgb(202, 124, 124); 
+  border: 1px solid transparent; 
+  border-radius: 5px;
+  padding: 10px; 
+  box-shadow: 0px 0px 10px rgba(82, 3, 3, 0.5);
+  cursor: pointer; 
+  transition: box-shadow 0.3s ease-in-out; 
+ 
+}
+
+.Select:hover {
+  box-shadow: 0px 0px 20px rgb(148, 56, 56); /* Increase shadow on hover for shining effect */
+}
+
+
+
+.submit-button {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 12px 24px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor type */
+  transition: background-color 0.3s ease-in-out; /* Transition effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+  font-size: 16px; /* Font size */
+  margin-left: 130px;
+  margin-top: 30px;
+}
+
+.submit-button.enabled {
+  background-color: #4caf50; /* Green background when enabled */
+}
+
+.submit-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+.submit-button:active {
+  transform: translateY(2px); /* Push the button down when clicked */
+}
+
+
+
   
 
-  /* Add your additional styles for the Select component here */
-  
-  .page-container {
-    display: flex;
-  }
-  
-  .sidebar {
-    width: 200px; /* Adjust the width as needed */
-    background-color: #333; /* Sidebar background color */
-    color: white; /* Text color in the sidebar */
-    padding: 20px;
-  }
-  
-  .content {
-    flex: 1; /* Take remaining space */
-    padding: 20px;
-  }
-  
-  .center-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .class1 {
-    margin-top: 20px;
-  }
-  
-  /* Styles for the Select component (you may need to customize it based on your UI library) */
-  .Select {
-    width: 300px; /* Adjust the width as needed */
-  }
-  
-  /* Styles for the selected model info */
-  .selected-info {
-    margin-top: 20px;
-  }
-  
-  /* Styles for the image */
-  img {
-    max-width: 100%; /* Ensure the image does not exceed its container */
-    margin-top: 10px;
-  }
-  
-  /* Additional styling as needed */
-  
+
+

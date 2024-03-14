@@ -1,4 +1,4 @@
-// Import necessary libraries and components
+
 import React, { useEffect, useState } from 'react';
 import { Paper, Button, Tooltip, IconButton, Modal, Backdrop, Fade, TextField } from "@material-ui/core";
 import MaterialTable from "material-table";
@@ -51,6 +51,10 @@ const Table = (props) => {
         username: '',
         password: '',
     });
+    const [error, setError] = useState({
+        email: '',
+        password: ''
+    });
 
     const [fadeIn, setFadeIn] = useState(false);
 
@@ -90,7 +94,8 @@ const Table = (props) => {
 
     const handleAddUser = async () => {
         try {
-            const hashedPassword = newUser.password ? await bcrypt.hash(newUser.password, 10) : undefined;
+            if(!error.email || !error.password){
+                const hashedPassword = newUser.password ? await bcrypt.hash(newUser.password, 10) : undefined;
             const dataToSend = {
                 ...newUser,
                 password: hashedPassword
@@ -101,6 +106,7 @@ const Table = (props) => {
 
             fetchUsers();
             setOpenModal(false);
+            }
 
         } catch (error) {
             console.log('Error adding user:', error);
@@ -114,7 +120,7 @@ const Table = (props) => {
 
     const handleSaveEditedUser = async () => {
         try {
-            await makeApiRequest(`http://localhost:8080/user/editUser/${editUser.id}`, 'PUT', editUser);
+            await makeApiRequest('http://localhost:8080/user/editUser/${editUser.id}', 'PUT', editUser);
             setOpenModal(false);
             fetchUsers();
         } catch (error) {
@@ -137,10 +143,39 @@ const Table = (props) => {
 
     const handleDeleteUser = async (deletedUser) => {
         try {
-            await makeApiRequest(`http://localhost:8080/user/deleteUser/${deletedUser.id}`, 'DELETE');
+            await makeApiRequest('http://localhost:8080/user/deleteUser/${deletedUser.id}', 'DELETE');
             fetchUsers();
         } catch (error) {
             console.log('Error deleting user:', error);
+        }
+    };
+
+    const validateEmail = (email) => {
+        const re = /\S+@\S+\.\S+/;
+        if (!re.test(email)) {
+            setError({ ...error, email: 'Invalid email' });
+        } else {
+            setError({ ...error, email: '' });
+        }
+    };
+
+    const validatePassword = (password) => {
+        if (password.length < 8) {
+            setError({ ...error, password: 'Password must be at least 8 characters long' });
+        }else if(password.length > 15){
+            setError({ ...error, password: 'Password must be less than 15 characters long' });
+        } else if(password.search(/\d/) === -1){
+            setError({ ...error, password: 'Password must contain at least one number' });
+        }else if(password.search(/[!@#$%^&*]/) === -1){
+            setError({ ...error, password: 'Password must contain at least one special character' });
+        }else if(password.search(/\s/) !== -1){
+            setError({ ...error, password: 'Passwo]rd must not contain any whitespace' });
+        }else if(password.search(/[A-Z]/) === -1){
+            setError({ ...error, password: 'Password must contain at least one uppercase letter' });
+        }else if(password.search(/[a-z]/) === -1){
+            setError({ ...error, password: 'Password must contain at least one lowercase letter' });
+        }else {
+            setError({ ...error, password: '' });
         }
     };
 
@@ -238,8 +273,12 @@ const Table = (props) => {
                         <TextField
                             label="Email"
                             value={editUser ? editUser.email : newUser.email}
-                            onChange={(e) => editUser ? setEditUser({ ...editUser, email: e.target.value }) : setNewUser({ ...newUser, email: e.target.value })}
+                            onChange={(e) => {
+                                editUser ? setEditUser({ ...editUser, email: e.target.value }) : setNewUser({ ...newUser, email: e.target.value });
+                                validateEmail(e.target.value);
+                            }}
                         />
+                        {error.email && <p style={{ color: 'red', fontSize: '12px' }}>{error.email}</p>}
                         {/* <TextField
               label="Role"
               value={editUser ? editUser.role : newUser.role}
@@ -270,7 +309,10 @@ const Table = (props) => {
                             <TextField
                                 label="Password"
                                 value={newUser.password}
-                                onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
+                                onChange={(e) => {
+                                    setNewUser({ ...newUser, password: e.target.value });
+                                    validatePassword(e.target.value);
+                                }}
                                 type={showPassword ? 'text' : 'password'}
                                 InputProps={{
                                     endAdornment: (
@@ -286,11 +328,14 @@ const Table = (props) => {
                                 }}
                             />
                         )}
+                        {error.password && <p style={{ color: 'red', fontSize: '12px' }}>{error.password}</p>}
                         <div style={{ marginTop: '20px', textAlign: 'right' }}>
                             <Button onClick={handleCloseModal} color="primary" style={{ marginRight: '10px' }}>
                                 Cancel
                             </Button>
-                            <Button onClick={editUser ? handleSaveEditedUser : handleAddUser} color="primary">
+                            <Button onClick={editUser ? handleSaveEditedUser : handleAddUser} color="primary" disabled={
+                                !newUser.fName || !newUser.lName || !newUser.email || !newUser.role || !newUser.username || !newUser.password || error.email || error.password
+                            }>
                                 {editUser ? 'Save' : 'Add User'}
                             </Button>
                         </div>

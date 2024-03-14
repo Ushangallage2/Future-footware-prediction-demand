@@ -1,178 +1,33 @@
-// import React, { useState, useEffect } from 'react';
-// import Select from 'react-select';
-// import { Sidebar } from '../../sidebar/sidebar';
-// import UsernameTypewriter from '../../components/UsernameTypewriter';
-
-// const DemandPrediction = () => {
-//   const [modelNumbers, setModelNumbers] = useState([]);
-//   const [selectedOption, setSelectedOption] = useState(null);
-//   const [loading, setLoading] = useState(false);
-//   const [selectedModelInfo, setSelectedModelInfo] = useState(null);
-
-//   const handleChange = (selectedOption) => {
-//     setSelectedOption(selectedOption);
-//   };
-
-//   const handleInputChange = (inputValue) => {
-//     // Simulate an asynchronous search process
-//     setLoading(inputValue.length > 0);
-//     // You may perform an actual search here if needed
-//     // and update the model numbers accordingly
-//   };
-
-//   useEffect(() => {
-//     const fetchModelNumbers = async () => {
-//       try {
-//         const response = await fetch('http://localhost:8080/demandpred/allModels');
-//         const data = await response.json();
-//         setModelNumbers(data.modelNumbers);
-//       } catch (error) {
-//         console.log('Error fetching model numbers:', error);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchModelNumbers();
-//   }, []); // Empty dependency array means this effect runs once on component mount
-
-//   // Your other useEffect and functions...
-
-//   return (
-//     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
-//       <Sidebar />
-//       <div className="content">
-//         <UsernameTypewriter style={{ position: 'fixed', top: '5px', right: '5px', color: 'yellow', fontSize: '16px', fontWeight: 'bold' }} />
-//         <div className="center-container class1">
-//           <Select
-//             options={modelNumbers.map((modelNumber) => ({
-//               value: modelNumber,
-//               label: modelNumber,
-//             }))}
-//             value={selectedOption}
-//             onChange={handleChange}
-//             onInputChange={handleInputChange}
-//             isLoading={loading}
-//             placeholder="Select a model number"
-//           />
-//           {/* Your other components... */}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default DemandPrediction;
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import Select from 'react-select';
-// import { Sidebar } from '../../sidebar/sidebar';
-// import UsernameTypewriter from '../../components/UsernameTypewriter';
-
-// const DemandPrediction = () => {
-//   const [modelNumbers, setModelNumbers] = useState([]);
-//   const [selectedOption, setSelectedOption] = useState(null);
-//   const [loading, setLoading] = useState(false);
-//   const [selectedModelInfo, setSelectedModelInfo] = useState(null);
-//   const [selectedModelImage, setSelectedModelImage] = useState(null);
-
-//   const handleChange = (selectedOption) => {
-//     setSelectedOption(selectedOption);
-//   };
-
-//   const handleInputChange = (inputValue) => {
-//     // Simulate an asynchronous search process
-//     setLoading(inputValue.length > 0);
-//     // You may perform an actual search here if needed
-//     // and update the model numbers accordingly
-//   };
-
-//   useEffect(() => {
-//     const fetchModelNumbers = async () => {
-//       try {
-//         const response = await fetch('http://localhost:8080/demandpred/allModels');
-//         const data = await response.json();
-//         setModelNumbers(data.modelNumbers);
-//       } catch (error) {
-//         console.log('Error fetching model numbers:', error);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchModelNumbers();
-//   }, []); // Empty dependency array means this effect runs once on component mount
-
-//   useEffect(() => {
-//     const fetchModelImage = async () => {
-//       if (selectedOption) {
-//         try {
-//           const response = await fetch(`http://localhost:8080/demandpred/getImage/${selectedOption.value}`);
-//           const imageData = await response.json();
-//           setSelectedModelImage(imageData);
-//         } catch (error) {
-//           console.log('Error fetching model image:', error);
-//         }
-//       }
-//     };
-
-//     fetchModelImage();
-//   }, [selectedOption]); // Run this effect whenever selectedOption changes
-
-//   // Your other useEffect and functions...
-
-//   return (
-//     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
-//       <Sidebar />
-//       <div className="content">
-//         <UsernameTypewriter style={{ position: 'fixed', top: '5px', right: '5px', color: 'yellow', fontSize: '16px', fontWeight: 'bold' }} />
-//         <div className="center-container class1">
-//           <Select
-//             options={modelNumbers.map((modelNumber) => ({
-//               value: modelNumber,
-//               label: modelNumber,
-//             }))}
-//             value={selectedOption}
-//             onChange={handleChange}
-//             onInputChange={handleInputChange}
-//             isLoading={loading}
-//             placeholder="Select a model number"
-//           />
-//           {selectedModelImage && (
-//             <img src={`http://localhost:8080/public/images/${selectedModelImage.filename}`} alt="Model" />
-//           )}
-//           {/* Your other components... */}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default DemandPrediction;
 
 
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter';
+import Datepicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './demandprediction.css';
 
 const DemandPrediction = () => {
   const [modelNumbers, setModelNumbers] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [loading, setLoading] = useState(false);
   const [selectedModelImage, setSelectedModelImage] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [warningMessage, setWarningMessage] = useState('');
 
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
+    setWarningMessage('');
   };
 
   const handleInputChange = (inputValue) => {
-    // Simulate an asynchronous search process
     setLoading(inputValue.length > 0);
-    // You may perform an actual search here if needed
-    // and update the model numbers accordingly
+  };
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setWarningMessage('');
   };
 
   useEffect(() => {
@@ -189,7 +44,7 @@ const DemandPrediction = () => {
     };
 
     fetchModelNumbers();
-  }, []); // Empty dependency array means this effect runs once on component mount
+  }, []);
 
   useEffect(() => {
     const fetchModelImage = async () => {
@@ -199,7 +54,6 @@ const DemandPrediction = () => {
           if (!response.ok) {
             throw new Error(`Failed to fetch model image. Status: ${response.status}`);
           }
-          console.log(response)
 
           const blob = await response.blob();
           setSelectedModelImage(URL.createObjectURL(blob));
@@ -210,7 +64,21 @@ const DemandPrediction = () => {
     };
 
     fetchModelImage();
-  }, [selectedOption]); // Run this effect whenever selectedOption changes
+  }, [selectedOption]);
+
+  const handleSubmit = () => {
+    if (!selectedOption && !selectedDate) {
+      setWarningMessage('Please choose a date and a model number.');
+    } else if (!selectedOption) {
+      setWarningMessage('Please choose a model number.');
+    } else if (!selectedDate) {
+      setWarningMessage('Please choose a date.');
+    } else {
+      // Proceed with submitting form data
+      console.log("Submission successful.");
+      setWarningMessage(''); // Clear warning message if submission is successful
+    }
+  };
 
   return (
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
@@ -229,10 +97,40 @@ const DemandPrediction = () => {
             isLoading={loading}
             placeholder="Select a model number"
           />
+
+{warningMessage && (
+            <div style={{ color: 'red', marginTop: '10px' }}>
+              <span className="warning-icon" style={{ marginRight: '5px' }}>⚠️</span>
+              {warningMessage}
+            </div>
+          )}
           {selectedModelImage && (
             <img src={selectedModelImage} alt="Model" />
           )}
-          {/* Your other components... */}
+          
+          <Datepicker
+            className="custom-datepicker"
+            selected={selectedDate}
+            onChange={handleDateChange}
+            placeholderText="Select a date range"
+            minDate={new Date()}
+          />
+            <button
+            className="clear-button"
+            onClick={() => {
+              setSelectedOption(null);
+              setSelectedDate(null);
+              setWarningMessage('');
+            }}
+          >
+            Clear Selection
+          </button>
+          <button
+            className="submit-button"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>
@@ -244,104 +142,3 @@ export default DemandPrediction;
 
 
 
-
-
-
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import Select from 'react-select';
-// import { Sidebar } from '../../sidebar/sidebar';
-// import UsernameTypewriter from '../../components/UsernameTypewriter';
-
-// const DemandPrediction = () => {
-//   const [modelNumbers, setModelNumbers] = useState([]);
-//   const [selectedOption, setSelectedOption] = useState(null);
-//   const [loading, setLoading] = useState(false);
-//   const [selectedModelInfo, setSelectedModelInfo] = useState(null);
-
-//   useEffect(() => {
-//     const fetchModelNumbers = async () => {
-//       setLoading(true);
-//       try {
-//         const response = await fetch('http://localhost:8080/demandpred/allModels');
-//         const data = await response.json();
-//         setModelNumbers(data.modelNumbers);
-//       } catch (error) {
-//         console.log('Error fetching model numbers:', error);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchModelNumbers();
-//   }, []);
-
-//   useEffect(() => {
-//     const fetchModelInfo = async () => {
-//       if (selectedOption) {
-//         try {
-//           const response = await fetch(`http://localhost:8080/demandpred/getImage/${selectedOption.value}`);
-//           const data = await response.json();
-//           setSelectedModelInfo(data);
-//         } catch (error) {
-//           console.log('Error fetching model info:', error);
-//         }
-//       }
-//     };
-
-//     fetchModelInfo();
-//   }, [selectedOption]);
-
-//   const handleChange = (selectedOption) => {
-//     setSelectedOption(selectedOption);
-//   };
-
-//   const handleInputChange = (inputValue) => {
-//     // Simulate an asynchronous search process
-//     setLoading(inputValue.length > 0);
-//     // You may perform an actual search here if needed
-//     // and update the model numbers accordingly
-//   };
-
-//   return (
-//     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
-//       <Sidebar />
-//       <div className="content">
-//         <UsernameTypewriter style={{ position: 'fixed', top: '5px', right: '5px', color: 'yellow', fontSize: '16px', fontWeight: 'bold' }} />
-//         <div className="center-container class1">
-//           <Select
-//             options={modelNumbers.map((modelNumber) => ({
-//               value: modelNumber,
-//               label: modelNumber,
-//             }))}
-//             value={selectedOption}
-//             onChange={handleChange}
-//             onInputChange={handleInputChange}
-//             isLoading={loading}
-//             placeholder="Select a model number"
-//           />
-//           {selectedOption && (
-//             <div>
-//               <h2>Selected Model Number</h2>
-//               <p>{selectedOption.label}</p>
-//               { {selectedModelInfo && selectedModelInfo.imageURL && ( }
-//                 <div>
-//                   <h2>Image</h2>
-//                   <img
-//                     src={`http://localhost:8080/public/images/${selectedModelInfo.image}`}
-//                     alt="Model Image"
-//                     style={{ maxWidth: '100%', maxHeight: '400px' }}
-//                   />
-//                 </div>
-//               {/* )} */}
-//             </div>
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default DemandPrediction;

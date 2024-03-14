@@ -2,7 +2,7 @@
 
 
 const { getAllModels } = require('../service/Demandprediction');
-const { updateModelImage,getImageByModelNumber} = require('../service/Demandprediction');
+const { updateModelImage,getImageByModelNumber,SalesCount} = require('../service/Demandprediction');
 
 
 
@@ -94,19 +94,56 @@ const getAllModelsController = async (req, res) => {
 
 
 
-const predictSales =  async (req, res) => {
-  console.log(req.body)
-  const days= req.body.days;
+// const predictSales =  async (req, res) => {
+
+//   console.log(req.body)
+//   const days= req.body.days;
+//   const shoeModel = req.body.shoe_model;
+//   console.log(shoeModel)
+//   console.log(days)
+//   try {
+//     const predictedSales = await SalesCount(days,shoeModel);
+//     console.log(predictedSales)
+//     res.json({ predictedSales }); 
+//   } catch (error) {
+ 
+//     console.log(error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+
+// };
+
+const predictSales = async (req, res) => {
+  console.log(req.body);
+  const days = req.body.days;
   const shoeModel = req.body.shoe_model;
+  console.log(shoeModel);
+  console.log(days);
+  
   try {
-    const predictedSales = await SalesCount(days,shoeModel);
-    res.json({ predictedSales }); // Send the results in the response
+    const predictedSales = await SalesCount(days, shoeModel);
+    console.log(predictedSales);
+  
+
+    // Filter out negative numbers and round each number to the nearest integer
+    const filteredSales = predictedSales
+      .map(([value]) => Math.round(value)) // Round each number
+      .filter(value => value >= 0); // Filter out numbers less than 0
+    
+    // Calculate the sum of filteredSales
+    const sum = filteredSales.reduce((acc, curr) => acc + curr, 0);
+
+
+
+    console.log(sum)
+
+    res.json({ sum }); // Return the sum
   } catch (error) {
-    console.error(error);
+    console.log(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
-
 };
+
 
 
 

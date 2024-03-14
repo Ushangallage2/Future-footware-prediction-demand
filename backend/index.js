@@ -99,8 +99,6 @@ io.on("connection", (socket) => {
 
 
 
-
-
 // const {admin} = require("./service/initializeUser")
 const port = process.env.PORT || 8080;
 app.use(express.json());
@@ -119,6 +117,9 @@ app.use("/demandpred", demandPredictRoutes);
 const chatRoutes = require("./routes/ChatRoutes");
 app.use("/abc", chatRoutes);
 
+
+const userProf = require("./routes/userprof");
+app.use("/profile", userProf);
 
 
 app.use(express.static('public'));
