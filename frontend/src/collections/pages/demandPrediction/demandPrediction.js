@@ -885,14 +885,18 @@ const DemandPrediction = () => {
   
     // Prepare the data for the API calls
     const firstDateData = JSON.stringify({
-      modelNumber: selectedOption.value,
-      daysToFirstDate: daysToFirstDate,
-    });
-  
+      shoe_model: selectedOption.value,
+      days: daysToFirstDate,
+    }
+    );
+    
+    // console.log(days)
+
     const lastDateData = JSON.stringify({
-      modelNumber: selectedOption.value,
-      daysToLastDate: daysToLastDate,
+      shoe_model: selectedOption.value,
+      days:daysToLastDate,
     });
+    // console.log(days)
   
     // Prepare both API calls
     const apiCalls = [

@@ -117,7 +117,9 @@ const predictSales = async (req, res) => {
   console.log(req.body);
   const days = req.body.days;
   const shoeModel = req.body.shoe_model;
+  console.log("this is first try!")
   console.log(shoeModel);
+  console.log("this is first try!")
   console.log(days);
   
   try {
