@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-=======
-
 
 // import React, { useState } from 'react';
 // import * as Components from './Components';
@@ -125,7 +122,6 @@
 
 
 
->>>>>>> main
 import React, { useState } from 'react';
 import * as Components from './Components';
 import logo from '../../sidebar/fdfs.png';
