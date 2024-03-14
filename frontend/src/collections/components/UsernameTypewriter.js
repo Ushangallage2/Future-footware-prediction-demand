@@ -52,6 +52,9 @@ import { Typewriter } from 'react-simple-typewriter';
 import { useUser } from './UserContext';
 import './usernameTypewriter.css';
 
+
+
+
 const UsernameTypewriter = ({ onClick }) => {
   const { currentUser } = useUser();
 
