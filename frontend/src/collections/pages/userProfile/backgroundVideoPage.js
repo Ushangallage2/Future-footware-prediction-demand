@@ -592,6 +592,7 @@ const BackgroundVideoPage = () => {
     }
   };
 
+
   const handleFieldChange = (field, value) => {
     if (field === 'email') {
       validateEmail(value);
@@ -675,7 +676,7 @@ const BackgroundVideoPage = () => {
           loop
           muted
           className="video-element"
-          style={{ width: '80.5%', height: '40%', objectFit: 'cover', opacity: "0.8" }}
+          style={{ width: '80.5%', height: '40%', objectFit: 'cover', opacity: "0.4" }}
         >
           <source src={Backgroundvid} type="video/mp4" />
           Your browser does not support the video tag.

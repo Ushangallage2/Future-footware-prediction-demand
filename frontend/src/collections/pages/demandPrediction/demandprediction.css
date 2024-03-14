@@ -95,16 +95,17 @@
   transform: translateY(2px); 
 } */
 .clear-button {
-  background-color: #4f0b0b; /* Green background */
+  background-color: #ff4076c6; /* Green background */
   color: white; /* White text color */
   border: none; /* No border */
-  padding: 10px 20px; /* Padding */
+  padding: 13px 18px; /* Padding */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Cursor type */
   transition: background-color 0.3s ease-in-out; /* Transition effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
   position: relative; /* Position for pseudo-element */
   overflow: hidden; /* Hide overflow */
+  
 }
 
 .clear-button:hover {
@@ -147,21 +148,23 @@
 
 
 .submit-button {
-  background-color: #4caf50; /* Green background */
   color: white; /* White text color */
   border: none; /* No border */
   padding: 12px 24px; /* Padding */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Cursor type */
   transition: background-color 0.3s ease-in-out; /* Transition effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Add shadow */
   font-size: 16px; /* Font size */
   margin-left: 130px;
   margin-top: 30px;
+  /* Apply gradient background */
+  background-image: linear-gradient(to right, rgb(208, 197, 197), #2960a3);
 }
 
+
 .submit-button.enabled {
-  background-color: #4caf50; /* Green background when enabled */
+  background-color: #21bc21; /* Green background when enabled */
 }
 
 .submit-button:hover {
@@ -174,7 +177,54 @@
 
 
 
-  
+.date-picker-button {
+  font-size: 15px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff4076c6; /* Fallback background color */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5), #ff4076c6);
+  color: #fbf9f9;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 1%;
+ 
+}
+
+
+.date-picker-button:hover {
+  transform: translateY(-2px); /* Move the button up slightly on hover for 3D effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+}
+
+
+ /* .date-picker-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: calc(50% - 10px);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #ccc transparent; 
+}  */
 
 
 
+.button-3d {
+  background: linear-gradient(to right, white, #ff4076c6);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 rgba(0, 0, 0, 0.19), 
+    inset -4px -4px 10px 0 rgba(255, 255, 255, 0.2); 
+}
