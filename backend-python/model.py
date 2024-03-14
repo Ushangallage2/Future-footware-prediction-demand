@@ -9,7 +9,7 @@ from tensorflow.keras.metrics import MeanSquaredError
 
 
 # Load your sales data (replace this with your data loading logic)
-df = pd.read_csv('./DataFiles/model A [MConverter.eu].csv')
+df = pd.read_csv('./DataFiles/model E [MConverter.eu].csv')
 
 # Assuming 'Date' and 'SalesCount' are the columns in df
 df['Date'] = pd.to_datetime(df['Date'])
@@ -53,5 +53,5 @@ model.compile(optimizer='adam', loss='mse')
 
 
 # Train the model
-model.fit(X_train, y_train, epochs=800, batch_size=32, verbose=2)
-model.save("./lstm_model_a.h5")
+model.fit(X_train, y_train, epochs=700, batch_size=32, verbose=2)
+model.save("./lstm_model_e.h5")

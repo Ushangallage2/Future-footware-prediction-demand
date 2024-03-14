@@ -112,7 +112,7 @@ const DemandPrediction = () => {
             className="custom-datepicker"
             selected={selectedDate}
             onChange={handleDateChange}
-            placeholderText="Select a date"
+            placeholderText="Select a date range"
             minDate={new Date()}
           />
             <button
