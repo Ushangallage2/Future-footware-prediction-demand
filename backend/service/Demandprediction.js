@@ -77,6 +77,7 @@ const SalesCount = async (days,shoeModel) => {
     // Specify the URL where your Flask server is running
     const apiUrl = "http://127.0.0.1:5000/predict";
     
+  
 
     // Make a GET request to the Flask API
     // const response = await axios.get(apiUrl);
@@ -87,15 +88,17 @@ const SalesCount = async (days,shoeModel) => {
         days: days,
       },
     });
+   
+    // console.log(response.data)
 
     // Extract the predicted sales from the response
     const predictedSales = response.data.predictedSales;
 
     // Do something with the predictedSales data
-    console.log("Predicted Sales:", predictedSales);
+    
     return predictedSales;
   } catch (error) {
-    console.error("Error:", error.message);
+    console.log("Error:", error.message);
   }
 };
 

@@ -203,6 +203,7 @@ const LoginNow = async (authData) => {
           token: accessToken
         },
         attemptsLeft: 0, // Successful login, so no attempts left
+      
       };
     } else {
       // Increment userlock count upon unsuccessful password attempt
