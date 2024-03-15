@@ -381,6 +381,7 @@
 import React, { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import './manageUsers.css';
+import '../../../App.css';
 import Table from './materialtable';
 import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter'; 

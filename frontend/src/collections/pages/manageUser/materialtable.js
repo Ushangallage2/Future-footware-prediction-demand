@@ -11,6 +11,7 @@ import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { Select, MenuItem, FormControl, InputLabel } from "@material-ui/core";
 import './Table.css'; // Import the CSS file
+import './manageUsers.css' ;
 
 // Define the makeApiRequest function
 const makeApiRequest = async (url, method = 'GET', data) => {
@@ -186,17 +187,17 @@ const Table = (props) => {
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div className="card h-100" id="contentcard">
                             <div className="card-body ">
-                                <h5>Manage User</h5>
+                                <h5>Manage Users</h5>
                                 <MaterialTable
                                     components={{
-                                        Container: (props) => <Paper {...props} elevation={0} style={{ borderRadius: '10px' }} />,
-                                        Toolbar: (props) => (
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 16px' }}>
+                                        Container: (props) => <Paper {...props} elevation={0} style={{ borderRadius: '10px',backgroundColor: '#14498f', color: 'white'}} />,
+                                        Toolbar: () => (
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 16px',backgroundColor: '#14498f' }}>
                                                 <div>
                                                 </div>
                                                 <div>
                                                     <Tooltip title="Add new User" enterTouchDelay={0}>
-                                                        <Button
+                                                        {/* <Button
                                                             style={{ backgroundColor: '#003366', color: 'white' }}
                                                             color="default"
                                                             size="small"
@@ -205,7 +206,44 @@ const Table = (props) => {
                                                             onClick={handleOpenAddUserModal}
                                                         >
                                                             Add new user
+                                                        </Button> */}
+                                                        <Button
+                                                            style={{
+                                                                marginBottom: '8px',
+                                                                textDecoration: 'none',
+                                                                color: 'rgba(255, 255, 255, 0.661)',
+                                                                background: 'rgba(255, 255, 255, 0.08)',
+                                                                border: '2.5px solid #ff39b0e7',
+                                                                padding: '6px',
+                                                                lineHeight: '1',
+                                                                fontSize: '14px',
+                                                                borderRadius: '25px',
+                                                                transition: 'all .55s ease',
+                                                            }}
+                                                            onMouseOver={(e) => {
+                                                                e.target.style.background = 'transparent';
+                                                                e.target.style.color = '#ffffffe7';
+                                                            }}
+                                                            onMouseOut={(e) => {
+                                                                e.target.style.background = 'rgba(255, 255, 255, 0.08)';
+                                                                e.target.style.color = 'rgba(255, 255, 255, 0.661)';
+                                                            }}
+                                                            onMouseDown={(e) => {
+                                                                e.target.style.color = '#ff39b0e7';
+                                                                e.target.style.transform = 'scale(0.95)';
+                                                            }}
+                                                            onMouseUp={(e) => {
+                                                                e.target.style.color = 'rgba(255, 255, 255, 0.661)';
+                                                                e.target.style.transform = 'scale(1)';
+                                                            }}
+                                                            size="small"
+                                                            variant="outlined"
+                                                            startIcon={<AddIcon style={{ color: 'silver' }} />}
+                                                            onClick={handleOpenAddUserModal}
+                                                        >
+                                                            Add new user
                                                         </Button>
+
                                                     </Tooltip>
                                                 </div>
                                             </div>
@@ -257,7 +295,7 @@ const Table = (props) => {
                 }}
             >
                 <Fade in={openModal}>
-                    <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '10px', maxWidth: '400px', margin: 'auto', marginTop: '50px' }}>
+                    <div /*style={{ backgroundColor: 'white', padding: '20px', borderRadius: '10px', maxWidth: '400px', margin: 'auto', marginTop: '50px' }}*/>
                         <h3>{editUser ? 'Edit User' : 'Add New User'}</h3>
                         {/* Render input fields for adding/editing a user */}
                         <TextField

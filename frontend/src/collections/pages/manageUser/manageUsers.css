@@ -1,133 +1,35 @@
-/* manageUsers.css */
-
-/* Style the container */
-/* .container {
-    display: flex;
-  } */
-  
-  
-  /* .sidebar {
-    width: 250px; 
-    padding: 20px;
-    background-color: #333; 
-    height: 100vh; 
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
-  } */
-  
-  /* Style sidebar links */
-  /* .sidebar a {
-    display: block;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 10px;
-  } */
-  
-  /* Change the color when the link is active */
-  /* .sidebar a.active {
-    background-color: #555;
-  }
-  
-  
-  .form-container {
-    flex: 1;
-    padding: 20px;
-  }
-  
- 
-  .form-container #contentcard {
-    border-radius: 10px;
-    overflow: hidden; 
-  } */
-  
-  /* Add styling for the table */
-  /* .form-container .MuiPaper-root {
-    border-radius: 10px;
-    overflow: hidden; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  } */
-  
-  /* Add any additional styling as needed */
-  
-  /* manageUsers.css */
-
-/* Add styles for the username-typewriter */
-
-
-/* ==============================Style the container =============================*/
-/* .container {
-  display: flex;
-}
-
-
-.sidebar {
-  width: 250px; 
-  padding: 20px;
-  background-color: #333; 
-  height: 100vh; 
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
-}
-
-
-.sidebar a {
-  display: block;
-  padding: 10px;
-  color: white;
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-
-
-.sidebar a.active {
-  background-color: #555;
-}
-
-
-.form-container {
-  flex: 1;
-  padding: 20px;
-}
-
-
-.form-container #contentcard {
-  border-radius: 10px;
-  overflow: hidden; 
-}
-
-
-.form-container .MuiPaper-root {
-  border-radius: 10px;
-  overflow: hidden; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-} */
-
-/*========================== Add any additional styling as needed ================================*/
-/* manageUsers.css */
-
-/* ... your existing styles ... */
-
-/* Add styles for the new message area and button */
-
-
-
-/* ... your existing styles ... */
-
-/* Add styles for the new message area and button */
-
 .new-message-container {
   margin-top: 20px;
 }
 
 .new-message-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  font-size: 16px;
-  /* Add 3D effect */
-  transition: box-shadow 0.3s ease-in-out;
+  position: relative;
+  border-radius: 25px;
+  font-size: medium;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2.5px solid #ff39b0e7;
+  transition: background-color 0.3s ease;
+  margin-left: 3rem;
+  width: 80%;
+  padding: 15px 4px 0px 0px;
+  padding-left: calc(1em + 32px);
+  transition: width 0.3s ease;
+}
+.new-message-textarea::placeholder {
+  color: #ffffffd8;
+  font-size: medium;
+}
+
+.new-message-textarea:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+h5{
+  color: white;
+  /* margin: 3%; */
+  margin-left: 45%;
+  font-size: larger;
 }
 
 .new-message-textarea:focus {
@@ -135,21 +37,56 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-.send-message-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
+.add_user_button{
+  margin-left: 60px;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  /* Add 3D effect */
-  transition: background-color 0.3s ease-in-out;
+  color: rgba(255, 255, 255, 0.661);
+  background: rgba(255, 255, 255, 0.08);
+  border: 2.5px solid #ff39b0e7;
+  padding: 10px 25px;
+  font-size: 14px;
+  border-radius: 25px;
+  transition: all .55s ease;
+}
+.add_user_button:hover {
+  background: transparent;
+  color: #ffffffe7;
+}
+.add_user_button:active{
+  color:#ff39b0e7;
+  scale: 95%;
+}
+
+.send-message-button {
+  margin: 10px 0px 0px 50px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.661);
+  background: rgba(128, 128, 128, 0);
+  border: 2.5px solid #ff39b0e7;
+  padding: 10px 25px;
+  line-height: 1;
+  font-size: 14px;
+  border-radius: 25px;
+  transition: all .30s ease;
 }
 
 .send-message-button:hover {
-  background-color: #45a049;
+  /* background-color: #45a049; */
+  background-color:rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+.send-message-button:active{
+  color:#ff39b0e7;
+  scale: 95%;
+}
+.form-container{
+  display:block;
+    width: 65%;
+    height: auto;
+    margin-top: 6%;
+    margin-left: 6%;
+    margin-right: 0%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.726);
+    border-color: black;
+    border-radius: 20px;
 }
