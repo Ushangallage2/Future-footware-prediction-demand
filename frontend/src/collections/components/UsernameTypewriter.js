@@ -57,8 +57,9 @@ const UsernameTypewriter = ({ onClick }) => {
 
   return (
     <a href="./userprofile" onClick={onClick}>
-      <div className="username-typewriter">
-        <Typewriter
+      <div className='typeWriter-container'>
+        <div className="username-typewriter">
+          <Typewriter
           words={[currentUser?.username || '']}
           loop={true}
           cursor={true}
@@ -67,6 +68,7 @@ const UsernameTypewriter = ({ onClick }) => {
           deleteSpeed={50}
           delaySpeed={1000}
         />
+        </div>
       </div>
     </a>
   );
