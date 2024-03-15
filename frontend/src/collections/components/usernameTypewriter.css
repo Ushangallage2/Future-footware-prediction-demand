@@ -1,4 +1,4 @@
-.typeWriter-container{
+/* .typeWriter-container{
   display:flex;
 }
 .username-typewriter {
@@ -9,24 +9,20 @@
     color: rgb(255, 255, 255);
     font-size: 20px;
     font-weight: bold;
-  } */
-  
-
-
-  
+  }  */
 
   .username-typewriter {
     position: fixed;
+    margin-left: 33%;
+    display: flex;
     top: 15px;
-    left: 1390px;
-    color: transparent; /* Make the text transparent */
-    font-size: 25px;
+    color: transparent;
+    font-size: 20px;
     font-weight: bold;
-                      /* Apply calligraphy font */
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9),#ff4076c6); /* Apply gradient as background */
-    -webkit-background-clip: text; /* Clip the background to the text */
-    background-clip: text; /* Clip the background to the text */
-    cursor: pointer; /* Add pointer cursor */
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9),#ff4076c6);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    cursor: pointer; 
   }
   
   
