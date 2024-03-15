@@ -111,6 +111,7 @@ const BackgroundVideoPage = () => {
     }
   };
 
+
   const handleFieldChange = (field, value) => {
     if (field === 'email') {
       validateEmail(value);

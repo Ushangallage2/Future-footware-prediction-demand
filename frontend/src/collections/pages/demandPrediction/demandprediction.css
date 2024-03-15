@@ -26,6 +26,17 @@
 .react-datepicker__input-container input:hover {
   background-color: #50053b;
 } */
+.css-b62m3t-container{
+ 
+  border: 2px solid #ff4076c6; /* Border with color */
+ 
+
+  border-radius: 8px;
+
+
+
+}
+
 
 .react-datepicker {
   border: none;
@@ -38,6 +49,12 @@
 .react-datepicker__input-container{
   margin-left: 0px;
  
+}
+
+.center-container class1{
+
+background: transparent;
+
 }
 
 
@@ -58,7 +75,7 @@
 }
 
 .react-datepicker__input-container input:hover {
-  background-color: #388e3c; /* Darker green color on hover */
+  background-color: #ff4076c6; 
 }
 
 
@@ -95,20 +112,22 @@
   transform: translateY(2px); 
 } */
 .clear-button {
-  background-color: #4f0b0b; /* Green background */
-  color: white; /* White text color */
-  border: none; /* No border */
-  padding: 10px 20px; /* Padding */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Cursor type */
-  transition: background-color 0.3s ease-in-out; /* Transition effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
-  position: relative; /* Position for pseudo-element */
-  overflow: hidden; /* Hide overflow */
+  background: transparent; /* Transparent background */
+  border: 2px solid #ff4076c6; /* Border with color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  
 }
 
 .clear-button:hover {
-  background-color: #388e3c; /* Darker green on hover */
+  background-color:  #ff4076c6; /* Darker green on hover */
 }
 
 .clear-button:active {
@@ -123,7 +142,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent);
   pointer-events: none; /* Don't interfere with button interactions */
 }
 
@@ -147,25 +165,30 @@
 
 
 .submit-button {
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text color */
-  border: none; /* No border */
-  padding: 12px 24px; /* Padding */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Cursor type */
-  transition: background-color 0.3s ease-in-out; /* Transition effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
-  font-size: 16px; /* Font size */
+  background: transparent; /* Transparent background */
+  border: 2px solid #ff4076c6; /* Border with color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
   margin-left: 130px;
   margin-top: 30px;
+  /* Apply gradient background */
+  
 }
 
+
 .submit-button.enabled {
-  background-color: #4caf50; /* Green background when enabled */
+  background-color:  #ff4076c6; /* Green background when enabled */
 }
 
 .submit-button:hover {
-  background-color: #388e3c; /* Darker green on hover */
+  background-color:  #ff4076c6; /* Darker green on hover */
 }
 
 .submit-button:active {
@@ -174,7 +197,96 @@
 
 
 
-  
+.date-picker-button {
+  background: transparent; /* Transparent background */
+  border: 2px solid #ff4076c6; /* Border with color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+ 
+}
+
+
+.date-picker-button:hover {
+  transform: translateY(-2px); /* Move the button up slightly on hover for 3D effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+  background-color:  #ff4076c6;
+}
+
+
+ /* .date-picker-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: calc(50% - 10px);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #ccc transparent; 
+}  */
 
 
 
+/* .button-3d {
+  background: linear-gradient(to right, white, #ff4076c6);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 rgba(0, 0, 0, 0.19), 
+    inset -4px -4px 10px 0 rgba(255, 255, 255, 0.2); 
+} */
+
+
+.button-3d {
+  background: transparent; /* Transparent background */
+  border: 2px solid #ff4076c6; /* Border with color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+
+}
+.button-3d:hover {
+  background-color:  #ff4076c6; /* Darker green on hover */
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.dot {
+  animation: blink 1.4s infinite both;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+
+.processing{
+
+  margin-top: 900px;
+
+}

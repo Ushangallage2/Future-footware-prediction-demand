@@ -4,10 +4,23 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
+.App {
+  width: 95vw;
+  height: 100vh;
+  display: flex;
+}
 
 body{
   /* background-color: #002952; */
-  background: linear-gradient(245.59deg, #7c8de3 0%, #308ae4 28.53%, #034e8f 75.52%);
+  background: linear-gradient(245.59deg, #5669c7 0%, #09549e 28.53%, #022747 75.52%);
+
+  /* background: linear-gradient(
+    to bottom,
+    rgba(45,104,129,1)5%
+    rgba(30,30,30,1)16%
+    rgba(30,30,30,1)100%
+  );
+  background-repeat: no-repeat; */
 }
 
 
