@@ -794,6 +794,8 @@ const DemandPrediction = () => {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false); // State to track whether date picker is open or closed
   const [daysToFirstDate, setDaysToFirstDate] = useState(0);
   const [daysToLastDate, setDaysToLastDate] = useState(0);
+  const [isProcessing, setIsProcessing] = useState(false);
+
 
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
@@ -879,6 +881,10 @@ const DemandPrediction = () => {
       setWarningMessage('Please choose a model number and select a date range.');
       return;
     }
+
+    setIsProcessing(true); // Start processing
+    setWarningMessage(''); // Clear previous warnings or messages
+
   
     // Base URL for your API
     const apiUrl = 'http://localhost:8080/demandpred/predict';
@@ -929,11 +935,13 @@ const DemandPrediction = () => {
       }));
   
       // Here you can use the results of the API calls
+      console.log("here are all response!")
       console.log("Submission successful:", results);
-      setWarningMessage('Submission successful.');
+      setIsProcessing(false);
     } catch (error) {
       console.error("Error during submission:", error);
       setWarningMessage(`An error occurred: ${error.message}`);
+      setIsProcessing(false);
     }
   };
   
@@ -942,6 +950,29 @@ const DemandPrediction = () => {
   const handleOkButtonClick = () => {
     setIsDatePickerOpen(false); // Close the date picker
   };
+
+  // const customStyles = {
+  //   control: (provided) => ({
+  //     ...provided,
+  //     backgroundColor: 'transparent',
+  //     border: 'none', 
+  //   }),
+  // };
+
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: 'transparent',
+      border: 'none', // Optional: removes the border
+    }),
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: 'transparent',
+      border: '2px solid #ff4076c6'
+    }),
+  };
+
+
 
   return (
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
@@ -959,7 +990,9 @@ const DemandPrediction = () => {
             onInputChange={handleInputChange}
             isLoading={loading}
             placeholder="Select a model number"
+            styles={customStyles}
           />
+
 
           {warningMessage && (
             <div style={{ color: 'red', marginTop: '10px' }}>
@@ -989,11 +1022,22 @@ const DemandPrediction = () => {
           </button>
         </div>
       </div>
+
       <div style={{ position: 'fixed', top: '45px', left: '70%', zIndex: 100 }}>
         <button className="date-picker-button" onClick={toggleDatePicker}>
           {isDatePickerOpen ? ' Date Picker' : ' Date Picker'}
         </button>
       </div>
+
+      {isProcessing && (
+  <div  style={{ color: 'yellow', position:'fixed', marginTop:'400px' ,marginLeft:'750px' , fontSize:'20px'}}>
+    Processing
+    <span className="dot">.</span>
+    <span className="dot">.</span>
+    <span className="dot">.</span>
+  </div>
+)}
+
       {isDatePickerOpen && (
         <div style={{ position: 'absolute', top: '10%', left: '90%', zIndex: 100, backgroundColor: 'rgba(255, 255, 255, 0.2)', borderRadius: '8px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', padding: '20px', fontSize: '12px' }}>
           <DateRangePicker
@@ -1002,15 +1046,13 @@ const DemandPrediction = () => {
             onChange={handleDateChange}
           />
        <button class="button-3d" onClick={handleOkButtonClick}>OK</button>
-          {/* <div>
-            Days to first date: {daysToFirstDate}
-          </div> */}
-          {/* <div>
-            Days to last date: {daysToLastDate}
-          </div> */}
+         
         </div>
       )}
+      
     </div>
+
+
   );
 };
 

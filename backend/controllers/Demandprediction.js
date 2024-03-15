@@ -139,7 +139,8 @@ const predictSales = async (req, res) => {
 
     console.log(sum)
 
-    res.json({ sum }); // Return the sum
+    res.json({ sum , filteredSales }); // Return the sum
+  
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Internal Server Error' });
