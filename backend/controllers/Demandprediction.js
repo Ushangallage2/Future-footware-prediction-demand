@@ -117,7 +117,9 @@ const predictSales = async (req, res) => {
   console.log(req.body);
   const days = req.body.days;
   const shoeModel = req.body.shoe_model;
+  console.log("this is first try!")
   console.log(shoeModel);
+  console.log("this is first try!")
   console.log(days);
   
   try {
@@ -137,7 +139,8 @@ const predictSales = async (req, res) => {
 
     console.log(sum)
 
-    res.json({ sum }); // Return the sum
+    res.json({ sum , filteredSales }); // Return the sum
+  
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Internal Server Error' });
