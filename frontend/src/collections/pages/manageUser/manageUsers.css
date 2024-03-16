@@ -95,3 +95,10 @@ h5{
   margin-left: 30%;
 } 
 
+
+.modal-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
