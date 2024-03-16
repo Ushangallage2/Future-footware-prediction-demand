@@ -1,19 +1,23 @@
-/* .typeWriter-container{
+.typeWriter-container{
   display:flex;
 }
 .username-typewriter {
     position:fixed;
-    margin-left: 33%;
+    margin-left: 50%;
     display: flex;
     top: 15px;
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
+    color: transparent;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9),#ff4076c6);
+    -webkit-background-clip: text; 
+    background-clip: text;
     font-size: 20px;
     font-weight: bold;
-  }  */
+  } 
 
-  .username-typewriter {
+  /* .username-typewriter {
     position: fixed;
-    margin-left: 33%;
+    margin-left: 50%;
     display: flex;
     top: 15px;
     color: transparent;
@@ -24,7 +28,7 @@
     background-clip: text;
     cursor: pointer; 
   }
-  
+   */
   
   
   

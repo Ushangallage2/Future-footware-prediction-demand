@@ -26,6 +26,12 @@
 .react-datepicker__input-container input:hover {
   background-color: #50053b;
 } */
+
+/* .typewriter{
+  margin-left:250px;
+} */
+
+
 .css-b62m3t-container{
  
   border: 2px solid #ff4076c6; /* Border with color */
@@ -148,13 +154,14 @@ background: transparent;
 
 /* Apply mirror shining effect to the Select component */
 .Select {
-  background-color: rgb(202, 124, 124); 
+  background-color: rgb(246, 246, 246); 
   border: 1px solid transparent; 
   border-radius: 5px;
   padding: 10px; 
   box-shadow: 0px 0px 10px rgba(82, 3, 3, 0.5);
   cursor: pointer; 
   transition: box-shadow 0.3s ease-in-out; 
+
  
 }
 
@@ -290,3 +297,5 @@ background: transparent;
   margin-top: 900px;
 
 }
+
+
