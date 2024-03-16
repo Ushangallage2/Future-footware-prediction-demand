@@ -9,6 +9,7 @@ import { Sidebar } from '../../sidebar/sidebar'; // Sidebar component (not shown
 import UsernameTypewriter from '../../components/UsernameTypewriter'; // UsernameTypewriter component (not shown in this snippet)
 
 function ViewReport() {
+
   const [file, setFile] = useState(null); // State to hold the uploaded file
   const [predictions, setPredictions] = useState([]); // State to store prediction results
 
@@ -28,6 +29,7 @@ function ViewReport() {
 
   return (
     <div className="App">
+      <Sidebar />
       <h1>Machine Learning Predictions</h1>
       <input
         type="file"

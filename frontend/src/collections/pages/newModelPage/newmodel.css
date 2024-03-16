@@ -98,15 +98,23 @@ h1{
 .react-datepicker {
     border: 2px solid  #ff4076c6 !important; /* Pink border */
     background-color: rgba(255, 255, 255, 0.1) !important; /* Transparent background */
+
   }
   
   .react-datepicker__triangle {
     display: none; /* Hide the triangle arrow if needed */
   }
   
-  
+.new-model-text{
+left: 350px;
+}
+
+
+  /* .writer{
+    margin-left:250px;
+  }  */
  
   
-  .abc{
+  /* .abc{
     background-image:url(./footwearbg.jpg) ;
-  }
+  } */
