@@ -234,10 +234,10 @@ const DemandPrediction = () => {
               <span className="warning-icon" style={{ marginRight: '5px' }}>⚠️</span>
               {warningMessage}
             </div>
+
+            
           )}
-          {selectedModelImage && (
-            <img src={selectedModelImage} alt="Model" />
-          )}
+
 
           <button
             className="clear-button"
@@ -255,6 +255,14 @@ const DemandPrediction = () => {
           >
             Submit
           </button>
+
+
+          <div className='demand-img'>
+          {selectedModelImage && (
+            <img src={selectedModelImage} alt="Model" />
+          )}
+          </div>
+
         </div>
       </div>
 
@@ -292,3 +300,6 @@ const DemandPrediction = () => {
 };
 
 export default DemandPrediction;
+
+
+

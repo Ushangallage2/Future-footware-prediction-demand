@@ -155,6 +155,11 @@ const NewModel = () => {
   const [dateSelected, setDateSelected] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const [daysToSelectedDate, setDaysToSelectedDate] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
 
   const handleDateChange = (date) => {
     setStartDate(date);
@@ -166,6 +171,10 @@ const NewModel = () => {
     setShowDatePicker(false);
   };
 
+
+  const clearImage = () => {
+    setImageUrl(null);
+  };
   // const generateModel = () => {
   //   if (!dateSelected) {
   //     setShowWarning(true);
@@ -175,51 +184,183 @@ const NewModel = () => {
   //   }
   // };
 
-  const generateModel = () => {
-    if (!dateSelected || !startDate) {
+  // const generateModel = () => {
+  //   const today = new Date();
+  //   if (!startDate || startDate <= today) {
+  //     setShowWarning(true);
+  //   } else {
+  //     setShowWarning(false);
+  //     const timeDifference = startDate - today;
+  //     const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+  //     // Sending API requests for variables A, B, C, D, and E
+  //     const variables = ['A', 'B', 'C', 'D', 'E'];
+  //     variables.forEach(variable => sendApiRequest(variable, daysDifference));
+  //   }
+  // };
+
+
+
+  // const sendApiRequest = async (variable, days) => {
+  //   const apiUrl = 'http://localhost:8080/demandpred/predict'; 
+  //   const data = {
+  //     shoe_model: variable,
+  //     days: days
+  //   };
+
+  //   try {
+  //     const response = await fetch(apiUrl, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error(`Error: ${response.status}`);
+  //     }
+
+  //     const result = await response.json();
+  //     console.log(response)
+  //     console.log(`Success for ${variable}: `, result);
+  //   } catch (error) {
+  //     console.error('Error sending API request:', error);
+  //   }
+  // };
+
+//   const generateModel = async () => {
+//     const today = new Date();
+//     if (!startDate || startDate <= today) {
+//         setShowWarning(true);
+//     } else {
+//         setShowWarning(false);
+//         const timeDifference = startDate - today;
+//         const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+//         // Sending API requests for variables A, B, C, D, and E
+//         const variables = ['A', 'B', 'C', 'D', 'E'];
+//         const results = await Promise.all(variables.map(variable => sendApiRequest(variable, daysDifference)));
+
+//         // Processing the results to find the top 3 shoe models based on the last value of filteredSales
+//         const sortedResults = results
+//             .map(result => ({
+//                 shoe_model: result.shoe_model,
+//                 lastSale: result.filteredSales[result.filteredSales.length - 1]
+//             }))
+//             .sort((a, b) => b.lastSale - a.lastSale)
+//             .slice(0, 3);
+
+//         console.log('Top 3 shoe models:', sortedResults);
+//     }
+// };
+
+const generateModel = async () => {
+  const today = new Date();
+  if (!startDate || startDate <= today) {
       setShowWarning(true);
-    } else {
+  } else {
+      setIsProcessing(true);
       setShowWarning(false);
-      const today = new Date();
+     
       const timeDifference = startDate - today;
       const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-      setDaysToSelectedDate(daysDifference);
 
       // Sending API requests for variables A, B, C, D, and E
       const variables = ['A', 'B', 'C', 'D', 'E'];
-      variables.forEach(variable => sendApiRequest(variable, daysDifference));
-    }
-  };
+      const results = await Promise.all(variables.map(variable => sendApiRequest(variable, daysDifference)));
+
+      // Processing the results to find the top 3 shoe models based on the last value of filteredSales
+      const sortedResults = results
+          .map(result => ({
+              shoe_model: result.shoe_model,
+              lastSale: result.filteredSales[result.filteredSales.length - 1]
+          }))
+          .sort((a, b) => b.lastSale - a.lastSale)
+          .slice(0, 3);
+
+      console.log('Top 3 shoe models:', sortedResults);
+
+      // Assuming you have descriptions for each model
+      const descriptions = {
+          'A': 'This footwear is designed for off-road routes with rugged soles for grip on uneven terrain. They are durable, provide good ankle support, and feature protective toe caps to shield against rocks and debris',
+          'B': 'This footwear is designed for grass fields, featuring a low-cut design for agility and a lightweight synthetic upper for control. They have narrow, elongated spikes on the sole for excellent traction and speed, with a color scheme of black and neon green that symbolizes energy and quick movements, crucial for soccer players',
+          'C': 'This footwear is ideal for a gym or cross-training environment, these shoes offer versatility. They have a supportive design for lateral movements and are durable enough for various activities, from weightlifting to aerobic classes',
+          'D': 'This footwear is Built for pavement and smoother surfaces, these shoes offer more cushioning to absorb the impact of hard surfaces. They are lightweight with a breathable upper and are designed to enhance speed and stability',
+          'E': 'This boots  are designed for cold weather and snow, featuring insulation and waterproofing to keep feet warm and dry. They have a high-top design to prevent snow entry, made from durable materials like leather or synthetic fabric. The boots boast a thick, rugged sole for good traction on icy surfaces, and their color scheme typically includes shades of brown and black, sometimes with fur lining  trim for extra warmth and style'
+      };
+
+      // Getting the descriptions for the top 3 models
+      // const prompt = sortedResults.map(model => descriptions[model.shoe_model]).join(' ');
+      const promptDescriptions = sortedResults.map(model => descriptions[model.shoe_model]).join(' ');
+      const prompt = `${promptDescriptions} ,Based on these descriptions, give me an image of a new shoe model.`;
+      // send this prompt to your API to generate an image
+      sendDescriptionToApi(prompt);
+      setIsProcessing(false);
+  }
+ 
+};
 
 
-
-  const sendApiRequest = async (variable, days) => {
-    const apiUrl = 'http://localhost:8080/demandpred/predict'; 
-    const data = {
-      shoe_model: variable,
-      days: days
-    };
-
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+const sendDescriptionToApi = async (prompt) => {
+  try {
+      const response = await fetch('http://localhost:8080/abc/chat', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ prompt })
       });
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+          throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      const result = await response.json();
-      console.log(`Success for ${variable}: `, result);
-    } catch (error) {
-      console.error('Error sending API request:', error);
-    }
-  };
+      const data = await response.json();
+      setImageUrl(data.imageUrl);
+      console.log("Image URL:", data.imageUrl);
+   
+  } catch (error) {
+      console.error('Error sending description to API:', error);
+  }
+};
 
+
+
+
+
+
+
+
+const sendApiRequest = async (variable, days) => {
+    const apiUrl = 'http://localhost:8080/demandpred/predict'; 
+    const data = {
+        shoe_model: variable,
+        days: days
+    };
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log(`Success for ${variable}: `, result);
+        
+        return { shoe_model: variable, filteredSales: result.filteredSales };
+    } catch (error) {
+        console.error('Error sending API request:', error);
+        return { shoe_model: variable, filteredSales: [] }; // Return an empty array for filteredSales on error
+    }
+};
 
 
 
@@ -257,7 +398,7 @@ const NewModel = () => {
 
       <Sidebar />
       <div className="content">
-        <div className="writer">
+        <div className="writer1" >
           <UsernameTypewriter />
         </div>
         <div className="new-model-text" style={{ position: 'absolute', top: 0, color: 'white', fontSize: '100px' }}>
@@ -265,24 +406,31 @@ const NewModel = () => {
         </div>
         <FontAwesomeIcon icon={faCheckCircle} style={{ color: 'green', marginTop: '75px', marginLeft: '100px' }} />
 
-        <div style={{ position: 'absolute', display: 'flex', alignItems: 'center', marginLeft: '200px', zIndex: 1000 }}>
+        <div style={{ position: 'fixed',  alignItems: 'center',left:'25%', zIndex: 1000 ,marginTop:'10%' }}>
           <div style={{ background: 'transparent', borderRadius: '5px' }}>
-            <button
-              onClick={() => setShowDatePicker(!showDatePicker)}
-              style={{
-                padding: '10px 20px',
-                border: '2px solid #ff4076c6',
-                background: 'transparent',
-                color: 'white',
-                fontSize: '16px',
-                borderRadius: '5px',
-                cursor: 'pointer',
-                marginRight: '100px',
-                width: '200px'
-              }}
-            >
-              Select a date
-            </button>
+          <button
+            onClick={generateModel}
+            style={{
+              padding: '10px 10px',
+              border: '2px solid #ff4076c6',
+              background: 'transparent',
+              color: 'white',
+              fontSize: '16px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              width: '200px'
+            }}
+          >
+            Generate New Model
+          </button>
+          {isProcessing && (
+  <div  style={{ color: 'yellow', position:'fixed', marginTop:'400px' ,marginLeft:'750px' , fontSize:'20px'}}>
+    Processing
+    <span className="dot">.</span>
+    <span className="dot">.</span>
+    <span className="dot">.</span>
+  </div>
+)}
 
             {showDatePicker && (
               <div style={{ position: 'absolute', top: '100%', left: '0', width: 'auto' }}>
@@ -310,24 +458,39 @@ const NewModel = () => {
               </div>
             )}
           </div>
-
           <button
-            onClick={generateModel}
-            style={{
-              padding: '10px 20px',
-              border: '2px solid #ff4076c6',
-              background: 'transparent',
-              color: 'white',
-              fontSize: '16px',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              marginLeft: '40px',
-              width: '200px'
-            }}
-          >
-            Generate New Model
+              onClick={() => setShowDatePicker(!showDatePicker)}
+              style={{
+                padding: '10px 20px',
+                border: '2px solid #ff4076c6',
+                background: 'transparent',
+                color: 'white',
+                fontSize: '16px',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                width: '200px',
+                
+              }}
+            >
+              Select a date
+            </button>
+          {/* {imageUrl && (
+                <div>
+                    <h3>Generated Image:</h3>
+                    <img src={imageUrl} alt="Generated Shoe Model" style={{ maxWidth: '100%', height: 'auto' }} />
+                </div>
+            )} */}  
+        
+    
+     </div>
+     {imageUrl && (
+          <div className="image-window">
+          <img src={imageUrl} alt="Generated Model" />
+          <button onClick={clearImage} className="clr-button">
+            Clear Image
           </button>
         </div>
+      )}
 
         {showWarning && (
           <div style={{ color: 'red', fontSize: '20px', marginTop: '200px',marginLeft:'70px' }}>
@@ -335,6 +498,7 @@ const NewModel = () => {
           </div>
         )}
       </div>
+    
     </div>
   );
 };

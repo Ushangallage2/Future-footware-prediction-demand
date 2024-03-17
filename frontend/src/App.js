@@ -41,7 +41,7 @@ import './collections/pages/loginPage/loginPage.css';
 import Home from './collections/pages/homePage/home';
 import  UserProf  from './collections/pages/userProfile/userprof';
 import { NewModel } from './collections/pages/newModelPage/newmodel';
-import ChatPage from './collections/pages/chatPage/chatPage';
+// import ChatPage from './collections/pages/chatPage/chatPage';
 import React, { useState } from 'react';
 // import { ViewReport } from './collections/pages/viewReport/viewReport';
 import { Testing } from './collections/pages/loginPage/loginPage';
@@ -76,7 +76,7 @@ function App() {
               <Route path='/demandprediction' element={<DemandPrediction />} />
               <Route path='/backgroundVideoPage' element={<BackgroundVideoPage />} />
               <Route path='/userprofile' element={<UserProf />} />
-              <Route path='/chatPage' element={<ChatPage />} />
+              {/* <Route path='/chatPage' element={<ChatPage />} /> */}
               <Route path='/newmodel' element={<NewModel />} />
               <Route path='/manageSalesData' element={<ManageSalesData />} />
               <Route path='/viewReport' element={< ViewReport />} />
