@@ -298,4 +298,75 @@ background: transparent;
 
 }
 
+/* 
+@media (max-width: 768px) {
+  .content {
+      flex-direction: column;
+      align-items: center;
+  }
 
+  .center-container {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .date-picker-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .date-picker-modal {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.clear-button, .submit-button, .date-picker-button, .button-3d {
+  width: 100%;
+  margin-top: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ */
+
+.demand-img{
+  width: 300px;
+  height: 300px;
+  margin-left: 100%;
+  margin-top: 30%;
+  overflow: auto; /* Enables scrolling */
+  scrollbar-width: thin; /* Makes scrollbar thinner */
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Sets scrollbar color and background */
+}
+
+/* For Webkit browsers like Chrome, Safari */
+.demand-img::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+.demand-img::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5); /* Scrollbar color */
+  border-radius: 10px; /* Rounded scrollbar */
+}
+
+.demand-img::-webkit-scrollbar-track {
+  background: transparent; /* Scrollbar track color */
+}
+
+
+.demand-img img {
+  max-width: 100%; /* Ensures the image scales down if larger than the container */
+  height: auto; /* Maintains the aspect ratio of the image */
+}
