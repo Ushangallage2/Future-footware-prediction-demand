@@ -27,8 +27,35 @@ function ViewReport() {
     }
   };
 
+  const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
+  const backgroundimg2 = new URL("../Shoe_Images/bgimg.jpg", import.meta.url);
+
   return (
     <div className="App">
+      <img 
+        src={backgroundimg}
+        alt="Background" 
+        style={{ 
+          position: 'fixed', 
+          width: '20%', 
+          height: '100vh', 
+          objectFit: 'cover', 
+          zIndex: -1
+        }} 
+      />
+
+      <div 
+        style={{ 
+          position: 'fixed',
+          width: '90%', 
+          height: '100vh', 
+          marginLeft: '20%',
+          zIndex: -1,
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
+          backgroundSize: 'cover',
+          opacity: '0.5'
+        }} 
+      ></div>
       <Sidebar />
       <h1>Machine Learning Predictions</h1>
       <input
