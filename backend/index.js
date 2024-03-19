@@ -87,8 +87,9 @@ io.on("connection", (socket) => {
   socket.on("sendMessage" , (data) => {
     console.log("here it is!!!")
     console.log(data)
-
-    socket.broadcast.emit("recieveMessage",data);
+    io.emit("recieveMessage", data);
+    // socket.broadcast.emit("recieveMessage",data);
+    
     })
 
 

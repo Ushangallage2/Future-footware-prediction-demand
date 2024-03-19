@@ -21,7 +21,8 @@ const DemandPrediction = () => {
   const [daysToFirstDate, setDaysToFirstDate] = useState(0);
   const [daysToLastDate, setDaysToLastDate] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
-
+  const [predictedDemand, setPredictedDemand] = useState(0);
+  const [modelDetails, setModelDetails] = useState(null);
 
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
@@ -80,7 +81,7 @@ const DemandPrediction = () => {
           if (!response.ok) {
             throw new Error(`Failed to fetch model image. Status: ${response.status}`);
           }
-
+          console.log(response )
           const blob = await response.blob();
           setSelectedModelImage(URL.createObjectURL(blob));
         } catch (error) {
@@ -92,6 +93,9 @@ const DemandPrediction = () => {
     fetchModelImage();
   }, [selectedOption]);
 
+
+
+
   // const handleSubmit = () => {
   //   if (!selectedOption || !dateRange[0] || !dateRange[1]) {
   //     setWarningMessage('Please choose a model number and select a date range.');
@@ -102,76 +106,166 @@ const DemandPrediction = () => {
   //   }
   // };
 
+  // const handleSubmit = async () => {
+  //   if (!selectedOption || !dateRange[0] || !dateRange[1]) {
+  //     setWarningMessage('Please choose a model number and select a date range.');
+  //     return;
+  //   }
+
+  //   setIsProcessing(true); // Start processing
+  //   setWarningMessage(''); // Clear previous warnings or messages
+
+  
+  //   // Base URL for your API
+  //   const apiUrl = 'http://localhost:8080/demandpred/predict';
+  //   const detailsUrl = `http://localhost:8080/demandpred/modelDetails/${selectedOption.value}`;
+  //   // Prepare the data for the API calls
+  //   const firstDateData = JSON.stringify({
+  //     shoe_model: selectedOption.value,
+  //     days: daysToFirstDate,
+  //   }
+  //   );
+    
+  //   // console.log(days)
+
+  //   const lastDateData = JSON.stringify({
+  //     shoe_model: selectedOption.value,
+  //     days:daysToLastDate,
+  //   });
+  //   // console.log(days)
+  
+  //   // Prepare both API calls
+  //   const apiCalls = [
+  //     fetch(apiUrl, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: firstDateData,
+  //     }),
+  //     fetch(apiUrl, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: lastDateData,
+  //     }),
+  //     fetch(detailsUrl, {
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+       
+  //     }),
+  //   ];
+  
+  //   try {
+  //     // Execute both API calls concurrently
+  //     const responses = await Promise.all(apiCalls);
+  
+  //     // Process responses
+  //     const results = await Promise.all(responses.map(response => {
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! status: ${response.status}`);
+  //       }
+  //       return response.json();
+  //     }));
+  
+  //     // Here you can use the results of the API calls
+  //     console.log("here are all response!")
+  //     console.log("Submission successful:", results);
+
+  //     const sum1 = results[0].sum;
+  //     const sum2 = results[1].sum;
+    
+  //     // Calculate the absolute difference between the sum values
+  //     const sumDifference = Math.abs(sum1 - sum2);
+    
+  //     // Now you can use sumDifference for display or further processing
+  //     console.log("Difference of sums:", sumDifference);
+  //     setPredictedDemand(sumDifference);
+
+
+
+  //     setIsProcessing(false);
+  //   } catch (error) {
+  //     console.error("Error during submission:", error);
+  //     setWarningMessage(`An error occurred: ${error.message}`);
+  //     setIsProcessing(false);
+  //   }
+  // };
+  
   const handleSubmit = async () => {
     if (!selectedOption || !dateRange[0] || !dateRange[1]) {
-      setWarningMessage('Please choose a model number and select a date range.');
-      return;
+        setWarningMessage('Please choose a model number and select a date range.');
+        return;
     }
 
-    setIsProcessing(true); // Start processing
-    setWarningMessage(''); // Clear previous warnings or messages
+    setIsProcessing(true);
+    setWarningMessage('');
 
-  
-    // Base URL for your API
     const apiUrl = 'http://localhost:8080/demandpred/predict';
-  
-    // Prepare the data for the API calls
+    const detailsUrl = `http://localhost:8080/demandpred/getDetails/${selectedOption.value}`;
+
     const firstDateData = JSON.stringify({
-      shoe_model: selectedOption.value,
-      days: daysToFirstDate,
-    }
-    );
-    
-    // console.log(days)
+        shoe_model: selectedOption.value,
+        days: daysToFirstDate,
+    });
 
     const lastDateData = JSON.stringify({
-      shoe_model: selectedOption.value,
-      days:daysToLastDate,
+        shoe_model: selectedOption.value,
+        days: daysToLastDate,
     });
-    // console.log(days)
-  
-    // Prepare both API calls
-    const apiCalls = [
-      fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: firstDateData,
-      }),
-      fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: lastDateData,
-      }),
-    ];
-  
-    try {
-      // Execute both API calls concurrently
-      const responses = await Promise.all(apiCalls);
-  
-      // Process responses
-      const results = await Promise.all(responses.map(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      }));
-  
-      // Here you can use the results of the API calls
-      console.log("here are all response!")
-      console.log("Submission successful:", results);
-      setIsProcessing(false);
-    } catch (error) {
-      console.error("Error during submission:", error);
-      setWarningMessage(`An error occurred: ${error.message}`);
-      setIsProcessing(false);
-    }
-  };
-  
 
+    const apiCalls = [
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: firstDateData,
+        }),
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: lastDateData,
+        }),
+        fetch(detailsUrl)  // Assuming GET request for model details
+    ];
+
+    try {
+        const [firstResponse, lastResponse, detailsResponse] = await Promise.all(apiCalls);
+      
+        const [firstData, lastData] = await Promise.all([
+            firstResponse.json(),
+            lastResponse.json()
+        ]);
+
+        if (!firstResponse.ok || !lastResponse.ok) {
+            throw new Error('Error fetching prediction data');
+        }
+
+        const sumDifference = Math.abs(firstData.sum - lastData.sum);
+        setPredictedDemand(sumDifference);
+        console.log(firstData.sum)
+        console.log(lastData.sum)
+        console.log(sumDifference)
+
+        if (!detailsResponse.ok) {
+            throw new Error('Error fetching model details');
+        }
+
+        const detailsData = await detailsResponse.json();
+        setModelDetails(detailsData);
+        console.log(detailsData )
+        
+        setIsProcessing(false);
+    } catch (error) {
+        console.error("Error during submission:", error);
+        setWarningMessage(`An error occurred: ${error.message}`);
+        setIsProcessing(false);
+    }
+};
+
+  
 
   const handleOkButtonClick = () => {
     setIsDatePickerOpen(false); // Close the date picker

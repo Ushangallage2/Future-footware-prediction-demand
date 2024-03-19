@@ -140,7 +140,7 @@
 // export { NewModel };
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter';
 import DatePicker from 'react-datepicker';
@@ -157,6 +157,7 @@ const NewModel = () => {
   const [daysToSelectedDate, setDaysToSelectedDate] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -172,8 +173,12 @@ const NewModel = () => {
   };
 
 
+  // const clearImage = () => {
+  //   setImageUrl(null);
+  // };
   const clearImage = () => {
     setImageUrl(null);
+    localStorage.removeItem('savedImageUrl'); // Clear the image URL from local storage
   };
   // const generateModel = () => {
   //   if (!dateSelected) {
@@ -255,6 +260,27 @@ const NewModel = () => {
 //     }
 // };
 
+
+
+
+
+useEffect(() => {
+  // Load the image URL from local storage on component mount
+  const savedImageUrl = localStorage.getItem('savedImageUrl');
+  if (savedImageUrl) {
+    setImageUrl(savedImageUrl);
+  }
+}, []);
+
+useEffect(() => {
+  // Save the image URL to local storage whenever it changes
+  if (imageUrl) {
+    localStorage.setItem('savedImageUrl', imageUrl);
+  }
+}, [imageUrl]);
+
+
+
 const generateModel = async () => {
   const today = new Date();
   if (!startDate || startDate <= today) {
@@ -293,10 +319,10 @@ const generateModel = async () => {
       // Getting the descriptions for the top 3 models
       // const prompt = sortedResults.map(model => descriptions[model.shoe_model]).join(' ');
       const promptDescriptions = sortedResults.map(model => descriptions[model.shoe_model]).join(' ');
-      const prompt = `${promptDescriptions} ,Based on these descriptions, give me an image of a new shoe model.`;
+      const prompt = `${promptDescriptions} ,Based on these descriptions, give me  an image of a new shoe model`;
       // send this prompt to your API to generate an image
       sendDescriptionToApi(prompt);
-      setIsProcessing(false);
+      
   }
  
 };
@@ -304,6 +330,7 @@ const generateModel = async () => {
 
 const sendDescriptionToApi = async (prompt) => {
   try {
+      localStorage.removeItem('savedImageUrl');
       const response = await fetch('http://localhost:8080/abc/chat', {
           method: 'POST',
           headers: {
@@ -315,7 +342,7 @@ const sendDescriptionToApi = async (prompt) => {
       if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
+      setIsProcessing(false);
       const data = await response.json();
       setImageUrl(data.imageUrl);
       console.log("Image URL:", data.imageUrl);
@@ -362,6 +389,29 @@ const sendApiRequest = async (variable, days) => {
     }
 };
 
+// useEffect(() => {
+//   if (imageUrl) {
+//     const timer = setTimeout(() => {
+//       setShowButton(true);
+//     }, 2000);
+
+//     return () => clearTimeout(timer);
+//   }
+// }, [imageUrl]);
+useEffect(() => {
+  if (imageUrl) {
+    // Set a timeout to show the button after 2 seconds
+    const timer = setTimeout(() => {
+      setShowButton(true);
+    }, 2000); 
+
+    return () => {
+      clearTimeout(timer); // Clear the timer when the component unmounts or imageUrl changes
+    };
+  } else {
+    setShowButton(false); // Hide the button if imageUrl is not set
+  }
+}, [imageUrl]); // This effect runs only when imageUrl changes
 
 
 
@@ -405,11 +455,20 @@ const sendApiRequest = async (variable, days) => {
           NEW MODEL 
         </div>
         <FontAwesomeIcon icon={faCheckCircle} style={{ color: 'green', marginTop: '75px', marginLeft: '100px' }} />
-
+        {isProcessing && (
+          
+       <div  style={{ color: 'yellow', position:'fixed', marginTop:'10%' ,marginLeft:'20%' , fontSize:'20px' , zIndex:'1001'}}>
+    Processing
+    <span className="dot">.</span>
+    <span className="dot">.</span>
+    <span className="dot">.</span>
+       </div>
+              )}
         <div style={{ position: 'fixed',  alignItems: 'center',left:'25%', zIndex: 1000 ,marginTop:'10%' }}>
           <div style={{ background: 'transparent', borderRadius: '5px' }}>
-          <button
+          <button 
             onClick={generateModel}
+            disabled={isProcessing} 
             style={{
               padding: '10px 10px',
               border: '2px solid #ff4076c6',
@@ -423,15 +482,6 @@ const sendApiRequest = async (variable, days) => {
           >
             Generate New Model
           </button>
-          {isProcessing && (
-  <div  style={{ color: 'yellow', position:'fixed', marginTop:'400px' ,marginLeft:'750px' , fontSize:'20px'}}>
-    Processing
-    <span className="dot">.</span>
-    <span className="dot">.</span>
-    <span className="dot">.</span>
-  </div>
-)}
-
             {showDatePicker && (
               <div style={{ position: 'absolute', top: '100%', left: '0', width: 'auto' }}>
                 <DatePicker
@@ -483,14 +533,38 @@ const sendApiRequest = async (variable, days) => {
         
     
      </div>
-     {imageUrl && (
+     {/* {imageUrl && (
           <div className="image-window">
           <img src={imageUrl} alt="Generated Model" />
           <button onClick={clearImage} className="clr-button">
             Clear Image
           </button>
         </div>
+      )} */}
+      {imageUrl && (
+  <div className="image-window">
+    <img src={imageUrl} alt="Generated Model" />
+    <button onClick={clearImage} className="clr-button">
+      Clear Image
+    </button>
+    {showButton && (
+        <a href={imageUrl} download="generated_model.png" style={{ display: 'block', marginTop: '10px' }}>
+          <button style={{
+            padding: '10px 20px',
+            border: '1px solid #007bff',
+            background: '#007bff',
+            color: 'white',
+            fontSize: '16px',
+            borderRadius: '5px',
+            cursor: 'pointer'
+          }}>
+            View Image
+          </button>
+        </a>
       )}
+  </div>
+)}
+
 
         {showWarning && (
           <div style={{ color: 'red', fontSize: '20px', marginTop: '200px',marginLeft:'70px' }}>
@@ -501,7 +575,16 @@ const sendApiRequest = async (variable, days) => {
     
     </div>
   );
+
+
+
+
 };
+
+
+
+
+
 
 export { NewModel };
 
@@ -585,3 +668,4 @@ export { NewModel };
 
 // export { NewModel };
 
+ 

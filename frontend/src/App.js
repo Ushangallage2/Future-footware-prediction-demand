@@ -42,7 +42,7 @@ import Home from './collections/pages/homePage/home';
 import  UserProf  from './collections/pages/userProfile/userprof';
 import { NewModel } from './collections/pages/newModelPage/newmodel';
 // import ChatPage from './collections/pages/chatPage/chatPage';
-import React, { useState } from 'react';
+import React, { useContext,useState , useEffect} from 'react';
 // import { ViewReport } from './collections/pages/viewReport/viewReport';
 import { Testing } from './collections/pages/loginPage/loginPage';
 import DemandPrediction from './collections/pages/demandPrediction/demandPrediction';
@@ -54,6 +54,8 @@ import { BackgroundVideoPage } from './collections/pages/userProfile/backgroundV
 import ViewReport from './collections/pages/viewReport/viewReport';
 import { PrivateRoutes } from './PrivateRoutes';
 import io from 'socket.io-client';
+import { SocketProvider } from './collections/pages/manageUser/SocketContext';
+import SocketContext from './collections/pages/manageUser/SocketContext';
 // import DemandPrediction from './collections/pages/demandPrediction/demandPrediction';
 const socket = io.connect("http://localhost:8080");
 
@@ -61,13 +63,27 @@ const socket = io.connect("http://localhost:8080");
 
 function App() {
 
+  
+  useEffect(() => {
+    if (socket) {
+      socket.on("recieveMessage", (data) => {
+        console.log(data);
+        alert(data.message);  // Alerting to all the users but the sender
+      });
 
-
+      // Clean up the event listener when the component unmounts
+      return () => {
+        socket.off("recieveMessage");
+      };
+    }
+  }, [socket]);
+  
 
 
   return (
     <UserProvider>
       <div className="App">
+      
         <BrowserRouter>
           <Routes>
           <Route path='/' element={<Home  />} />
@@ -84,6 +100,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
+      
       </div>
     </UserProvider>
   );
