@@ -349,6 +349,7 @@ img {
   overflow: auto; /* Enables scrolling */
   scrollbar-width: thin; /* Makes scrollbar thinner */
   scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Sets scrollbar color and background */
+  
 }
 
 /* For Webkit browsers like Chrome, Safari */

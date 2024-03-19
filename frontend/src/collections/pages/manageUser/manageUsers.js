@@ -98,8 +98,38 @@ function ManageUsers() {
     }
   };
 
+  const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
+  const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
+
   return (
+
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
+    <img 
+      src={backgroundimg}
+      alt="Background" 
+      style={{ 
+        position: 'fixed', 
+        width: '19.3%', 
+        height: '100vh', 
+        objectFit: 'cover', 
+        zIndex: -1
+      }} 
+    />
+
+    <div 
+      style={{ 
+        position: 'fixed',
+        width: '90%', 
+        height: '100vh', 
+        marginLeft: '19.5%',
+        zIndex: -1,
+        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
+        backgroundSize: 'cover',
+        opacity: '0.5'
+      }} 
+    ></div>
+
+    {/* <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}> */}
       <Sidebar />
       <div className="form-container">
         <div className="writer">
@@ -119,7 +149,9 @@ function ManageUsers() {
           </button>
         </div>
 
+        <div className="fadein">
         <Table col={col} />
+      </div>
       </div>
     </div>
   );
