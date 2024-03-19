@@ -1,6 +1,6 @@
 
 
-import React, { useEffect, useState } from 'react';
+import React, {  useContext,useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import './manageUsers.css';
 import '../../../App.css';
@@ -8,6 +8,7 @@ import Table from './materialtable';
 import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter'; 
 import io from 'socket.io-client'; 
+import SocketContext from './SocketContext';
 
 function ManageUsers() {
   const col = [
@@ -20,6 +21,7 @@ function ManageUsers() {
     { field: "role", title: "Role" },
   ];
 
+ 
   const [newMessage, setNewMessage] = useState('');
 
   const token = localStorage.getItem('token');
@@ -27,17 +29,34 @@ function ManageUsers() {
 
   const socket = io.connect('http://localhost:8080');
 
-  useEffect(() => {
-    socket.on("recieveMessage", (data) => {
-      console.log(data);
-      alert(data.message);  // coming back from BE and alerting to all the users but the sender
-    });
+  // useEffect(() => {
+  //   socket.on("recieveMessage", (data) => {
+  //     console.log(data);
+  //     alert(data.message);  // coming back from BE and alerting to all the users but the sender
+  //   });
 
-    // Clean up the Socket.IO connection when the component unmounts
-    return () => {
-      socket.disconnect();
-    };
-  }, [socket]);
+  //   // Clean up the Socket.IO connection when the component unmounts
+  //   return () => {
+  //     socket.disconnect();
+  //   };
+  // }, [socket]);
+
+  // const socket = useContext(SocketContext);
+
+  // useEffect(() => {
+  //   if (socket) {
+  //     socket.on("recieveMessage", (data) => {
+  //       console.log(data);
+  //       alert(data.message);  // Alerting to all the users but the sender
+  //     });
+
+  //     // Clean up the event listener when the component unmounts
+  //     return () => {
+  //       socket.off("recieveMessage");
+  //     };
+  //   }
+  // }, [socket]);
+
 
   const handleSendMessage = async () => {
     try {
