@@ -2,22 +2,23 @@ import "./ReportTable.css";
 import fakeData from "./MOCK_DATA.json";
 import * as React from "react";
 import { useTable } from "react-table";
+import jsPDF from "jspdf";
 
 function ReportTable() {
   const data = React.useMemo(() => fakeData, []);
   const columns = React.useMemo(
     () => [
       {
-        Header: " Model ID",
-        accessor: "model id",
+        Header: "Model ID",
+        accessor: "model_id",
       },
       {
         Header: "Predicted time range",
-        accessor: "predicted time range",
+        accessor: "predicted_time_range",
       },
       {
-        Header: "No of demand forcasted",
-        accessor: "no of shoes forcasted",
+        Header: "No of demand forecasted",
+        accessor: "no_of_shoes_forecasted",
       },
     ],
     []
@@ -30,6 +31,22 @@ function ReportTable() {
   const handleRowClick = (row) => {
     // You can implement your logic here, such as navigating to a detail page
     console.log("Row clicked:", row.original);
+    generatePDF(row.original);
+  };
+
+  // Function to generate PDF
+  const generatePDF = (rowData) => {
+    const doc = new jsPDF();
+    const keys = Object.keys(rowData);
+    const values = Object.values(rowData);
+    const tableData = keys.map((key, index) => [key, values[index]]);
+
+    doc.autoTable({
+      head: [["Attribute", "Value"]],
+      body: tableData,
+    });
+
+    doc.save("report.pdf");
   };
 
   return (

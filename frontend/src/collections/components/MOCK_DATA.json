@@ -1,47 +1,44 @@
 [
   {
-    "model id": 495,
-    "predictedtime": "Florette",
-    "last_name": "Powelee",
-    "email": "fpoweleedq@nyu.edu",
-    "gender": "Genderflumodel id",
-    "university": "Al Ahlia University"
+    "model_id": 495,
+    "predicted_time_range": "Florette",
+    "no_of_shoes_forecasted": "Powelee"
   },
   {
-    "model id": 496,
-    "predictedtime": "Bobine",
-    "last_name": "Fmodel iddian",
-    "email": "bfmodel iddiandr@ucla.edu",
+    "model_id": 496,
+    "first_name": "Bobine",
+    "last_name": "Fmodel_iddian",
+    "email": "bfmodel_iddiandr@ucla.edu",
     "gender": "Female",
-    "university": "Irbmodel id National University"
+    "university": "Irbmodel_id National University"
   },
   {
-    "model id": 497,
-    "predictedtime": "Murial",
+    "model_id": 497,
+    "first_name": "Murial",
     "last_name": "Bunt",
     "email": "mbuntds@nba.com",
     "gender": "Female",
     "university": "Divine Word College of Legazpi"
   },
   {
-    "model id": 498,
-    "predictedtime": "Daniella",
+    "model_id": 498,
+    "first_name": "Daniella",
     "last_name": "Gabrieli",
-    "email": "dgabrielmodel idt@msu.edu",
+    "email": "dgabrielmodel_idt@msu.edu",
     "gender": "Female",
     "university": "Universiteit Doesburg (UNDO)"
   },
   {
-    "model id": 499,
-    "predictedtime": "Ignaz",
-    "last_name": "Shoubrmodel idge",
-    "email": "ishoubrmodel idgedu@fotki.com",
+    "model_id": 499,
+    "first_name": "Ignaz",
+    "last_name": "Shoubrmodel_idge",
+    "email": "ishoubrmodel_idgedu@fotki.com",
     "gender": "Male",
     "university": "Davis and Elkins College"
   },
   {
-    "model id": 500,
-    "predictedtime": "Sonia",
+    "model_id": 500,
+    "first_name": "Sonia",
     "last_name": "Courtes",
     "email": "scourtesdv@independent.co.uk",
     "gender": "Agender",
