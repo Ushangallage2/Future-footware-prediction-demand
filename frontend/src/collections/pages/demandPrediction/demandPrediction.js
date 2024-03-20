@@ -365,13 +365,6 @@ const DemandPrediction = () => {
   }),
 }
 
-    
-  const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
-  const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
-
-
-
-
   const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
   const backgroundimg2 = new URL("../Shoe_Images/bgimg.jpg", import.meta.url);
 
