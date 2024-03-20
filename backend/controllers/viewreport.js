@@ -1,38 +1,23 @@
-const db = require("../db");
-const PDFDocument = require("pdfkit");
-const fs = require("fs");
+// database.js
 
-function viewReports(req, res) {
-  const reports = db.getReports();
+const db = require("./db"); // Import the MySQL connection pool from db.js
 
-  // Create a new PDF document
-  const doc = new PDFDocument();
+// Function to fetch data from the database
+const fetchDataFromDatabase = (callback) => {
+  // SQL query to fetch data
+  const sqlQuery = "SELECT * FROM your_table_name";
 
-  // Pipe the PDF document to a writable stream
-  const stream = fs.createWriteStream("reports.pdf");
-  doc.pipe(stream);
+  // Execute SQL query
+  db.query(sqlQuery, (error, results, fields) => {
+    if (error) {
+      console.error("Error executing SQL query:", error);
+      callback(error, null);
+      return;
+    }
 
-  // Add content to the PDF document
-  doc.fontSize(20).text("Reports", { align: "center" }).moveDown();
-  reports.forEach((report) => {
-    doc.fontSize(14).text(`Title: ${report.title}`).moveDown();
-    doc.fontSize(12).text(`Content: ${report.content}`).moveDown();
+    // Send the fetched data to the callback function
+    callback(null, results);
   });
-
-  // End the PDF document
-  doc.end();
-
-  // Respond with a success message
-  res.send("PDF generated successfully");
-}
-
-function getModelNumber(req, res) {
-  const { modelNumber } = req.body;
-  const modelData = db.getModelData(modelNumber);
-  res.json(modelData);
-}
-
-module.exports = {
-  viewReports,
-  getModelNumber,
 };
+
+module.exports = { fetchDataFromDatabase };

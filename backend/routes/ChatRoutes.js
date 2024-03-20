@@ -37,11 +37,11 @@
 
 // const openai = new OpenAIApi(configuration);
 
-// router.post("/chat", sendAllChatController);
-const express = require("express");
-const router = express.Router();
-const { sendMessage } = require("../controllers/chatController");
+// // router.post("/chat", sendAllChatController);
+// const express = require("express");
+// const router = express.Router();
+// const { sendMessage } = require("../controllers/chatController");
 
-router.post("/send-message", sendMessage);
+// router.post("/send-message", sendMessage);
 
-module.exports = router;
+// module.exports = router;
