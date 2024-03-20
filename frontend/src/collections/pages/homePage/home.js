@@ -1,12 +1,3 @@
-// // import React from 'react';
-// import React, { Component } from "react";
-// import ScrollReveal from "scrollreveal";
-// // import { Sidebar } from '../../sidebar/sidebar';
-// import './home.css';
-// import "boxicons/css/boxicons.min.css";
-// import 'remixicon/fonts/remixicon.css'
-// import fti from './fti.png';
-
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
@@ -41,9 +32,11 @@ const Home = () => {
 
     const navigateToLoginPage = () => {
         navigate("/loginPage");
+     
     }
 
     return (
+        
         <>
             <header>
                 <img src={fdfs} alt="logo" className="logo" />
@@ -59,7 +52,7 @@ const Home = () => {
                 </div>
 
                 <div className="hero-img">
-                    <img src={fti} alt="card image" className="card-image1" />
+                    <img src={fti} alt="card_image" className="card-image1" />
                 </div>
             </section>
         </>

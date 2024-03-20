@@ -1,0 +1,373 @@
+
+
+/* 
+.react-datepicker {
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3); 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
+}
+
+
+.react-datepicker__input-container input {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #120237; 
+  color: white;
+  cursor: pointer; 
+  transition: background-color 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+
+
+
+.react-datepicker__input-container input:hover {
+  background-color: #50053b;
+} */
+
+/* .typewriter{
+  margin-left:250px;
+} */
+
+
+.css-b62m3t-container{
+ 
+  border: 2px solid #ff4076c6; /* Border with color */
+ 
+
+  border-radius: 8px;
+
+
+
+}
+
+
+.react-datepicker {
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(33, 4, 88, 0.4); /* Transparent white background */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for 3D effect */
+ 
+}
+
+.react-datepicker__input-container{
+  margin-left: 0px;
+ 
+}
+
+.center-container class1{
+
+background: transparent;
+
+}
+
+
+
+
+/* Add 3D button effect to the date select button */
+.react-datepicker__input-container input {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); /* Mirror-like gradient background */
+  color: rgb(27, 5, 72);
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s ease-in-out;
+  /* Add box shadow for 3D effect */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+.react-datepicker__input-container input:hover {
+  background-color: #ff4076c6; 
+}
+
+
+.custom-datepicker {
+ font-weight:400;
+  color: black;
+}
+
+
+
+.content{
+
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+
+/* .clear-button {
+  background-color: #4caf50; 
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease-in-out; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.clear-button:hover {
+  background-color: #388e3c; 
+}
+
+.clear-button:active {
+  transform: translateY(2px); 
+} */
+.clear-button {
+  background: transparent; /* Transparent background */
+  border: 2px solid #ff4076c6; /* Border with color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  
+}
+
+.clear-button:hover {
+  background-color:  #ff4076c6; /* Darker green on hover */
+}
+
+.clear-button:active {
+  transform: translateY(2px); /* Push the button down when clicked */
+}
+
+
+.clear-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Don't interfere with button interactions */
+}
+
+
+/* Apply mirror shining effect to the Select component */
+.Select {
+  background-color: rgb(246, 246, 246); 
+  border: 1px solid transparent; 
+  border-radius: 5px;
+  padding: 10px; 
+  box-shadow: 0px 0px 10px rgba(82, 3, 3, 0.5);
+  cursor: pointer; 
+  transition: box-shadow 0.3s ease-in-out; 
+
+ 
+}
+
+.Select:hover {
+  box-shadow: 0px 0px 20px rgb(148, 56, 56); /* Increase shadow on hover for shining effect */
+}
+
+
+
+.submit-button {
+  background: transparent; /* Transparent background */
+  border: 2px solid #ff4076c6; /* Border with color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-left: 130px;
+  margin-top: 30px;
+  /* Apply gradient background */
+  
+}
+
+
+.submit-button.enabled {
+  background-color:  #ff4076c6; /* Green background when enabled */
+}
+
+.submit-button:hover {
+  background-color:  #ff4076c6; /* Darker green on hover */
+}
+
+.submit-button:active {
+  transform: translateY(2px); /* Push the button down when clicked */
+}
+
+
+
+.date-picker-button {
+  background: transparent; /* Transparent background */
+  border: 2px solid #ff4076c6; /* Border with color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+ 
+}
+
+
+.date-picker-button:hover {
+  transform: translateY(-2px); /* Move the button up slightly on hover for 3D effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+  background-color:  #ff4076c6;
+}
+
+
+ /* .date-picker-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: calc(50% - 10px);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #ccc transparent; 
+}  */
+
+
+
+/* .button-3d {
+  background: linear-gradient(to right, white, #ff4076c6);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 rgba(0, 0, 0, 0.19), 
+    inset -4px -4px 10px 0 rgba(255, 255, 255, 0.2); 
+} */
+
+
+.button-3d {
+  background: transparent; /* Transparent background */
+  border: 2px solid #ff4076c6; /* Border with color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+
+}
+.button-3d:hover {
+  background-color:  #ff4076c6; /* Darker green on hover */
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.dot {
+  animation: blink 1.4s infinite both;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+
+.processing{
+
+  margin-top: 900px;
+
+}
+
+/* 
+@media (max-width: 768px) {
+  .content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .center-container {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .date-picker-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .date-picker-modal {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.clear-button, .submit-button, .date-picker-button, .button-3d {
+  width: 100%;
+  margin-top: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ */
+
+.demand-img{
+  width: 300px;
+  height: 300px;
+  margin-left: 100%;
+  margin-top: 30%;
+  overflow: auto; /* Enables scrolling */
+  scrollbar-width: thin; /* Makes scrollbar thinner */
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Sets scrollbar color and background */
+  
+}
+
+/* For Webkit browsers like Chrome, Safari */
+.demand-img::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+.demand-img::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5); /* Scrollbar color */
+  border-radius: 10px; /* Rounded scrollbar */
+}
+
+.demand-img::-webkit-scrollbar-track {
+  background: transparent; /* Scrollbar track color */
+}
+
+
+.demand-img img {
+  max-width: 100%; /* Ensures the image scales down if larger than the container */
+  height: auto; /* Maintains the aspect ratio of the image */
+}

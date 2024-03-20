@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "boxicons": "^2.1.4",
+    "jwt-decode": "^4.0.0",
+    "react-router-dom": "^6.22.0",
+    "remixicon": "^4.1.0",
+    "scrollreveal": "^4.0.9"
+  }
+}

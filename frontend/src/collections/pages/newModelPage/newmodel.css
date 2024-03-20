@@ -1,0 +1,209 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+
+.react-datepicker {
+  border: 2px solid  #ff4076c6 !important; /* Pink border */
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Transparent background */
+
+}
+
+.react-datepicker__triangle {
+  display: none; /* Hide the triangle arrow if needed */
+}
+
+.new-model-text{
+left: 350px;
+}
+
+
+
+.dot {
+  animation: blink 1s step-start  infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.clr-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 9px #999;
+}
+
+.clr-button:hover {
+  background-color: #0069d9;
+}
+
+.clr-button:active {
+  background-color: #0069d9;
+ 
+  transform: translateY(4px);
+}
+
+
+.image-window {
+  width: 360px;
+  height: 400px;
+  margin-left: 100%;
+  margin-top: 20%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  overflow-y: auto; /* Enables vertical scrolling */
+  scrollbar-width: thin; /* Makes scrollbar thinner */
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Sets scrollbar color and background */
+}
+
+/* For Webkit browsers like Chrome, Safari */
+.image-window::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+.image-window::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5); /* Scrollbar color */
+  border-radius: 10px; /* Rounded scrollbar */
+}
+
+.image-window::-webkit-scrollbar-track {
+  background: transparent; /* Scrollbar track color */
+}
+
+
+.image-window img {
+  max-width: 100%; /* Ensures the image scales down if larger than the container */
+  height: auto; /* Maintains the aspect ratio of the image */
+}
+
+.clr-button {
+  position: fixed; /* Position the button inside the container */
+  bottom: 20px; /* Position from the bottom of the container */
+  left: 20%; /* Position from the left of the container */
+  /* Add your button styles here */
+}
+
+
+.writer1{
+margin-right: 2%;
+}
+
+
+
+   /* .image-window {
+    width: 350px; 
+    height: 350px; 
+  
+    margin-left: 100%;
+    margin-top: 20%;
+
+  } */
+  /* .model-container{
+    display:block;
+    width: 55%;
+    height: auto;
+    margin: 2%;
+    margin-left: 10%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.726);
+    border-color: black;
+    border-radius: 20px;
+}
+h1{
+    color: white;
+    margin: 3%;
+    margin-left: 35%;
+}
+.searchButton{
+    margin-left: 60px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.661);
+    background: rgba(255, 255, 255, 0.08);
+    border: 2.5px solid #ff39b0e7;
+    padding: 10px 25px;
+    line-height: 1;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: all .55s ease;
+}
+
+.searchButton:hover{
+    background: transparent;
+    color: #cc4395e8;
+  }
+
+  .searchButton:active{
+    color:rgb(142, 43, 255);
+    scale: 95%;
+  }
+
+  p{
+    color: white;
+    margin-top: 9%;
+    margin-left: 40px;
+  }
+.old-models{
+    display:contents;
+    flex-direction:row;
+    align-items: center;
+}
+
+.pic1{
+    width: 250px;
+    border: 3px solid #00000000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 35px;
+    transition: 0.3s;
+    background-color: #1e64aa;
+    margin-top: 25px;   
+    margin-left: 70px;
+    margin-bottom: 30px;
+    padding: 30px;
+}.pic2{
+    width: 264px;
+    border: 3px solid #00000000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 35px;
+    transition: 0.3s;
+    background-color: #1e64aa;
+    margin-left: 60px;
+    margin-bottom: 30px;
+}.pic3{
+    width: 250px;
+    border: 3px solid #00000000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 35px;
+    transition: 0.3s;
+    background-color: #1e64aa;
+    margin-left: 70px;
+    padding: 28px;
+}.pic4{
+    width: 255px;
+    border: 3px solid #00000000;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 35px;
+    transition: 0.3s;
+    background-color: #1e64aa;
+    margin-left: 60px;
+    padding: 30px;
+} */
+ /* .writer{
+    margin-left:250px;
+  }  */
+ 
+  
+  /* .abc{
+    background-image:url(./footwearbg.jpg) ;
+  } */
