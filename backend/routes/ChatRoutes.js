@@ -1,35 +1,27 @@
-const { Configuration, OpenAIApi } = require("openai");
+// const { Configuration, OpenAIApi } = require("openai");
 
-const express = require("express");
-const router = express.Router();
-const dotenv = require('dotenv');
-const { sendAllChatController } = require('../controllers/ChatRoutes');
+// const express = require("express");
+// const router = express.Router();
+// const dotenv = require('dotenv');
+// const { sendAllChatController } = require('../controllers/ChatRoutes');
 
-dotenv.config();
+// dotenv.config();
 
+// const OpenAI = require ("openai");
 
-const OpenAI = require ("openai");
-
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-  });
-  
-// const configuration = new Configuration({
+// const openai = new OpenAI({
 //     apiKey: process.env.OPENAI_API_KEY,
-// });
+//   });
 
-// const openai = new OpenAIApi(configuration);
-  
-  router.post("/chat", sendAllChatController );
-  
-  
+// // const configuration = new Configuration({
+// //     apiKey: process.env.OPENAI_API_KEY,
+// // });
 
-  
-  module.exports = router;
+// // const openai = new OpenAIApi(configuration);
 
+//   router.post("/chat", sendAllChatController );
 
-
-
+//   module.exports = router;
 
 // const { Configuration, OpenAIApi } = require('openai');
 // const express = require("express");
@@ -46,7 +38,10 @@ const openai = new OpenAI({
 // const openai = new OpenAIApi(configuration);
 
 // router.post("/chat", sendAllChatController);
+const express = require("express");
+const router = express.Router();
+const { sendMessage } = require("../controllers/chatController");
 
+router.post("/send-message", sendMessage);
 
-
-
+module.exports = router;
