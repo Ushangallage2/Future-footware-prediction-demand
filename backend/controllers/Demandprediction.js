@@ -157,6 +157,7 @@ const predictSales = async (req, res) => {
       .map(([value]) => Math.round(value)) // Round each number
       .filter(value => value >= 0); // Filter out numbers less than 0
     
+      
     // Calculate the sum of filteredSales
     const sum = filteredSales.reduce((acc, curr) => acc + curr, 0);
 
