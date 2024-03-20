@@ -342,10 +342,11 @@ img {
  */
 
 .demand-img{
+
   width: 300px;
   height: 300px;
-  margin-left: 100%;
-  margin-top: 30%;
+margin-left: 10%;
+ margin-top: 45%;
   overflow: auto; /* Enables scrolling */
   scrollbar-width: thin; /* Makes scrollbar thinner */
   scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Sets scrollbar color and background */
@@ -368,6 +369,28 @@ img {
 
 
 .demand-img img {
-  max-width: 100%; /* Ensures the image scales down if larger than the container */
-  height: auto; /* Maintains the aspect ratio of the image */
+  max-width: 20%; 
+  height: auto; 
+
+  position: fixed;
+
+}
+
+/* .r-container{
+margin-right: 40%;
+
+} */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.r-container {
+  animation: fadeIn 2s ease-out;
+  position: fixed;
+  margin-top: 2%;
 }

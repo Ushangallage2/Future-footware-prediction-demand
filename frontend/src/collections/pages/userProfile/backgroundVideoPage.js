@@ -180,8 +180,32 @@ const BackgroundVideoPage = () => {
     departmentRole: 'Department',
   };
 
+
+  const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
+
+
+
   return (
-    <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}>
+     
+  
+  <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}> 
+    <img 
+      src={backgroundimg}
+      alt="Background" 
+      style={{ 
+        position: 'fixed', 
+        width: '19.3%', 
+        height: '100vh', 
+        objectFit: 'cover', 
+        zIndex: -1
+      }} 
+    />
+
+
+
+{/* 
+     <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}> */}
+
       <Sidebar />
 
       <div className="username-typewriter">
