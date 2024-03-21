@@ -1,4 +1,4 @@
-name: node-js
+name: Node.js CI
 
 on:
   push:
@@ -11,11 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3 # Updated to latest version
     - name: Use Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3 # Updated to latest version
       with:
-        node-version: '14'
+        node-version: '16' # Updated Node.js version to 16, adjust as per your project's compatibility
+        cache: 'npm' # Cache dependencies to speed up workflows
     - name: Install Dependencies
       run: npm install
     - name: Run Tests
