@@ -122,6 +122,8 @@ app.use("/abc", chatRoutes);
 const userProf = require("./routes/userprof");
 app.use("/profile", userProf);
 
+const report = require("./routes/report");
+app.use("/report", report);
 
 app.use(express.static('public'));
 

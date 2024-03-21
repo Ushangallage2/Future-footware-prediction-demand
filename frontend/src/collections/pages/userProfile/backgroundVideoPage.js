@@ -28,6 +28,7 @@ const BackgroundVideoPage = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
 
+
   const handleTogglePlay = () => {
     const video = videoRef.current;
     if (video) {
@@ -219,7 +220,7 @@ const BackgroundVideoPage = () => {
           loop
           muted
           className="video-element"
-          style={{ marginLeft:'20%', width: '80%', height: '30%', objectFit: 'cover', opacity: "0.8" }}
+          style={{ width: '100%', height: '40%', objectFit: 'cover', opacity: "0.8" }}
         >
           <source src={Backgroundvid} type="video/mp4" />
           Your browser does not support the video tag.
