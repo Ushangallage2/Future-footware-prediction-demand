@@ -194,7 +194,7 @@ const BackgroundVideoPage = () => {
       alt="Background" 
       style={{ 
         position: 'fixed', 
-        width: '19.3%', 
+        width: '20%', 
         height: '100vh', 
         objectFit: 'cover', 
         zIndex: -1
@@ -206,20 +206,20 @@ const BackgroundVideoPage = () => {
 {/* 
      <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}> */}
 
-      <Sidebar />
+      
 
       <div className="username-typewriter">
         <UsernameTypewriter />
       </div>
-
       <div className="background-video-page">
+      <Sidebar/>
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           className="video-element"
-          style={{ width: '80.5%', height: '40%', objectFit: 'cover', opacity: "0.8" }}
+          style={{ marginLeft:'20%', width: '80%', height: '30%', objectFit: 'cover', opacity: "0.8" }}
         >
           <source src={Backgroundvid} type="video/mp4" />
           Your browser does not support the video tag.
