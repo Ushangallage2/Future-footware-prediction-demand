@@ -29,6 +29,7 @@
     "material-table": "^1.69.3",
     "openai": "^3.3.0",
     "react": "^18.2.0",
+    "react-daisyui": "^5.0.0",
     "react-date-range": "^2.0.0-alpha.4",
     "react-datepicker": "^6.3.0",
     "react-dom": "^18.2.0",
@@ -69,5 +70,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }

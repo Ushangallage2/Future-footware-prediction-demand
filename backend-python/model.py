@@ -53,5 +53,5 @@ model.compile(optimizer='adam', loss='mse')
 
 
 # Train the model
-model.fit(X_train, y_train, epochs=700, batch_size=32, verbose=2)
+model.fit(X_train, y_train, epochs=100, batch_size=32, verbose=2)
 model.save("./lstm_model_e.h5")
