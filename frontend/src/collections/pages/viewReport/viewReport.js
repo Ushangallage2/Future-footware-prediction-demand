@@ -1,9 +1,10 @@
+
 import React from 'react';
 import '../../../App.css';
 import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter';
 
-const ViewReport = () => {
+const viewReports= () => {
 
 
 
@@ -50,4 +51,4 @@ const ViewReport = () => {
   );
 };
 
-export default ViewReport;
+export default viewReports;

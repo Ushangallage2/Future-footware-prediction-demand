@@ -442,7 +442,7 @@ useEffect(() => {
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',
-          opacity: '0.5'
+          opacity:'0.7'
         }} 
       ></div>
 
@@ -470,6 +470,7 @@ useEffect(() => {
             onClick={generateModel}
             disabled={isProcessing} 
             style={{
+             
               padding: '10px 10px',
               border: '2px solid #ff4076c6',
               background: 'transparent',

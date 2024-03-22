@@ -23,7 +23,7 @@ const DemandPrediction = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   // const [predictedDemand, setPredictedDemand] = useState(0);
   // const [modelDetails, setModelDetails] = useState(null);
-
+  const [tempDateRange, setTempDateRange] = useState([null, null]);
 
 
   // Load initial state from local storage if available
@@ -99,7 +99,34 @@ const DemandPrediction = () => {
     setWarningMessage('');
 };
 
+// const handleDateChange = (ranges) => {
+//   setTempDateRange([ranges.selection.startDate, ranges.selection.endDate]);
+//   setWarningMessage('');
+// };
+// const handleOkButtonClick = () => {
+//   const [startDate, endDate] = tempDateRange;
 
+//   if (!startDate || !endDate) {
+//     setWarningMessage('Please select both start and end dates.');
+//     setIsDatePickerOpen(false); // Keep the date picker open for correction
+//     return;
+//   }
+
+//   if (startDate.getTime() === endDate.getTime()) {
+//     setWarningMessage('Please select a date range, not just a single date.');
+//     setIsDatePickerOpen(false); // Keep the date picker open for correction
+//     return;
+//   }
+
+//   if (endDate < startDate) {
+//     setWarningMessage('End date cannot be earlier than start date.');
+//     setIsDatePickerOpen(false); // Keep the date picker open for correction
+//     return;
+//   }
+
+//   setDateRange([startDate, endDate]);
+//   setIsDatePickerOpen(false); // Close the date picker after validation
+// };
 
 
 
@@ -426,6 +453,7 @@ console.log(reportData)
   const handleOkButtonClick = () => {
     setIsDatePickerOpen(false); // Close the date picker
   };
+  
 
   // const handleClearSelection = () => {
   //   // Reset state variables to their initial values
@@ -665,6 +693,7 @@ console.log(reportData)
             minDate={tomorrow} // Set minDate to tomorrow
             ranges={[{ startDate: dateRange[0], endDate: dateRange[1], key: 'selection' }]}
             onChange={handleDateChange}
+           
           />
           <button class="button-3d" onClick={handleOkButtonClick}>OK</button>
         </div>

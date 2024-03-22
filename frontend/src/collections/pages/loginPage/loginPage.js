@@ -134,8 +134,9 @@ import { jwtDecode } from 'jwt-decode';
 import "./loginPage.css";
 
 
-const successSound = new Audio(require('./loginbutton.mp3'));
 const alertSound = new Audio(require('./alertsound.mp3'));
+
+const successSound = new Audio(require('./loginbutton.mp3'));
 
 export function Testing() {
   const Navigate = useNavigate();

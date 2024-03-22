@@ -25,7 +25,24 @@ function ManageUsers() {
   const [newMessage, setNewMessage] = useState('');
 
   const token = localStorage.getItem('token');
-  const { id } = jwtDecode(token);
+
+  let id = null;
+
+
+  // const { id } = jwtDecode(token);
+
+  if (token && typeof token === 'string') {
+    try {
+      const decoded = jwtDecode(token);
+      id = decoded.id;
+    } catch (error) {
+      console.error('Invalid token:', error);
+      // Handle the invalid token case (e.g., redirect to login or show an error)
+    }
+  } else {
+    console.error('No token found or token is not a string');
+    // Handle the case where no token is found or token is not a string
+  }
 
   const socket = io.connect('http://localhost:8080');
 
@@ -66,6 +83,15 @@ function ManageUsers() {
         alert('Please enter a message before sending.');
         return;
       }
+
+
+
+       // Ensure id is not null or undefined before proceeding
+    if (!id) {
+      console.error('Invalid user ID. Cannot send the message.');
+      alert('Invalid user ID. Cannot send the message.');
+      return;
+    }
 
       // Emit a message event to the Socket.IO server
       socket.emit('sendMessage', { message: newMessage, senderId: id });
