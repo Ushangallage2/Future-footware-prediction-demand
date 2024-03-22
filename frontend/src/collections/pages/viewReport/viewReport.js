@@ -1,11 +1,11 @@
 
 
-import React from 'react';
-import '../../../App.css';
-import { Sidebar } from '../../sidebar/sidebar';
-import UsernameTypewriter from '../../components/UsernameTypewriter';
+// import React from 'react';
+// import '../../../App.css';
+// import { Sidebar } from '../../sidebar/sidebar';
+// import UsernameTypewriter from '../../components/UsernameTypewriter';
 
-const viewReports= () => {
+// const viewReports= () => {
 
 
 // src/collections/pages/viewReport/ViewReport.js
