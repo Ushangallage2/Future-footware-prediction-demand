@@ -1,5 +1,13 @@
 
 
+// import React from 'react';
+// import '../../../App.css';
+// import { Sidebar } from '../../sidebar/sidebar';
+// import UsernameTypewriter from '../../components/UsernameTypewriter';
+
+// const viewReports= () => {
+
+
 // src/collections/pages/viewReport/ViewReport.js
 
 import React, { useState } from 'react';
@@ -27,31 +35,44 @@ function ViewReport() {
     }
   };
 
+  const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
+  const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
+
   return (
     <div className="App">
-      <Sidebar />
-      <h1>Machine Learning Predictions</h1>
-      <input
-        type="file"
-        accept=".csv" // Accept CSV files (adjust as needed)
-        onChange={(e) => setFile(e.target.files[0])} // Update file state when a file is selected
+      <img 
+        src={backgroundimg}
+        alt="Background" 
+        style={{ 
+          position: 'fixed', 
+          width: '19.5%', 
+          height: '100vh', 
+          objectFit: 'cover', 
+          zIndex: -1
+        }} 
       />
-      <button onClick={handleFileUpload}>Upload Data</button> {/* Trigger file upload */}
 
-      {predictions.length > 0 && (
-        <div>
-          <h2>Predictions:</h2>
-          <ul>
-            {/* Display prediction results */}
-            {predictions.map((prediction, index) => (
-              <li key={index}>{prediction}</li>
-            ))}
-          </ul>
+      <div 
+        style={{ 
+          position: 'fixed',
+          width: '90%', 
+          height: '100vh', 
+          marginLeft: '19.5%',
+          zIndex: -1,
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
+          backgroundSize: 'cover',
+          opacity: '0.5'
+        }} 
+      ></div>
+      <Sidebar />
+      <div className="content">
+      <UsernameTypewriter style={{ position: 'fixed', top: '5px', right: '5px', color: 'yellow', fontSize: '16px', fontWeight: 'bold' }} />
+        <div className="username-typewriter">
         </div>
-      )}
+        <h1 style={{ textAlign: 'center' }}>Coming Soon!</h1>
+      </div>
     </div>
   );
-}
+};
 
-export default ViewReport;
-
+export default  ViewReport;

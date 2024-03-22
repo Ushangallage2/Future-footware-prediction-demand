@@ -33,7 +33,9 @@ const updateModelImage = async (imageNumber, modelImage) => {
 
 
   const getImageByModelNumber = async (modelNumber) => {
-    const queryString = 'SELECT modelImage FROM modeldetails WHERE modelNumber = ?';
+    // const queryString = 'SELECT modelImage FROM modeldetails WHERE modelNumber = ?';
+    const queryString = 'SELECT modelImage, size, category FROM modeldetails WHERE modelNumber = ?';
+
   
     try {
       const result = await query(queryString, [modelNumber]);
@@ -49,9 +51,26 @@ const updateModelImage = async (imageNumber, modelImage) => {
   };
 
 
+  // 'SELECT modelImage, size, category FROM modeldetails WHERE modelNumber = ?';
 
+  const getModelDetails = async (modelNumber) => {
+   
+    
+    const queryString = 'SELECT  modelNumber ,size, category FROM modeldetails WHERE modelNumber = ?';
 
-
+  
+    try {
+      const [result] = await query(queryString, [modelNumber]);
+      if (result) {
+          return result; // Return the entire row of model details
+      } else {
+          throw new Error('Model details not found');
+      }
+  } catch (error) {
+      console.log('Error fetching model details:', error);
+      throw new Error('Internal Server Error');
+  }
+  };
 
 
 
@@ -106,4 +125,4 @@ const SalesCount = async (days,shoeModel) => {
 
 
 
-module.exports = {  getImageByModelNumber,updateModelImage ,getAllModels ,  SalesCount};
+module.exports = {  getImageByModelNumber,updateModelImage ,getAllModels ,  SalesCount, getModelDetails};

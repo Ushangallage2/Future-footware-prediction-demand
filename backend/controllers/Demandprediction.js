@@ -1,8 +1,9 @@
 
 
 
-const { getAllModels } = require('../service/Demandprediction');
+const { getAllModels, getModelDetails } = require('../service/Demandprediction');
 const { updateModelImage,getImageByModelNumber,SalesCount} = require('../service/Demandprediction');
+
 
 
 
@@ -80,6 +81,30 @@ const uploadImageController = (req, res) => {
   };
 
 
+  const getDetailsController = async (req, res) => {
+    const { modelNumber } = req.params;
+    console.log(modelNumber)
+
+    try {
+        // Get the model details by modelNumber
+        const modelDetails = await getModelDetails(modelNumber);
+       console.log(modelDetails , "yes it is")
+        // Check if model details are found
+        if (!modelDetails) {
+            return res.status(404).json({ error: 'Model details not found' });
+        }
+
+        // Send the model details as a response
+        res.json(modelDetails);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'An error occurred while fetching model details' });
+    }
+};
+
+
+
+
 
 
 const getAllModelsController = async (req, res) => {
@@ -132,6 +157,8 @@ const predictSales = async (req, res) => {
       .map(([value]) => Math.round(value)) // Round each number
       .filter(value => value >= 0); // Filter out numbers less than 0
     
+      console.log(filteredSales)
+      console.log("+++++!!+++")
     // Calculate the sum of filteredSales
     const sum = filteredSales.reduce((acc, curr) => acc + curr, 0);
 
@@ -154,7 +181,7 @@ const predictSales = async (req, res) => {
 
 module.exports = {uploadImageController,getImageController,
  
-  getAllModelsController, predictSales
+  getAllModelsController, predictSales,getDetailsController 
 };
 
 
