@@ -44,7 +44,7 @@ const UsernameTypewriter = ({ onClick }) => {
   }, [currentUser?.username]); // Dependency array contains currentUser.username
 
   return (
-    <a href="./userprofile" onClick={onClick}>
+    <a href="./backgroundVideoPage" onClick={onClick}>
       <div className='typeWriter-container'>
         <div className="username-typewriter">
           <Typewriter

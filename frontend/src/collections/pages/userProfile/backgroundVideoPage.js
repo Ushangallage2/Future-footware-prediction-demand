@@ -664,7 +664,7 @@ const BackgroundVideoPage = () => {
       alt="Background" 
       style={{ 
         position: 'fixed', 
-        width: '19.3%', 
+        width: '20%', 
         height: '100vh', 
         objectFit: 'cover', 
         zIndex: -1
@@ -676,13 +676,13 @@ const BackgroundVideoPage = () => {
 {/* 
      <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}> */}
 
-      <Sidebar />
+      
 
       <div className="username-typewriter">
         <UsernameTypewriter />
       </div>
-
       <div className="background-video-page">
+      <Sidebar/>
         <video
           ref={videoRef}
           autoPlay
