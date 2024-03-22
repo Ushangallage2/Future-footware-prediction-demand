@@ -1,4 +1,4 @@
-name: Node.js CI
+name: node-js CI
 
 on:
   push:
@@ -10,16 +10,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [14.x]
+
     steps:
-    - uses: actions/checkout@v3 # Updated to latest version
-    - name: Use Node.js
-      uses: actions/setup-node@v3 # Updated to latest version
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
       with:
-        node-version: '16' # Updated Node.js version to 16, adjust as per your project's compatibility
-        cache: 'npm' # Cache dependencies to speed up workflows
-    - name: Install Dependencies
-      run: npm install
-    - name: Run Tests
-      run: npm test
-    - name: Build
-      run: npm run build
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm test
+      env:
+        CI: true
