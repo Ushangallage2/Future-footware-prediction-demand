@@ -18,7 +18,8 @@ body{
 
 .sidebar {
   height: 100%;
-  width: 300px;
+  /* width: 300px; */
+  width: 20%;
   background-image: linear-gradient(to right, #002952 1%,#ff4076c6 125%);
   border: 0.1px solid rgba(0, 42, 255, 0);
 }

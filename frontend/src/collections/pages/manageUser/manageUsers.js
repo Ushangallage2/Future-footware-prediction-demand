@@ -124,38 +124,35 @@ function ManageUsers() {
     }
   };
 
-  const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
-  const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
-
+  const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
+  const backgroundimg2 = new URL("../Shoe_Images/bgimg.jpg", import.meta.url);
   return (
 
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
-    <img 
-      src={backgroundimg}
-      alt="Background" 
-      style={{ 
-        position: 'fixed', 
-        width: '19.3%', 
-        height: '100vh', 
-        objectFit: 'cover', 
-        zIndex: -1
-      }} 
-    />
+      <img 
+        src={backgroundimg}
+        alt="Background" 
+        style={{ 
+          position: 'fixed', 
+          width: '20%', 
+          height: '100vh', 
+          objectFit: 'cover', 
+          zIndex: -1
+        }} 
+      />
 
-    <div 
-      style={{ 
-        position: 'fixed',
-        width: '90%', 
-        height: '100vh', 
-        marginLeft: '19.5%',
-        zIndex: -1,
-        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
-        backgroundSize: 'cover',
-        opacity: '0.5'
-      }} 
-    ></div>
-
-    {/* <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}> */}
+      <div 
+        style={{ 
+          position: 'fixed',
+          width: '90%', 
+          height: '100vh', 
+          marginLeft: '20%',
+          zIndex: -1,
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
+          backgroundSize: 'cover',
+          opacity: '0.5'
+        }} 
+      ></div>
       <Sidebar />
       <div className="form-container">
         <div className="writer">

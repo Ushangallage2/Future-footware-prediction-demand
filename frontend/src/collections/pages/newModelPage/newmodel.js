@@ -416,8 +416,8 @@ useEffect(() => {
 
 
 
-  const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
-  const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
+  const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
+  const backgroundimg2 = new URL("../Shoe_Images/bgimg.jpg", import.meta.url);
 
   return (
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
@@ -426,7 +426,8 @@ useEffect(() => {
         alt="Background" 
         style={{ 
           position: 'fixed', 
-          width: '19.3%', 
+          // width: '19.3%',
+          width: '20%',
           height: '100vh', 
           objectFit: 'cover', 
           zIndex: -1
@@ -438,7 +439,8 @@ useEffect(() => {
           position: 'fixed',
           width: '90%', 
           height: '100vh', 
-          marginLeft: '19.5%',
+          // marginLeft: '19.5%',
+          marginLeft: '20%',
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',
@@ -451,7 +453,7 @@ useEffect(() => {
         <div className="writer1" >
           <UsernameTypewriter />
         </div>
-        <div className="new-model-text" style={{ position: 'absolute', top: 0, color: 'white', fontSize: '100px' }}>
+        <div className="new-model-text" style={{ position: 'absolute', top: '3%', color: 'white', fontSize: '100px',marginRight: '60%' }}>
           NEW MODEL 
         </div>
         <FontAwesomeIcon icon={faCheckCircle} style={{ color: 'green', marginTop: '75px', marginLeft: '100px' }} />
@@ -470,7 +472,9 @@ useEffect(() => {
             onClick={generateModel}
             disabled={isProcessing} 
             style={{
+
              
+
               padding: '10px 10px',
               border: '2px solid #ff4076c6',
               background: 'transparent',
@@ -512,6 +516,7 @@ useEffect(() => {
           <button
               onClick={() => setShowDatePicker(!showDatePicker)}
               style={{
+                margin: '10px',
                 padding: '10px 20px',
                 border: '2px solid #ff4076c6',
                 background: 'transparent',

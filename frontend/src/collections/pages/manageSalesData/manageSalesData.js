@@ -7,6 +7,7 @@ import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter';
 
 
+
 const ManageSalesData  = () => {
 
   const col = [
@@ -17,13 +18,14 @@ const ManageSalesData  = () => {
 
 
 
-  const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
-  const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
+  const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
+  const backgroundimg2 = new URL("../Shoe_Images/bgimg.jpg", import.meta.url);
 
 
   return (
 
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
+
     <img 
       src={backgroundimg}
       alt="Background" 
@@ -48,6 +50,7 @@ const ManageSalesData  = () => {
         opacity: '0.5'
       }} 
     ></div>
+
       <Sidebar />
       <div className="content">
       <UsernameTypewriter style={{ position: 'fixed', top: '5px', right: '5px', color: 'yellow', fontSize: '16px', fontWeight: 'bold' }} />
