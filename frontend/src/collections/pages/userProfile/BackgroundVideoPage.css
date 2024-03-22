@@ -17,6 +17,10 @@
   left: 100px;
 }
 
+.sidebar {
+  height: 100vh;
+}
+
 .background-video-page {
   width: 100vw;
   height: 100vh;
@@ -223,4 +227,3 @@
  margin-right: 310px; /* Adjust the font size for the "id" field */
   /* Add any additional styles for the "id" field here */
 }
-
