@@ -439,8 +439,8 @@ useEffect(() => {
           position: 'fixed',
           width: '90%', 
           height: '100vh', 
-          // marginLeft: '19.5%',
-          marginLeft: '20%',
+          marginLeft: '19.5%',
+        
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',

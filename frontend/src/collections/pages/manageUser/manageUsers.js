@@ -129,6 +129,7 @@ function ManageUsers() {
   return (
 
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
+        
       <img 
         src={backgroundimg}
         alt="Background" 
@@ -153,7 +154,7 @@ function ManageUsers() {
           opacity: '0.5'
         }} 
       ></div>
-      <Sidebar />
+    <Sidebar />
       <div className="form-container">
         <div className="writer">
           <UsernameTypewriter />
