@@ -42,7 +42,7 @@ function ReportTable() {
     const tableData = keys.map((key, index) => [key, values[index]]);
 
     doc.autoTable({
-      head: [["Attribute", "Value"]],
+      head: [["decription", "results"]],
       body: tableData,
     });
 
