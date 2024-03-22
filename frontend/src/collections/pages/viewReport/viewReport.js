@@ -75,4 +75,4 @@ function ViewReport() {
   );
 };
 
-export default viewReports;
+export default  ViewReport;
