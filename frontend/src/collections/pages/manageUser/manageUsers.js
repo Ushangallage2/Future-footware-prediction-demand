@@ -118,6 +118,7 @@ import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter'; 
 import io from 'socket.io-client'; 
 import SocketContext from './SocketContext';
+import SocketContext from './SocketContext';
 
 function ManageUsers() {
   const col = [
@@ -131,9 +132,29 @@ function ManageUsers() {
   ];
 
  
+
+ 
   const [newMessage, setNewMessage] = useState('');
 
   const token = localStorage.getItem('token');
+
+  let id = null;
+
+
+  // const { id } = jwtDecode(token);
+
+  if (token && typeof token === 'string') {
+    try {
+      const decoded = jwtDecode(token);
+      id = decoded.id;
+    } catch (error) {
+      console.error('Invalid token:', error);
+      // Handle the invalid token case (e.g., redirect to login or show an error)
+    }
+  } else {
+    console.error('No token found or token is not a string');
+    // Handle the case where no token is found or token is not a string
+  }
 
   let id = null;
 
@@ -160,6 +181,33 @@ function ManageUsers() {
   //     console.log(data);
   //     alert(data.message);  // coming back from BE and alerting to all the users but the sender
   //   });
+  // useEffect(() => {
+  //   socket.on("recieveMessage", (data) => {
+  //     console.log(data);
+  //     alert(data.message);  // coming back from BE and alerting to all the users but the sender
+  //   });
+
+  //   // Clean up the Socket.IO connection when the component unmounts
+  //   return () => {
+  //     socket.disconnect();
+  //   };
+  // }, [socket]);
+
+  // const socket = useContext(SocketContext);
+
+  // useEffect(() => {
+  //   if (socket) {
+  //     socket.on("recieveMessage", (data) => {
+  //       console.log(data);
+  //       alert(data.message);  // Alerting to all the users but the sender
+  //     });
+
+  //     // Clean up the event listener when the component unmounts
+  //     return () => {
+  //       socket.off("recieveMessage");
+  //     };
+  //   }
+  // }, [socket]);
 
   //   // Clean up the Socket.IO connection when the component unmounts
   //   return () => {
@@ -190,6 +238,17 @@ function ManageUsers() {
       if (newMessage.trim() === '') {
         // Show an alert or handle the empty message case accordingly
         alert('Please enter a message before sending.');
+        return;
+      }
+
+
+
+       // Ensure id is not null or undefined before proceeding
+    if (!id) {
+      console.error('Invalid user ID. Cannot send the message.');
+      alert('Invalid user ID. Cannot send the message.');
+      return;
+    }
         return;
       }
 
@@ -283,7 +342,9 @@ function ManageUsers() {
         </div>
 
         <div className="fadein">
+        <div className="fadein">
         <Table col={col} />
+      </div>
       </div>
       </div>
     </div>

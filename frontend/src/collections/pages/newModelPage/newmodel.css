@@ -1,10 +1,117 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+
+.react-datepicker {
+  border: 2px solid  #ff4076c6 !important; /* Pink border */
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Transparent background */
+
+}
+
+.react-datepicker__triangle {
+  display: none; /* Hide the triangle arrow if needed */
+}
+
+.new-model-text{
+/* left: 350px; */
+left: 25%;
+}
+
+
+
+.dot {
+  animation: blink 1s step-start  infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
-/* .model-container{
+}
+.clr-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 9px #999;
+}
+
+.clr-button:hover {
+  background-color: #0069d9;
+}
+
+.clr-button:active {
+  background-color: #0069d9;
+ 
+  transform: translateY(4px);
+}
+
+
+.image-window {
+  width: 360px;
+  height: 400px;
+  margin-left: 100%;
+  margin-top: 20%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  overflow-y: auto; /* Enables vertical scrolling */
+  scrollbar-width: thin; /* Makes scrollbar thinner */
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Sets scrollbar color and background */
+}
+
+/* For Webkit browsers like Chrome, Safari */
+.image-window::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+.image-window::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5); /* Scrollbar color */
+  border-radius: 10px; /* Rounded scrollbar */
+}
+
+.image-window::-webkit-scrollbar-track {
+  background: transparent; /* Scrollbar track color */
+}
+
+
+.image-window img {
+  max-width: 100%; /* Ensures the image scales down if larger than the container */
+  height: auto; /* Maintains the aspect ratio of the image */
+}
+
+.clr-button {
+  position: fixed; /* Position the button inside the container */
+  bottom: 20px; /* Position from the bottom of the container */
+  left: 20%; /* Position from the left of the container */
+  /* Add your button styles here */
+}
+
+
+.writer1{
+margin-right: 2%;
+}
+
+
+   /* .image-window {
+    width: 350px; 
+    height: 350px; 
+  
+    margin-left: 100%;
+    margin-top: 20%;
+
+  } */
+  /* .model-container{
     display:block;
     width: 55%;
     height: auto;
@@ -92,25 +199,7 @@ h1{
     margin-left: 60px;
     padding: 30px;
 } */
-
-
-
-.react-datepicker {
-    border: 2px solid  #ff4076c6 !important; /* Pink border */
-    background-color: rgba(255, 255, 255, 0.1) !important; /* Transparent background */
-
-  }
-  
-  .react-datepicker__triangle {
-    display: none; /* Hide the triangle arrow if needed */
-  }
-  
-.new-model-text{
-left: 350px;
-}
-
-
-  /* .writer{
+ /* .writer{
     margin-left:250px;
   }  */
  
@@ -118,86 +207,3 @@ left: 350px;
   /* .abc{
     background-image:url(./footwearbg.jpg) ;
   } */
-  .dot {
-    animation: blink 1s step-start  infinite;
-  }
-  
-  @keyframes blink {
-    50% {
-      opacity: 0;
-    }
-  }
-  .clr-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 9px #999;
-  }
-  
-  .clr-button:hover {
-    background-color: #0069d9;
-  }
-  
-  .clr-button:active {
-    background-color: #0069d9;
-   
-    transform: translateY(4px);
-  }
-
-  /* .image-window {
-    width: 350px; 
-    height: 350px; 
-  
-    margin-left: 100%;
-    margin-top: 20%;
-
-  } */
-  .image-window {
-    width: 360px;
-    height: 370px;
-    margin-left: 100%;
-    margin-top: 20%;
-    overflow: auto; /* Enables scrolling */
-    scrollbar-width: thin; /* Makes scrollbar thinner */
-    scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Sets scrollbar color and background */
-  }
-  
-  /* For Webkit browsers like Chrome, Safari */
-  .image-window::-webkit-scrollbar {
-    width: 8px; /* Scrollbar width */
-  }
-  
-  .image-window::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.5); /* Scrollbar color */
-    border-radius: 10px; /* Rounded scrollbar */
-  }
-  
-  .image-window::-webkit-scrollbar-track {
-    background: transparent; /* Scrollbar track color */
-  }
-  
-  
-  .image-window img {
-    max-width: 100%; /* Ensures the image scales down if larger than the container */
-    height: auto; /* Maintains the aspect ratio of the image */
-  }
-  
-  .clr-button {
-    position: fixed; /* Position the button inside the container */
-    bottom: 20px; /* Position from the bottom of the container */
-    left: 20%; /* Position from the left of the container */
-    /* Add your button styles here */
-  }
-  
-
-  .writer1{
- margin-right: 2%;
-  }

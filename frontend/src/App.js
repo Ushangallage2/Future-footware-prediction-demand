@@ -61,8 +61,21 @@
 
 // function App() {
 
+  
+  useEffect(() => {
+    if (socket) {
+      socket.on("recieveMessage", (data) => {
+        console.log(data);
+        alert(data.message);  // Alerting to all the users but the sender
+      });
 
-
+      // Clean up the event listener when the component unmounts
+      return () => {
+        socket.off("recieveMessage");
+      };
+    }
+  }, [socket]);
+  
 
 
 //   return (

@@ -985,6 +985,7 @@ const Table = (props) => {
     //                 dataToUpdate.password = await bcrypt.hash(newUser.password, 10);
     //             }
     //             await makeApiRequest(http://localhost:8080/user/editUser/${editUser.id}, 'PUT', dataToUpdate);
+    //             await makeApiRequest(http://localhost:8080/user/editUser/${editUser.id}, 'PUT', dataToUpdate);
     //             setOpenModal(false);
     //             fetchUsers();
     //         } catch (error) {
@@ -1052,12 +1053,18 @@ const Table = (props) => {
     return (
         <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             <div className="container-fluid calculated-bodywidth" style={{marginTop:'8%', marginLeft:'3%', width: '100%'}} id="bla">
+            <div className="container-fluid calculated-bodywidth" style={{marginTop:'8%', marginLeft:'3%', width: '100%'}} id="bla">
                 <div className="row gutters mt-3">
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" >
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" >
                         <div className="card h-100" id="contentcard">
                             <div className="card-body">
+                            <div className="card-body">
                                 <h5>Manage Users</h5>
                                 <MaterialTable
+                                    components={{ 
+                                        Container: (props) => <Paper {...props} elevation={0} style={{ borderRadius: '10px' ,backgroundColor: '#14498f', color: 'white'}} />,
+                                        Toolbar: () => ( 
                                     components={{ 
                                         Container: (props) => <Paper {...props} elevation={0} style={{ borderRadius: '10px' ,backgroundColor: '#14498f', color: 'white'}} />,
                                         Toolbar: () => ( 
@@ -1167,6 +1174,7 @@ const Table = (props) => {
             >
                 <Fade in={openModal}>
                     <div style={{ backgroundColor: 'rgba(119, 180, 250, 0.966)', padding: '20px', borderRadius: '10px', maxWidth: '400px', margin: 'auto', marginTop: '10%' }}>
+                    <div style={{ backgroundColor: 'rgba(119, 180, 250, 0.966)', padding: '20px', borderRadius: '10px', maxWidth: '400px', margin: 'auto', marginTop: '10%' }}>
                         <h3>{editUser ? 'Edit User' : 'Add New User'}</h3>
                         {/* Render input fields for adding/editing a user */}
                         <TextField
@@ -1242,6 +1250,9 @@ const Table = (props) => {
                             <Button onClick={handleCloseModal} color="primary" style={{ marginRight: '10px' }}>
                                 Cancel
                             </Button>
+                            { <Button onClick={editUser ? handleSaveEditedUser : handleAddUser} color="primary" disabled={
+                                !newUser.fName || !newUser.lName || !newUser.email || !newUser.role || !newUser.username || !newUser.password || error.email || error.password
+                            } >
                             { <Button onClick={editUser ? handleSaveEditedUser : handleAddUser} color="primary" disabled={
                                 !newUser.fName || !newUser.lName || !newUser.email || !newUser.role || !newUser.username || !newUser.password || error.email || error.password
                             } >

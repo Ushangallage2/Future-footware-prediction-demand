@@ -157,6 +157,7 @@ export function Sidebar() {
   return (
     <div className='sidebar'>
       <img className='slidebarIcon' src={logo} alt="logo" style={{marginTop:'-1.5%' ,left:'20px'}} />
+      <img className='slidebarIcon' src={logo} alt="logo" style={{marginTop:'-1.5%' ,left:'20px'}} />
       <ul className='sidebarList'>
         {sidebarData.map((val, key) => (
           <li

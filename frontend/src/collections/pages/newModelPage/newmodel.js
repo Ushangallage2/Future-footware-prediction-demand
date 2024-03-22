@@ -603,6 +603,7 @@ const NewModel = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -621,8 +622,12 @@ const NewModel = () => {
   // const clearImage = () => {
   //   setImageUrl(null);
   // };
+  // const clearImage = () => {
+  //   setImageUrl(null);
+  // };
   const clearImage = () => {
     setImageUrl(null);
+    localStorage.removeItem('savedImageUrl'); // Clear the image URL from local storage
     localStorage.removeItem('savedImageUrl'); // Clear the image URL from local storage
   };
   // const generateModel = () => {
@@ -726,6 +731,27 @@ useEffect(() => {
 
 
 
+
+
+
+
+useEffect(() => {
+  // Load the image URL from local storage on component mount
+  const savedImageUrl = localStorage.getItem('savedImageUrl');
+  if (savedImageUrl) {
+    setImageUrl(savedImageUrl);
+  }
+}, []);
+
+useEffect(() => {
+  // Save the image URL to local storage whenever it changes
+  if (imageUrl) {
+    localStorage.setItem('savedImageUrl', imageUrl);
+  }
+}, [imageUrl]);
+
+
+
 const generateModel = async () => {
   const today = new Date();
   if (!startDate || startDate <= today) {
@@ -765,8 +791,10 @@ const generateModel = async () => {
       // const prompt = sortedResults.map(model => descriptions[model.shoe_model]).join(' ');
       const promptDescriptions = sortedResults.map(model => descriptions[model.shoe_model]).join(' ');
       const prompt = `${promptDescriptions} ,Based on these descriptions, give me  an image of a new shoe model`;
+      const prompt = `${promptDescriptions} ,Based on these descriptions, give me  an image of a new shoe model`;
       // send this prompt to your API to generate an image
       sendDescriptionToApi(prompt);
+      
       
   }
  
@@ -775,6 +803,7 @@ const generateModel = async () => {
 
 const sendDescriptionToApi = async (prompt) => {
   try {
+      localStorage.removeItem('savedImageUrl');
       localStorage.removeItem('savedImageUrl');
       const response = await fetch('http://localhost:8080/abc/chat', {
           method: 'POST',
@@ -787,6 +816,7 @@ const sendDescriptionToApi = async (prompt) => {
       if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
       }
+      setIsProcessing(false);
       setIsProcessing(false);
       const data = await response.json();
       setImageUrl(data.imageUrl);
@@ -886,9 +916,11 @@ useEffect(() => {
           height: '100vh', 
           marginLeft: '19.5%',
         
+        
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',
+          opacity:'0.7'
           opacity:'0.7'
         }} 
       ></div>
@@ -898,6 +930,7 @@ useEffect(() => {
         <div className="writer1" >
           <UsernameTypewriter />
         </div>
+        <div className="new-model-text" style={{ position: 'absolute', top: '3%', color: 'white', fontSize: '100px',marginRight: '60%' }}>
         <div className="new-model-text" style={{ position: 'absolute', top: '3%', color: 'white', fontSize: '100px',marginRight: '60%' }}>
           NEW MODEL 
         </div>
@@ -911,12 +944,26 @@ useEffect(() => {
     <span className="dot">.</span>
        </div>
               )}
+        {isProcessing && (
+          
+       <div  style={{ color: 'yellow', position:'fixed', marginTop:'10%' ,marginLeft:'20%' , fontSize:'20px' , zIndex:'1001'}}>
+    Processing
+    <span className="dot">.</span>
+    <span className="dot">.</span>
+    <span className="dot">.</span>
+       </div>
+              )}
         <div style={{ position: 'fixed',  alignItems: 'center',left:'25%', zIndex: 1000 ,marginTop:'10%' }}>
           <div style={{ background: 'transparent', borderRadius: '5px' }}>
           <button 
+          <button 
             onClick={generateModel}
             disabled={isProcessing} 
+            disabled={isProcessing} 
             style={{
+
+             
+
 
              
 
@@ -962,6 +1009,7 @@ useEffect(() => {
               onClick={() => setShowDatePicker(!showDatePicker)}
               style={{
                 margin: '10px',
+                margin: '10px',
                 padding: '10px 20px',
                 border: '2px solid #ff4076c6',
                 background: 'transparent',
@@ -985,12 +1033,38 @@ useEffect(() => {
     
      </div>
      {/* {imageUrl && (
+     {/* {imageUrl && (
           <div className="image-window">
           <img src={imageUrl} alt="Generated Model" />
           <button onClick={clearImage} className="clr-button">
             Clear Image
           </button>
         </div>
+      )} */}
+      {imageUrl && (
+  <div className="image-window">
+    <img src={imageUrl} alt="Generated Model" />
+    <button onClick={clearImage} className="clr-button">
+      Clear Image
+    </button>
+    {showButton && (
+        <a href={imageUrl} download="generated_model.png" style={{ display: 'block', marginTop: '10px' }}>
+          <button style={{
+            padding: '10px 20px',
+            border: '1px solid #007bff',
+            background: '#007bff',
+            color: 'white',
+            fontSize: '16px',
+            borderRadius: '5px',
+            cursor: 'pointer'
+          }}>
+            View Image
+          </button>
+        </a>
+      )}
+  </div>
+)}
+
       )} */}
       {imageUrl && (
   <div className="image-window">
@@ -1039,3 +1113,4 @@ useEffect(() => {
 
 export { NewModel };
 
+ 

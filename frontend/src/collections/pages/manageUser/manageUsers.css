@@ -58,7 +58,7 @@ h5{
 }
 
 .send-message-button {
-  margin: 10px 0px 0px 50px;
+  margin: 4% 0% 0% 2%;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.661);
   background: rgba(128, 128, 128, 0);
@@ -90,6 +90,8 @@ h5{
     border-color: black;
     border-radius: 20px;
 } */
+
+
 
 .writer{
   margin-left: 30%;
