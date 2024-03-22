@@ -24,7 +24,7 @@ import '../manageUser/manageUsers.css';
 import '../manageUser/manageUsers.css';
 import '../../../App.css';
 import Table from './materialtable';
-import Table from './materialtable';
+
 import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter';
 
@@ -79,4 +79,4 @@ function ManageSalesData() {
   );
 }
 
-export { ManageSalesData };
+export { ManageSalesData};
