@@ -87,8 +87,9 @@ io.on("connection", (socket) => {
   socket.on("sendMessage" , (data) => {
     console.log("here it is!!!")
     console.log(data)
-
-    socket.broadcast.emit("recieveMessage",data);
+    io.emit("recieveMessage", data);
+    // socket.broadcast.emit("recieveMessage",data);
+    
     })
 
 
@@ -121,6 +122,11 @@ app.use("/abc", chatRoutes);
 const userProf = require("./routes/userprof");
 app.use("/profile", userProf);
 
+const report = require("./routes/report");
+app.use("/report", report);
+
+const getsales  = require("./routes/ManageSalesData");
+app.use("/sales",getsales);
 
 app.use(express.static('public'));
 
