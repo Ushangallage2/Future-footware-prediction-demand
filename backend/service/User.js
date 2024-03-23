@@ -221,6 +221,7 @@ const AddNewUser = async (user) => {
   
   const values = [ fName, lName, username, password, email, role];
 
+  
   try {
     const results = await query(queryString, values);
     return results.id; // Return the ID of the newly inserted user

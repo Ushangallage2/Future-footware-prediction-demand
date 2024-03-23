@@ -16,7 +16,7 @@
 
 //    }
 
-const { saveReport } = require('../service/report');
+const { saveReport ,getReportData } = require('../service/report');
 
 const saveReportController = async (req, res) => {
     try {
@@ -50,6 +50,19 @@ const saveReportController = async (req, res) => {
     }
 };
 
+
+
+const GetReport = async (_, res) => {
+    try {
+        const data = await getReportData();
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+
+
 module.exports = {
-    saveReportController
+    saveReportController,GetReport
 };
