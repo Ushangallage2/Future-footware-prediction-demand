@@ -1,0 +1,118 @@
+.new-message-container {
+  margin-top: 20px;
+}
+
+.new-message-textarea {
+  position: relative;
+  border-radius: 25px;
+  font-size: medium;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2.5px solid #ff39b0e7;
+  transition: background-color 0.3s ease;
+  /* margin-top: 2%; */
+  margin-left: 5%;
+  width: 80%;
+  padding: 10px 4px 0px 0px;
+  padding-left: calc(1em + 32px);
+  transition: width 0.3s ease;
+}
+.new-message-textarea::placeholder {
+  color: #ffffffd8;
+  font-size: medium;
+}
+
+.new-message-textarea:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+h5{
+  color: white;
+  margin-left: 45%;
+  font-size: larger;
+}
+
+.new-message-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.add_user_button{
+  margin-left: 60px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.661);
+  background: rgba(255, 255, 255, 0.08);
+  border: 2.5px solid #ff39b0e7;
+  padding: 10px 25px;
+  font-size: 14px;
+  border-radius: 25px;
+  transition: all .55s ease;
+}
+.add_user_button:hover {
+  background: transparent;
+  color: #ffffffe7;
+}
+.add_user_button:active{
+  color:#ff39b0e7;
+  scale: 95%;
+}
+
+.send-message-button {
+  margin: 4% 0% 0% 2%;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.661);
+  background: rgba(128, 128, 128, 0);
+  border: 2.5px solid #ff39b0e7;
+  padding: 10px 5px;
+  line-height: 1;
+  font-size: 14px;
+  border-radius: 25px;
+  transition: all .30s ease;
+}
+
+.send-message-button:hover {
+  /* background-color: #45a049; */
+  background-color:rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+.send-message-button:active{
+  color:#ff39b0e7;
+  scale: 95%;
+}
+/* .form-container{
+  display:block;
+    width: 65%;
+    height: auto;
+    margin-top: 6%;
+    margin-left: 10%;
+    margin-right: 0%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.726);
+    border-color: black;
+    border-radius: 20px;
+} */
+
+
+
+.writer{
+  margin-left: 30%;
+} 
+
+
+.modal-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadein {
+  animation: fadeIn 2s ease-out;
+}

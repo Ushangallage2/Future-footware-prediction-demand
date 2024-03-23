@@ -119,45 +119,18 @@
 .card-body {
   font-size: 16px;
   line-height: 1.5;
-  margin: 5%;
+  margin: 2%;
+  display:block;
+    /* width: 40%; */
+    /* height: 75%; */
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* margin: 6%; */
+    /* margin-left: 12%; */
+    border-color: black;
+    border-radius: 20px;
+    background-color: #14498f;
 }
 body{
   background-color: #002952;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-      
-  
-  
-
-  
-  
-  
- 

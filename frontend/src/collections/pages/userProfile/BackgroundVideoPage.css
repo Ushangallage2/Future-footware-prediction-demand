@@ -1,0 +1,229 @@
+/* .background-video-page version 1 {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+ */
+
+  
+/* Common styles for all screen sizes */
+.user-profile-components {
+  left: 100px;
+}
+
+.sidebar {
+  height: 100vh;
+}
+
+.background-video-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-element {
+  width: 600%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+ 
+}
+
+/* .profile-picture-container {
+  margin-top: 80px;
+  margin-left: 500px;
+} */
+
+
+.profile-picture-container {
+  position: relative; 
+  width: 250px; 
+  height: 250px;
+  margin-top: 80px;
+  margin-left: 500px;
+  border-radius: 50%; 
+  overflow: hidden; 
+}
+
+
+.profile-picture-overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  height: 250px;
+  border-radius: 50%;
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+.profile-picture-container:hover .profile-picture-overlay {
+  opacity: 1;
+}
+
+
+.uploaded-profile-picture {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Cover the area, maintain aspect ratio */
+  border-radius: 50%; /* Circular design */
+}
+
+
+
+
+
+.upload-icon {
+  font-size: 25px;
+}
+
+#profile-picture-input {
+  opacity: 0.02;
+  transition: opacity 0.3s;
+}
+
+#profile-picture-input:hover {
+  opacity: 1;
+}
+
+.user-data-form {
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 550px;
+}
+
+.form-field {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  margin-right: 300px;
+  color: #fff;
+}
+
+.field-label {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.field-value,
+.edit-button {
+  font-size: 15px;
+}
+
+.field-value {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ff4076c6;
+  border-radius: 5px;
+
+}
+
+/* .field-input{
+  background-color: rgba(rgb(212, 16, 16), rgb(18, 125, 18), rgb(32, 32, 134));
+} */
+
+.editing .field-value {
+  background-color: transparent;
+  border: 3px solid #05c008;
+}
+
+
+
+.edit-button {
+  cursor: pointer;
+  padding: 8px;
+  border: 1px solid #bbd208;
+  border-radius: 4px;
+  color: #b5db0c;
+  background-color: transparent;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+}
+
+.save-button {
+  color: #36f963;
+  border-color: #1ff555;
+}
+
+.toggle-note-button {
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-left: 900px;
+  margin-bottom: 500px;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1200px) {
+  /* Adjust styles for screens up to 1200px width */
+  .profile-picture-container {
+      margin-left: 200px;
+  }
+
+  .user-data-form {
+      margin-right: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Adjust styles for screens up to 768px width */
+  .profile-picture-container {
+      margin-left: 20px;
+  }
+
+  .user-data-form {
+      margin-right: 20px;
+      color: #fff;
+  }
+}
+
+  
+   .note-content {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .note-container{
+    
+  }  
+
+
+   .pause-resume-button{
+    z-index: 999;
+    position: absolute;
+    opacity: 0.2;
+  }
+
+
+ .field-value{
+
+ } 
+
+
+ /* Style for the specific "small-id-field" class */
+.form-field.small-id-field .field-value {
+ margin-right: 310px; /* Adjust the font size for the "id" field */
+  /* Add any additional styles for the "id" field here */
+}

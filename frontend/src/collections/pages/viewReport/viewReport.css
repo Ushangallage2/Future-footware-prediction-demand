@@ -1,0 +1,23 @@
+.username-typewriter {
+    position: static;
+    top: 10px;
+    right: 20px; /* Adjust the left position as needed for top left corner */
+    color: yellow; /* Set the color to yellow */
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typewriter 5s steps(20) infinite;
+    z-index: 1;
+    opacity: 1;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}

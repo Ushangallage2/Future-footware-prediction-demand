@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+.welcome{
+    position:absolute;
+    overflow: hidden;
+    top: 42%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin: 2%;
+}
+.intromsg{
+    font-family: "Libre Baskerville", serif;
+    color: rgb(0, 0, 0);
+    font-weight: 550;
+    font-style: normal;
+    font-size: 1.5rem;
+    justify-content:center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    letter-spacing: 2px;
+}
+
+.logopic{
+    width: 18%;
+    margin: 5%;
+    margin-left: 40%;
+    display: flex;
+    position:relative;
+    background-color: #0000;
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+}
+
+.loginShoe {
+    max-width: 100%;
+    width: 500px;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+.Anchor {
+    cursor: pointer;
+  }
+
+.sc-guDLey.hKjJWj.login_card {
+    /* Your custom styles here */
+    background-color: #3673c318;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.10);
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    overflow: hidden;
+    width: 500px;
+    height: 400px;
+}
