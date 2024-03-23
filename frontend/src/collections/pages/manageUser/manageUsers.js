@@ -244,7 +244,8 @@ function ManageUsers() {
         alt="Background" 
         style={{ 
           position: 'fixed', 
-          width: '19.5%', 
+          // width: '19.5%', 
+          width: '300px', 
           height: '100vh', 
           objectFit: 'cover', 
           zIndex: -1
@@ -256,35 +257,34 @@ function ManageUsers() {
           position: 'fixed',
           width: '90%', 
           height: '100vh', 
-          marginLeft: '19.5%',
+          // marginLeft: '19.5%',
+          marginLeft: '300px',
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',
           opacity: '0.7'
         }} 
       ></div>
-    <Sidebar />
-      <div className="form-container">
-        <div className="writer">
-          <UsernameTypewriter />
-        </div>
-        
+      <Sidebar />
+      <div className="form-container" style={{width:'75vw'}}>
         {/* New message area */}
         <div className="new-message-container">
           <textarea
-            className='new-message-textarea'
-            placeholder='Type a message to send all the users ...'
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-          />
+          className='new-message-textarea'
+          placeholder='Type a message to send all the users ...'
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}/>
+          
           <button className='send-message-button' onClick={handleSendMessage}>
             Send Message
-          </button>
+            </button>
         </div>
-
-        <div className="fadein">
-        <Table col={col} />
-      </div>
+        <div className="fadein" style={{ marginTop: '8%' }}>
+          <Table col={col} />
+        </div>
+        <div className="writer">
+          <UsernameTypewriter />
+        </div>
       </div>
     </div>
   );

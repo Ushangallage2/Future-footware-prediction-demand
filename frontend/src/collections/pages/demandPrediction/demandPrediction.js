@@ -2270,7 +2270,8 @@ console.log(reportData)
         alt="Background" 
         style={{ 
           position: 'fixed', 
-          width: '19.5%', 
+          // width: '19.5%', 
+          width: '300px', 
           height: '100vh', 
           objectFit: 'cover', 
           zIndex: -1
@@ -2282,7 +2283,8 @@ console.log(reportData)
           position: 'fixed',
           width: '90%', 
           height: '100vh', 
-          marginLeft: '19.5%',
+          // marginLeft: '19.5%',
+          marginLeft: '300px',
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',

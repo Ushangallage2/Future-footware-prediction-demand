@@ -21,7 +21,7 @@
 // export {ManageSalesData};
 
 import React from 'react';
-import '../manageUser/manageUsers.css';
+// import '../manageUser/manageUsers.css';
 import '../manageUser/manageUsers.css';
 import '../../../App.css';
 import Table from './materialtable';
@@ -48,7 +48,8 @@ function ManageSalesData() {
         alt="Background"
         style={{
           position: 'fixed',
-          width: '19.3%',
+          // width: '19.3%',
+          width: '300px',
           height: '100vh',
           objectFit: 'cover',
           zIndex: -1
@@ -60,7 +61,8 @@ function ManageSalesData() {
           position: 'fixed',
           width: '90%',
           height: '100vh',
-          marginLeft: '19.5%',
+          // marginLeft: '19.5%',
+          marginLeft: '300px',
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',
@@ -68,12 +70,12 @@ function ManageSalesData() {
         }}
       ></div>
       <Sidebar />
-      <div className="form-container">
+      <div className="form-container" style={{width:'75vw'}}>
+        <div className="fadein" style={{ margin: '5%', marginTop: '15%' }}>
+          <Table col={col} />
+        </div>
         <div className="writer">
           <UsernameTypewriter />
-        </div>
-        <div className="fadein" style={{ margin: '50px', marginTop: '100px' }}>
-          <Table col={col} />
         </div>
       </div>
     </div>

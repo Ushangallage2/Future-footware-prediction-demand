@@ -1,5 +1,5 @@
 .new-message-container {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .new-message-textarea {
@@ -11,8 +11,8 @@
   border: 2.5px solid #ff39b0e7;
   transition: background-color 0.3s ease;
   /* margin-top: 2%; */
-  margin-left: 3rem;
-  width: 80%;
+  margin-left: 25%;
+  width: 50%;
   padding: 10px 4px 0px 0px;
   padding-left: calc(1em + 32px);
   transition: width 0.3s ease;
@@ -112,6 +112,6 @@ h5{
 }
 
 .fadein {
-  animation: fadeIn 2s ease-out;
-  margin-top: -6%;
+  animation: fadeIn 1s ease-out;
+  margin: 0px;
 }

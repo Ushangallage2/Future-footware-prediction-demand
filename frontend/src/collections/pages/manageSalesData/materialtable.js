@@ -81,7 +81,7 @@ const Table = (props) => {
                 <div className="row gutters mt-3">
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div className="card h-100" id="contentcard">
-                            <div className="card-body ">
+                            <div className="card-body">
                                 <h5>Manage Files</h5>
                                 <MaterialTable
                                     components={{
@@ -101,10 +101,10 @@ const Table = (props) => {
                                                             border: '2.5px solid #ff39b0e7',
                                                             padding: '6px',
                                                             lineHeight: '1',
-                                                            fontSize: '15px',
+                                                            fontSize: '14px',
                                                             borderRadius: '25px',
                                                             transition: 'all .55s ease',
-                                                            marginLeft:'800px'
+                                                            // marginLeft:'800px'
                                                         }}
                                                         
                                                             onMouseOver={(e) => {

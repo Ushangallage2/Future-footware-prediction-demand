@@ -179,10 +179,24 @@ const BackgroundVideoPage = () => {
     address: 'Address',
     departmentRole: 'Department',
   };
+  const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
 
   return (
     <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}>
       <Sidebar />
+      <img 
+        src={backgroundimg}
+        alt="Background" 
+        style={{ 
+          position: 'fixed', 
+          // width: '19.3%',
+          // width: '20.8%',
+          width: '300px',
+          height: '100vh', 
+          objectFit: 'cover', 
+          zIndex: -1
+        }} 
+      />
 
       <div className="username-typewriter">
         <UsernameTypewriter />

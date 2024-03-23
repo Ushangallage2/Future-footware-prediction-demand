@@ -424,8 +424,8 @@ useEffect(() => {
         alt="Background" 
         style={{ 
           position: 'fixed', 
-          // width: '19.3%',
-          width: '19.5%',
+          // width: '19.5%',
+          width: '300px',
           height: '100vh', 
           objectFit: 'cover', 
           zIndex: -1
@@ -437,7 +437,8 @@ useEffect(() => {
           position: 'fixed',
           width: '90%', 
           height: '100vh', 
-          marginLeft: '19.5%',
+          // marginLeft: '19.5%',
+          marginLeft: '300px',
         
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
@@ -451,7 +452,7 @@ useEffect(() => {
         <div className="writer1" >
           <UsernameTypewriter />
         </div>
-        <div className="new-model-text" style={{ position: 'absolute', top: '3%', color: 'white', fontSize: '100px',marginRight: '60%' }}>
+        <div className="new-model-text" style={{ position: 'absolute', top: '8%', color: 'white', fontSize: '90px' }}>
           NEW MODEL 
         </div>
         <FontAwesomeIcon icon={faCheckCircle} style={{ color: 'green', marginTop: '75px', marginLeft: '100px' }} />
@@ -470,9 +471,7 @@ useEffect(() => {
             onClick={generateModel}
             disabled={isProcessing} 
             style={{
-
-             
-
+              margin: '10px',             
               padding: '10px 10px',
               border: '2px solid #ff4076c6',
               background: 'transparent',
@@ -482,6 +481,12 @@ useEffect(() => {
               cursor: 'pointer',
               width: '200px'
             }}
+            
+            onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+            onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+            
+            onMouseDown={(e) => { e.currentTarget.style.transform = 'scale(0.95)'; }}
+            onMouseUp={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
           >
             Generate New Model
           </button>
@@ -497,7 +502,7 @@ useEffect(() => {
                   onClick={closeDatePicker}
                   style={{
                     display: 'block',
-                    margin: '10px auto',
+                    margin: '10px',
                     padding: '5px 10px',
                     background: 'transparent',
                     color: 'white',
@@ -505,6 +510,11 @@ useEffect(() => {
                     borderRadius: '5px',
                     cursor: 'pointer'
                   }}
+                  onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+                  onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                  
+                  onMouseDown={(e) => { e.currentTarget.style.transform = 'scale(0.95)'; }}
+                  onMouseUp={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
                 >
                   OK
                 </button>
@@ -523,8 +533,12 @@ useEffect(() => {
                 borderRadius: '5px',
                 cursor: 'pointer',
                 width: '200px',
-                
               }}
+              onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+              onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+              
+              onMouseDown={(e) => { e.currentTarget.style.transform = 'scale(0.95)'; }}
+              onMouseUp={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
             >
               Select a date
             </button>
