@@ -1,15 +1,3 @@
-
-
-// import React from 'react';
-// import '../../../App.css';
-// import { Sidebar } from '../../sidebar/sidebar';
-// import UsernameTypewriter from '../../components/UsernameTypewriter';
-
-// const viewReports= () => {
-
-
-// src/collections/pages/viewReport/ViewReport.js
-
 import React, { useState } from 'react';
 import axios from 'axios'; // Axios for making HTTP requests
 

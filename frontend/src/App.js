@@ -341,7 +341,7 @@ import './App.css';
 import './collections/pages/loginPage/loginPage.css';
 import Home from './collections/pages/homePage/home';
 import  UserProf  from './collections/pages/userProfile/userprof';
-import { NewModel } from './collections/pages/newModelPage/newmodel';
+import  NewModel  from './collections/pages/newModelPage/newmodel';
 // import ChatPage from './collections/pages/chatPage/chatPage';
 import React, { useContext,useState , useEffect} from 'react';
 // import { ViewReport } from './collections/pages/viewReport/viewReport';
