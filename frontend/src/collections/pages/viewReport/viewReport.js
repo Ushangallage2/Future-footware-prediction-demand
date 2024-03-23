@@ -49,7 +49,7 @@ function ViewReport() {
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',
-          opacity: '0.5'
+          opacity: '0.7'
         }} 
       ></div>
       <Sidebar />
