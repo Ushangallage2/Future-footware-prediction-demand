@@ -464,7 +464,7 @@ useEffect(() => {
     <span className="dot">.</span>
        </div>
               )}
-        <div style={{ position: 'fixed',  alignItems: 'center',left:'25%', zIndex: 1000 ,marginTop:'10%' }}>
+        <div style={{ position: 'fixed',  alignItems: 'center',left:'25%', zIndex: 1000 ,marginTop:'8%' }}>
           <div style={{ background: 'transparent', borderRadius: '5px' }}>
           <button 
             onClick={generateModel}
@@ -472,7 +472,7 @@ useEffect(() => {
             style={{
 
              
-
+              
               padding: '10px 10px',
               border: '2px solid #ff4076c6',
               background: 'transparent',
@@ -523,6 +523,7 @@ useEffect(() => {
                 borderRadius: '5px',
                 cursor: 'pointer',
                 width: '200px',
+              marginLeft:'-1%'
                 
               }}
             >

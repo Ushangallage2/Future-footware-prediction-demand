@@ -34,8 +34,23 @@ const saveReport = async (report) => {
     }
 };
 
+
+const getReportData = async () => {
+    try {
+        const queryString = 'SELECT * FROM reports';
+        const data = await query(queryString);
+        return data;
+    } catch (error) {
+        throw error;
+    }
+};
+
+
+
+
+
 module.exports = {
-    saveReport
+    saveReport,getReportData
 };
 
 

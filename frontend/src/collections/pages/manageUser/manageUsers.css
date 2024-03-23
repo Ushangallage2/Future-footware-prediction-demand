@@ -1,5 +1,6 @@
 .new-message-container {
   margin-top: 20px;
+ 
 }
 
 .new-message-textarea {
@@ -12,7 +13,7 @@
   transition: background-color 0.3s ease;
   /* margin-top: 2%; */
   margin-left: 3rem;
-  width: 80%;
+  width: 94%;
   padding: 10px 4px 0px 0px;
   padding-left: calc(1em + 32px);
   transition: width 0.3s ease;
@@ -58,7 +59,7 @@ h5{
 }
 
 .send-message-button {
-  margin: 10px 0px 0px 50px;
+  margin: 10px 10px 0px 50px;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.661);
   background: rgba(128, 128, 128, 0);
@@ -114,4 +115,5 @@ h5{
 .fadein {
   animation: fadeIn 2s ease-out;
   margin-top: -6%;
+
 }
