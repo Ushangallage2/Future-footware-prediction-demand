@@ -93,21 +93,20 @@ const Table = (props) => {
                                                 <div>
                                                     <Tooltip title="Add new File" enterTouchDelay={0}>
                                                         <Button
-                                                            style={{
-                                                                marginBottom: '8px',
-                                                                textDecoration: 'none',
-                                                                color: 'rgba(255, 255, 255, 0.661)',
-                                                                background: 'rgba(255, 255, 255, 0.08)',
-                                                                border: '2.5px solid #ff39b0e7',
-                                                                padding: '6px',
-                                                                lineHeight: '1',
-                                                                fontSize: '14px',
-                                                                borderRadius: '25px',
-                                                                transition: 'all .55s ease',
-                                                                marginLeft: '700px',
-                                                                width: '200px',
-                                                                // marginRight: '50px'
-                                                            }}
+                                                           style={{
+                                                            marginBottom: '8px',
+                                                            textDecoration: 'none',
+                                                            color: 'rgba(255, 255, 255, 0.661)',
+                                                            background: 'rgba(255, 255, 255, 0.08)',
+                                                            border: '2.5px solid #ff39b0e7',
+                                                            padding: '6px',
+                                                            lineHeight: '1',
+                                                            fontSize: '15px',
+                                                            borderRadius: '25px',
+                                                            transition: 'all .55s ease',
+                                                            marginLeft:'800px'
+                                                        }}
+                                                        
                                                             onMouseOver={(e) => {
                                                                 e.target.style.background = 'transparent';
                                                                 e.target.style.color = '#ffffffe7';
