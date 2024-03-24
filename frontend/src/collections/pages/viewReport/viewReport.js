@@ -1,33 +1,29 @@
-import React, { useState } from 'react';
-import axios from 'axios'; // Axios for making HTTP requests
 
-import { Sidebar } from '../../sidebar/sidebar'; // Sidebar component (not shown in this snippet)
-import UsernameTypewriter from '../../components/UsernameTypewriter'; // UsernameTypewriter component (not shown in this snippet)
 
-function ViewReport() {
+import React from 'react';
+import '../manageUser/manageUsers.css';
+import '../../../App.css';
+import Table from './materialtable';
 
-  const [file, setFile] = useState(null); // State to hold the uploaded file
-  const [predictions, setPredictions] = useState([]); // State to store prediction results
+import { Sidebar } from '../../sidebar/sidebar';
+import UsernameTypewriter from '../../components/UsernameTypewriter';
 
-  const handleFileUpload = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('file', file); // Append the uploaded file to the form data
+function ViewReport () {
+  const col = [
+    { field: "modelNumber", title: "modelNumber" },
+    { field: "size", title: "size" },
+    { field: "salesData", title: "salesData" },
+    { field: "category", title: "category" },
+    { field: "predictedSalesDemand", title: "predictedSalesDemand" }
+  ];
 
-    try {
-      // Make a POST request to your backend API endpoint (replace with your actual endpoint)
-      const response = await axios.post('/api/predict', formData);
-      setPredictions(response.data.predictions); // Update state with prediction results
-    } catch (error) {
-      console.error('Error fetching predictions:', error);
-    }
-  };
-
+ 
   const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
   const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
-
   return (
-    <div className="App">
+
+    <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start'  }}>
+        
       <img 
         src={backgroundimg}
         alt="Background" 
@@ -54,15 +50,20 @@ function ViewReport() {
           opacity: '0.7'
         }} 
       ></div>
-      <Sidebar />
-      <div className="content">
-      <UsernameTypewriter style={{ position: 'fixed', top: '5px', right: '5px', color: 'yellow', fontSize: '16px', fontWeight: 'bold' }} />
-        <div className="username-typewriter">
+      <div style={{marginLeft:'0%'}}>
+    <Sidebar  />
+    </div>
+      <div className="form-container">
+        <div className="writer" style={{ marginLeft:'24%'   }}>
+          <UsernameTypewriter />
         </div>
-        <h1 style={{ textAlign: 'center' }}>Coming Soon!</h1>
+
+        <div className="fadein">
+        <Table col={col} />
+      </div>
       </div>
     </div>
   );
-};
+}
 
-export default  ViewReport;
+ export default ViewReport;

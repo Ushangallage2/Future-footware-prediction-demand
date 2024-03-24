@@ -1,22 +1,6 @@
-// const {  } = require('../service/report');
-
-// const saveReportController  = async (req, res) => {
-//     const report = req.body;
-//     console.log(report)
-//     const reportResult = await saveReport(report);
-  
-   
-//     return res.json(reportResult);
-//   };
 
 
-  
-//   module.exports = {
-//     saveReportController 
-
-//    }
-
-const { saveReport } = require('../service/report');
+const { saveReport ,getReportData,  getNoteData  } = require('../service/report');
 
 const saveReportController = async (req, res) => {
     try {
@@ -50,6 +34,30 @@ const saveReportController = async (req, res) => {
     }
 };
 
-module.exports = {
-    saveReportController
+
+
+const GetReport = async (_, res) => {
+    try {
+        const data = await getReportData();
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
+    }
 };
+
+
+const GetNote = async (_, res) => {
+    try {
+        const data = await getNoteData();
+        
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+
+module.exports = {
+    saveReportController,GetReport,GetNote
+};
+

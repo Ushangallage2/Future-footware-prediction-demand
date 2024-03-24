@@ -10,17 +10,12 @@ import "../userProfile/usercard.css";
 
 const DemandPrediction = () => {
   const [modelNumbers, setModelNumbers] = useState([]);
-  // const [selectedOption, setSelectedOption] = useState(null);
   const [loading, setLoading] = useState(false);
-  // const [selectedModelImage, setSelectedModelImage] = useState(null);
-  // const [dateRange, setDateRange] = useState([null, null]); // State for date range
   const [warningMessage, setWarningMessage] = useState('');
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false); // State to track whether date picker is open or closed
   const [daysToFirstDate, setDaysToFirstDate] = useState(0);
   const [daysToLastDate, setDaysToLastDate] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
-  // const [predictedDemand, setPredictedDemand] = useState(0);
-  // const [modelDetails, setModelDetails] = useState(null);
   const [tempDateRange, setTempDateRange] = useState([null, null]);
 
 
@@ -30,10 +25,7 @@ const DemandPrediction = () => {
     return saved ? JSON.parse(saved) : null;
   });
 
-  // const [dateRange, setDateRange] = useState(() => {
-  //   const saved = localStorage.getItem('dateRange');
-  //   return saved ? JSON.parse(saved) : [null, null];
-  // });
+
 
   const [dateRange, setDateRange] = useState(() => {
     const saved = localStorage.getItem('dateRange');

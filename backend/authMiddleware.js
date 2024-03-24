@@ -34,5 +34,6 @@ const verifyRole = (role) => async (req, res, next) => {
 
 exports.verifyToken = verifyRole("");
 exports.verifyAdmin = verifyRole("admin");
-exports.verifyAdminProduct = verifyRole(["product"]);
-exports.verifyAdminSales = verifyRole(["sales"]);
+exports.verifyAdminProduct = verifyRole("product");
+exports.verifyAdminSales = verifyRole("sales");
+exports.verifyAdminMarketing = verifyRole("marketing")

@@ -44,6 +44,7 @@ const Table = (props) => {
         }
     };
 
+
     useEffect(() => {
         fetchData();
         const delay = setTimeout(() => {
@@ -62,7 +63,7 @@ const Table = (props) => {
         try {
             const formData = new FormData();
             newFiles.forEach(file => formData.append('files', file)); 
-            await axios.post('http://localhost:8080/profile/uploadFiles', formData);
+            await axios.post('http://localhost:8080/sales/uploadFiles', formData);
             fetchData();
             setOpenModal(false);
         } catch (error) {
@@ -87,7 +88,7 @@ const Table = (props) => {
                                     components={{
                                         Container: (props) => <Paper {...props} elevation={0} style={{ borderRadius: '10px', backgroundColor: '#14498f', color: 'white' }} />,
                                         Toolbar: () => (
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 16px', backgroundColor: '#14498f' }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 60px', backgroundColor: '#14498f' }}>
                                                 <div>
                                                 </div>
                                                 <div>
@@ -106,7 +107,7 @@ const Table = (props) => {
                                                             transition: 'all .55s ease',
                                                             // marginLeft:'800px'
                                                         }}
-                                                        
+
                                                             onMouseOver={(e) => {
                                                                 e.target.style.background = 'transparent';
                                                                 e.target.style.color = '#ffffffe7';

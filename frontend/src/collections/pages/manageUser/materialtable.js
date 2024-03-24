@@ -976,21 +976,7 @@ const Table = (props) => {
             password: '',
         });
     };
-    // const handleSaveEditedUser = async () => {
-    //     if (editUser && validateEmail(editUser.email)) {  // Assuming you want to validate the email of the user being edited
-    //         try {
-    //             const dataToUpdate = { ...editUser, ...newUser };
-    //             if (newUser.password) {
-    //                 dataToUpdate.password = await bcrypt.hash(newUser.password, 10);
-    //             }
-    //             await makeApiRequest(http://localhost:8080/user/editUser/${editUser.id}, 'PUT', dataToUpdate);
-    //             setOpenModal(false);
-    //             fetchUsers();
-    //         } catch (error) {
-    //             console.log('Error saving edited user:', error);
-    //         }
-    //     }
-    // };
+  
     const handleSaveEditedUser = async () => {
         try {
             await makeApiRequest(`http://localhost:8080/user/editUser/${editUser.id}`, 'PUT', editUser);
@@ -1000,14 +986,7 @@ const Table = (props) => {
             console.log('Error saving edited user:', error);
         }
     };
-    // const handleDeleteUser = async (deletedUser) => {
-    //     try {
-    //         await makeApiRequest('http://localhost:8080/user/deleteUser/${deletedUser.id}', 'DELETE');
-    //         fetchUsers();
-    //     } catch (error) {
-    //         console.log('Error deleting user:', error);
-    //     }
-    // };
+   
     const handleDeleteUser = async (deletedUser) => {
         try {
             await makeApiRequest(`http://localhost:8080/user/deleteUser/${deletedUser.id}`, 'DELETE');
