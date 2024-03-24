@@ -6,6 +6,7 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import './demandprediction.css';
+import "../userProfile/usercard.css";
 
 const DemandPrediction = () => {
   const [modelNumbers, setModelNumbers] = useState([]);
@@ -188,6 +189,7 @@ const DemandPrediction = () => {
     const detailsUrl = `http://localhost:8080/demandpred/getDetails/${selectedOption.value}`;
     const reportUrl = 'http://localhost:8080/report/save'; 
 
+
     const firstDateData = JSON.stringify({
       shoe_model: selectedOption.value,
       days: daysToFirstDate,
@@ -226,10 +228,6 @@ const DemandPrediction = () => {
 
       const sumDifference = Math.abs(firstData.sum - lastData.sum);
       setPredictedDemand(sumDifference);
-      console.log(lastData.filteredSales)
-      console.log(firstData.sum)
-      console.log(lastData.sum)
-      console.log(sumDifference)
 
       if (!detailsResponse.ok) {
         throw new Error('Error fetching model details');
@@ -308,6 +306,15 @@ console.log(reportData)
       width:'0%'
   }),
 }
+const shoeUrl = 'https://github.com/Asal30/FDFS-Landing-Page/assets/104274406/';
+
+const takeShoeImage = (modelID) => {
+  if (modelID === "A") return `${shoeUrl}4a7d3b2f-cd93-41fc-92b6-8b0c9a51c177`;
+  if (modelID === "B") return `${shoeUrl}cb7ad77a-830b-4593-ade2-87eb74e49227`;
+  if (modelID === "C") return `${shoeUrl}61e216de-0f10-4c20-9fb2-e391127c3713`;
+  if (modelID === "D") return `${shoeUrl}dec74a77-d5e1-475f-95f8-c7189487b31a`;
+  if (modelID === "E") return `${shoeUrl}278bf53b-6b0a-4baf-87b0-e23435b3940b`;
+};
 
   const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
   const backgroundimg2 = new URL("../Shoe_Images/bgimg.jpg", import.meta.url);
@@ -388,32 +395,47 @@ console.log(reportData)
           >
             Submit
           </button>
-        
-          {modelDetails && dateRange[0] && dateRange[1] && (
-            <div className="r-container"  >
-              <p><strong>Model:</strong> {selectedOption.label}</p>
-              <p><strong>Size:</strong> {modelDetails.size}</p>
-              <p><strong>Category:</strong> {modelDetails.category}</p>
-              <p><strong>Predicted Sales Demand:</strong> {predictedDemand} for the period {dateRange[0].toLocaleDateString()} to {dateRange[1].toLocaleDateString()}</p>
-              <p style={{ fontStyle: 'italic', fontSize: 'smaller' }}>A report of the predicted demand can be taken from the report section.</p>
-          
-            </div>
-          )
-          }
 
-             
-          <div className='demand-img' >
+          {/* <div className='demand-img' >
             {selectedModelImage && (
               <img src={selectedModelImage} alt="Model" />
             )}
-        
-          </div>
+          </div> */}
+        </div>
+      
+        <div className='data-container'>
+        {modelDetails && dateRange[0] && dateRange[1] && (
+              // <div className="r-container"  >
+              //   <p><strong>Model:</strong> {selectedOption.label}</p>
+              //   <p><strong>Size:</strong> {modelDetails.size}</p>
+              //   <p><strong>Category:</strong> {modelDetails.category}</p>
+              //   <p><strong>Predicted Sales Demand:</strong> {predictedDemand} for the period {dateRange[0].toLocaleDateString()} to {dateRange[1].toLocaleDateString()}</p>
+              //   <p style={{ fontStyle: 'italic', fontSize: 'smaller' }}>A report of the predicted demand can be taken from the report section.</p>
+              // </div> 
+              <div class="ucontainer2">
+                <div class="ucard2">
 
+                  <div className='demand-img' >
+                    {/* {selectedModelImage && (<img src={selectedModelImage} alt="Model" />)} */}
+
+                    {/* <img src={()=>takeShoeImage("A")} alt="Model" /> */}
+
+                    {selectedOption && (
+                    <img src={takeShoeImage(selectedOption.value)} alt="Model"/>)}
+                  </div>
+                  <div className="card-content2">
+                    <p className="card-topic1"><strong>Model : </strong> {selectedOption.label}</p>
+                    <p className="card-topic1"><strong>Size : </strong> {modelDetails.size}</p>
+                    <p className="card-topic1"><strong>Category : </strong> {modelDetails.category}</p>
+                    <h4 className="card-topic1">Predicted Sales Demand : {predictedDemand} pairs  ({dateRange[0].toLocaleDateString()} to {dateRange[1].toLocaleDateString()})</h4>
+                    <p className="littleText"style={{ fontStyle: 'italic', fontSize: 'smaller' }}>A report of the predicted demand can be taken from the report section.</p>
+                  </div>
+                </div> 
+              </div>
+            )}
         </div>
       </div>
-
-
-      <div style={{ position: 'fixed', top: '19%', left: '41.8%' }}>
+      <div style={{ position: 'fixed', top: '151px', left: '600px' }}>
         <button className="date-picker-button" onClick={toggleDatePicker}>
           {isDatePickerOpen ? ' Date Picker' : ' Date Picker'}
         </button>
@@ -440,10 +462,8 @@ console.log(reportData)
           <button class="button-3d" onClick={handleOkButtonClick}>OK</button>
         </div>
       )}
-
-
-
     </div>
+    
 
 
   );

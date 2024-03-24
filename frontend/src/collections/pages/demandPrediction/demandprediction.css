@@ -2,9 +2,8 @@
 .css-b62m3t-container{
   border: 2px solid #ff4076c6;
   border-radius: 8px;
-
-
-
+  max-width: 80%;
+  color: aliceblue;
 }
 
 .react-datepicker {
@@ -17,7 +16,6 @@
 
 .react-datepicker__input-container{
   margin-left: 0px;
- 
 }
 
 .center-container class1{
@@ -25,7 +23,9 @@
 background: transparent;
 
 }
-
+.center-container p {
+  color: white;
+}
 
 
 
@@ -147,7 +147,7 @@ background: transparent;
   cursor: pointer;
   border-radius: 8px;
   margin-left: 200px;
-  margin-top: 70px;
+  margin-top: 63px;
   /* Apply gradient background */
   
 }
@@ -306,13 +306,20 @@ img {
 
 .demand-img{
 
-  width: 300px;
+  /* width: 300px;
   height: 300px;
 margin-left: 10%;
  margin-top: 45%;
-  overflow: auto; /* Enables scrolling */
-  scrollbar-width: thin; /* Makes scrollbar thinner */
-  scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Sets scrollbar color and background */
+  overflow: auto; 
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;  */
+  
+  width: 350px;
+  height: 230px;
+  margin-left: 100px;
+  overflow: auto; 
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
   
 }
 
@@ -332,10 +339,12 @@ margin-left: 10%;
 
 
 .demand-img img {
-  max-width: 20%; 
-  height: auto; 
+  max-width: 90%; 
+  height: auto;
+  margin-top: 40px;
+  /* margin-left: 80px;  */
 
-  position: fixed;
+  /* position: fixed; */
 
 }
 
@@ -353,7 +362,16 @@ margin-right: 40%;
 }
 
 .r-container {
+  height: auto;
   animation: fadeIn 2s ease-out;
   position: fixed;
-  margin-top: 2%;
+  margin-top: 5%;
+  background-color: #3673c318;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.10);
+}
+
+.r-container p {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
