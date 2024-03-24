@@ -180,6 +180,7 @@ const BackgroundVideoPage = () => {
     departmentRole: 'Department',
   };
   const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
+  const backgroundimg2 = new URL("../Shoe_Images/bgimg.jpg", import.meta.url);
 
   return (
     <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}>
@@ -197,6 +198,19 @@ const BackgroundVideoPage = () => {
           zIndex: -1
         }} 
       />
+      <div 
+        style={{ 
+          position: 'fixed',
+          width: '90%', 
+          height: '100vh', 
+          // marginLeft: '19.5%',
+          marginLeft: '300px',
+          zIndex: -1,
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
+          backgroundSize: 'cover',
+          opacity: '0.7'
+        }} 
+      ></div>
 
       <div className="username-typewriter">
         <UsernameTypewriter />
@@ -301,9 +315,9 @@ const BackgroundVideoPage = () => {
         </div>
 
         <div className="note-container">
-          <button className="toggle-note-button" onClick={handleNoteToggle}>
+          {/* <button className="toggle-note-button" onClick={handleNoteToggle}>
             {isNoteVisible ? 'Fold Note' : 'IMPORTANT'}
-          </button>
+          </button> */}
           {isNoteVisible && (
             <div className="note-content">
               {/* Add your note content here */}
