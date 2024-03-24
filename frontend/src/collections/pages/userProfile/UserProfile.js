@@ -1047,8 +1047,6 @@ const UserProfl = () => {
 
   return (
     
-    
-
       <div className="left-panel">
       <div className="username-typewriter">
           <UsernameTypewriter />
@@ -1073,8 +1071,6 @@ const UserProfl = () => {
           </div>
           
         </div>
-
-
 
         {/* User Data Form */}
         <div className="user-data-form">
@@ -1102,9 +1098,6 @@ const UserProfl = () => {
           ))}
         </div>
 
-  
-      
-
       <div className="right-panel">
         {/* Change Password & Username Button */}
         <button className="change-password-button" onClick={handleSave}>
@@ -1116,27 +1109,3 @@ const UserProfl = () => {
 };
 
 export { UserProfl };
-
-// BackgroundVideoPage.js
-
-// import React from 'react';
-// import Backgroundvid from './Backgroundvid.mp4';
-// import  './BackgroundVideoPage.css';  // Import the CSS file
-// import { Sidebar } from '../../sidebar/sidebar';
-
-// const BackgroundVideoPage = () => {
-//   return (
-//     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
-//       <Sidebar />
-
-//       <div className="background-video-page">
-//         <video autoPlay loop muted className="video-element" style={{ width: '100%', height: '40%', objectFit: 'cover', opacity:'0.4' }}>
-//           <source src={Backgroundvid} type="video/mp4" />
-//           Your browser does not support the video tag.
-//         </video>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export { BackgroundVideoPage };
