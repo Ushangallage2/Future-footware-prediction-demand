@@ -390,14 +390,14 @@ console.log(reportData)
 
         
           {modelDetails && dateRange[0] && dateRange[1] && (
-            <div className="r-container"  >
-              <p><strong>Model:</strong> {selectedOption.label}</p>
-              <p><strong>Size:</strong> {modelDetails.size}</p>
-              <p><strong>Category:</strong> {modelDetails.category}</p>
-              <p><strong>Predicted Sales Demand:</strong> {predictedDemand} for the period {dateRange[0].toLocaleDateString()} to {dateRange[1].toLocaleDateString()}</p>
-              <p style={{ fontStyle: 'italic', fontSize: 'smaller' }}>A report of the predicted demand can be taken from the report section.</p>
-          
-            </div>
+          <div className="r-container">
+          <p className="r-text"><strong>Footwear Model:</strong> {selectedOption.label}</p>
+          <p className="r-text"><strong>Size:</strong> {modelDetails.size}</p>
+          <p className="r-text"><strong>Category:</strong> {modelDetails.category}</p>
+          <p className="r-highlight"><strong>Predicted Sales Demand:</strong> {predictedDemand} items for the period {dateRange[0].toLocaleDateString()} to {dateRange[1].toLocaleDateString()}</p>
+          <p className="r-note">A report of the predicted demand can be taken from the report section.</p>
+      </div>
+      
           )
           }
 

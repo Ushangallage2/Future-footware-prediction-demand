@@ -22,7 +22,7 @@ function ViewReport () {
   const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
   return (
 
-    <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
+    <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start'  }}>
         
       <img 
         src={backgroundimg}
@@ -48,9 +48,11 @@ function ViewReport () {
           opacity: '0.7'
         }} 
       ></div>
-    <Sidebar />
+      <div style={{marginLeft:'0%'}}>
+    <Sidebar  />
+    </div>
       <div className="form-container">
-        <div className="writer" style={{ marginLeft:'45%'   }}>
+        <div className="writer" style={{ marginLeft:'24%'   }}>
           <UsernameTypewriter />
         </div>
 

@@ -5,11 +5,16 @@ import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
+import ChangeCredentialsPopup from './ChangeCredentialsPopup'; 
+
 
 const BackgroundVideoPage = () => {
+ 
   const [isHovered, setIsHovered] = useState(false);
   const [profileImageUrl, setProfileImageUrl] = useState('');
   const [isNoteVisible, setIsNoteVisible] = useState(false);
+  // const [noteContent, setNoteContent] = useState('');
+  const [notes, setNotes] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState({
     id: '',
@@ -25,6 +30,8 @@ const BackgroundVideoPage = () => {
     email: ''
   });
 
+
+  const [isChangeCredentialsOpen, setIsChangeCredentialsOpen] = useState(false); // State for managing the popup
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
 
@@ -103,6 +110,40 @@ const BackgroundVideoPage = () => {
     setIsNoteVisible(!isNoteVisible);
   };
 
+//   useEffect(() => {
+//     const fetchNoteContent = async () => {
+//         try {
+//             const response = await axios.get('http://localhost:8080/report/getNote');
+//             if (response.status === 200) {
+//                 setNoteContent(response.data.noteContent); // assuming the response contains a field called noteContent
+//             } else {
+//                 console.error('Failed to fetch note content');
+//             }
+//         } catch (error) {
+//             console.error('Error fetching note content:', error);
+//         }
+//     };
+
+//     fetchNoteContent();
+// }, []); 
+useEffect(() => {
+  const fetchNotes = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/report/getNote'); // Adjust URL based on your API endpoint
+      setNotes(response.data);
+    } catch (error) {
+      console.error('Error fetching notes:', error);
+    }
+  };
+
+  fetchNotes();
+}, []);
+
+
+
+
+
+
   const handleEditToggle = (field) => {
     setIsEditing({ ...isEditing, [field]: !isEditing[field] });
     if (isEditing[field] === true) {
@@ -158,13 +199,8 @@ const BackgroundVideoPage = () => {
           'Content-Type': 'multipart/form-data'
         }
       });
-      console.log("fetching imag!!!!!!!!!!!!!!!!!!!!!!!!")
+      console.log("fetching imag...")
       console.log(response);
-      // Update user data after uploading profile picture
-      // const imageBlob = await response.blob();
-      // const imageUrl = URL.createObjectURL(imageBlob);
-      //     setProfileImageUrl(imageUrl);
-
     } catch (error) {
       console.log('Error uploading profile picture:', error);
     }
@@ -179,6 +215,38 @@ const BackgroundVideoPage = () => {
     address: 'Address',
     departmentRole: 'Department',
   };
+
+
+  const handleSaveCredentials = async (newUsername, newPassword) => {
+    try {
+      // API call to update username and password
+      const response = await axios.put(`http://localhost:8080/user/updateCredentials/${decodedToken.id}`, {
+        username: newUsername,
+        password: newPassword
+       
+
+      });
+    console.log(newUsername)
+
+      if (response.status === 200) {
+        console.log('Credentials updated successfully');
+        
+        // Optionally fetch updated user data or handle as needed
+        fetchUserData();
+      } else {
+        console.log('Failed to update credentials');
+       
+      }
+    } catch (error) {
+      console.log('Error updating credentials:', error);
+      
+    }
+
+    setIsChangeCredentialsOpen(false);
+  };
+
+
+  
 
   return (
     <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}>
@@ -203,22 +271,6 @@ const BackgroundVideoPage = () => {
         <button className="pause-resume-button" onClick={handleTogglePlay}>
           {isPlaying ? 'Pause' : 'Resume'}
         </button>
-
-        {/* <div className="profile-picture-container">
-          <div className="profile-picture-overlay">
-            <label htmlFor="profile-picture-input" className="upload-icon">
-              📷
-            </label>
-            <div className='input-area'>
-              <input
-                type="file"
-                id="profile-picture-input"
-                accept="image/*"
-                onChange={handleProfilePictureUpload}
-              />
-            </div>
-          </div>
-        </div> */}
 
 
         <div className="profile-picture-container">
@@ -286,16 +338,42 @@ const BackgroundVideoPage = () => {
           ))}
         </div>
 
-        <div className="note-container">
-          <button className="toggle-note-button" onClick={handleNoteToggle}>
-            {isNoteVisible ? 'Fold Note' : 'IMPORTANT'}
-          </button>
-          {isNoteVisible && (
-            <div className="note-content">
-              {/* Add your note content here */}
-            </div>
-          )}
-        </div>
+        <div className="note-container" style={{ background: 'transparent' }}>
+  <button className="toggle-note-button" onClick={handleNoteToggle}>
+    {isNoteVisible ? 'Fold Note' : 'IMPORTANT'}
+  </button>
+  {isNoteVisible && (
+    <div className="note-content" style={{ background: 'transparent', padding: '10px' }}>
+      {notes.map((note, index) => (
+        <p key={index} style={{ marginBottom: '20px', background: 'transparent' }}>Message: {note.content}</p>
+      ))}
+    </div>
+  )}
+</div>
+
+
+             <button
+          style={{
+            position: 'fixed',
+            padding: '10px 18px',
+            border: '2px solid #ff4076c6',
+            background: 'transparent',
+            color: 'white',
+            fontSize: '16px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            marginLeft: '55%',
+            marginTop: '9%'
+          }}
+          onClick={() => setIsChangeCredentialsOpen(true)} // Open the popup when clicked
+        >
+          Change username or password
+        </button>
+        <ChangeCredentialsPopup
+        isOpen={isChangeCredentialsOpen}
+        onClose={() => setIsChangeCredentialsOpen(false)}
+        onSave={handleSaveCredentials}
+      />
       </div>
     </div>
   );

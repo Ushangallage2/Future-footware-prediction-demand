@@ -4,96 +4,6 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
   }
-/* .model-container{
-    display:block;
-    width: 55%;
-    height: auto;
-    margin: 2%;
-    margin-left: 10%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.726);
-    border-color: black;
-    border-radius: 20px;
-}
-h1{
-    color: white;
-    margin: 3%;
-    margin-left: 35%;
-}
-.searchButton{
-    margin-left: 60px;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.661);
-    background: rgba(255, 255, 255, 0.08);
-    border: 2.5px solid #ff39b0e7;
-    padding: 10px 25px;
-    line-height: 1;
-    font-size: 14px;
-    border-radius: 25px;
-    transition: all .55s ease;
-}
-
-.searchButton:hover{
-    background: transparent;
-    color: #cc4395e8;
-  }
-
-  .searchButton:active{
-    color:rgb(142, 43, 255);
-    scale: 95%;
-  }
-
-  p{
-    color: white;
-    margin-top: 9%;
-    margin-left: 40px;
-  }
-.old-models{
-    display:contents;
-    flex-direction:row;
-    align-items: center;
-}
-
-.pic1{
-    width: 250px;
-    border: 3px solid #00000000;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 35px;
-    transition: 0.3s;
-    background-color: #1e64aa;
-    margin-top: 25px;   
-    margin-left: 70px;
-    margin-bottom: 30px;
-    padding: 30px;
-}.pic2{
-    width: 264px;
-    border: 3px solid #00000000;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 35px;
-    transition: 0.3s;
-    background-color: #1e64aa;
-    margin-left: 60px;
-    margin-bottom: 30px;
-}.pic3{
-    width: 250px;
-    border: 3px solid #00000000;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 35px;
-    transition: 0.3s;
-    background-color: #1e64aa;
-    margin-left: 70px;
-    padding: 28px;
-}.pic4{
-    width: 255px;
-    border: 3px solid #00000000;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 35px;
-    transition: 0.3s;
-    background-color: #1e64aa;
-    margin-left: 60px;
-    padding: 30px;
-} */
-
-
 
 .react-datepicker {
     border: 2px solid  #ff4076c6 !important; /* Pink border */
@@ -152,14 +62,7 @@ left: 350px;
     transform: translateY(4px);
   }
 
-  /* .image-window {
-    width: 350px; 
-    height: 350px; 
-  
-    margin-left: 100%;
-    margin-top: 20%;
 
-  } */
   .image-window {
     width: 360px;
     height: 370px;
