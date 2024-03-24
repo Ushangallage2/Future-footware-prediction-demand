@@ -1,15 +1,11 @@
 
 .css-b62m3t-container{
- 
-  border: 2px solid #ff4076c6; /* Border with color */
- 
-
+  border: 2px solid #ff4076c6;
   border-radius: 8px;
 
 
 
 }
-
 
 .react-datepicker {
   border: none;
@@ -38,7 +34,7 @@ background: transparent;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); /* Mirror-like gradient background */
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
   color: rgb(27, 5, 72);
   cursor: pointer; /* Change cursor to pointer */
   transition: background-color 0.3s ease-in-out;
@@ -121,7 +117,7 @@ background: transparent;
 
 /* Apply mirror shining effect to the Select component */
 .Select {
-  background-color: rgb(246, 246, 246); 
+  /* background-color: rgb(246, 246, 246);  */
   border: 1px solid transparent; 
   border-radius: 5px;
   padding: 10px; 
@@ -150,8 +146,8 @@ background: transparent;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  margin-left: 130px;
-  margin-top: 30px;
+  margin-left: 200px;
+  margin-top: 70px;
   /* Apply gradient background */
   
 }

@@ -124,7 +124,7 @@
 
 import React, { useState } from 'react';
 import * as Components from './Components';
-import logo from '../../sidebar/fdfs.png';
+import logo from '../../sidebar/fdfs2.png';
 import shoe05 from '../../pages/Shoe_Images/shoe05.png';
 // import axios from '../../../intercepter';
 import { useNavigate } from 'react-router-dom';
