@@ -6,118 +6,6 @@ import StorageIcon from '@mui/icons-material/Storage';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-// export const sidebarData = [ 
-//   {
-//     title: "My Profile",
-//     link: "/backgroundVideoPage",
-//   },
-//   {
-//     title: "Manage Users",
-//     link: "/manageUsers",
-//   },
-//   {
-//     title: "Predict Demand",
-//     link: '/demandPrediction',
-//   },
-//   {
-//     title: "View Reports",
-//     link: "/viewReport",
-//   },
-//   {
-//     title: "Generate New Model",
-//     link: "/newmodel",
-//   },
-//   {
-//     title: "Manage Sales Data",
-//     link: "/manageSalesData",
-//   },
-
-//   {
-//     title: "Logout",
-//     handleLogout: () => {}, 
-//   },
-  // {
-  //   title: "ChatGPT",
-  //   link: "/chatPage",
-  // },
-;
-
-
-
-// export const productSidebarData = [
-//   {
-//     title: "My Profile",
-//     link: "/backgroundVideoPage",
-//   },
-  
-//   {
-//     title: "Predict Demand",
-//     link: '/demandPrediction',
-//   },
- 
-//   {
-//     title: "Generate New Model",
-//     link: "/newmodel",
-//   },
-//   {
-//     title: "Manage Sales Data",
-//     link: "/manageSalesData",
-//   },
-
-//   {
-//     title: "Logout",
-//     handleLogout: () => {}, 
-//   },
-  
-// ];
-
-
-// export const salesSidebarData = [
-//   {
-//     title: "My Profile",
-//     link: "/backgroundVideoPage",
-//   },
-  
- 
- 
-//   {
-//     title: "Manage Sales Data",
-//     link: "/manageSalesData",
-//   },
-
-//   {
-//     title: "Logout",
-//     handleLogout: () => {}, 
-//   },
-  
-// ];
-
-// export const marketingSidebarData = [
-//   {
-//     title: "My Profile",
-//     link: "/backgroundVideoPage",
-//   },
- 
-
-//   {
-//     title: "View Reports",
-//     link: "/viewReport",
-//   },
-
-//   {
-//     title: "Logout",
-//     handleLogout: () => {}, //type logout logic here
-//   },
-  
-// ];
-
-
-
-// sidebarData.js
-
-
-
-
 
 
  let sidebarData = [];
@@ -191,6 +79,10 @@ export const setSidebarData = (userRole) => {
         title: "View Reports",
         link: "/viewReport",
       },
+      {
+        title: "Predict Demand",
+        link: '/demandprediction',
+      },
 
 
       {
@@ -206,6 +98,12 @@ export const setSidebarData = (userRole) => {
       {
         title: "My Profile",
         link: "/backgroundVideoPage",
+      },{
+        title: "Manage Sales Data",
+        link: "/manageSalesData",
+      }, {
+        title: "Manage Users",
+        link: "/manageUsers",
       },
       {
         title: "Logout",

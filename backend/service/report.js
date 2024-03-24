@@ -46,11 +46,20 @@ const getReportData = async () => {
 };
 
 
+const  getNoteData = async () => {
+    try {
+        const queryString = 'SELECT content FROM messages';
+        const data = await query(queryString);
+        return data;
+    } catch (error) {
+        throw error;
+    }
+};
 
 
 
 module.exports = {
-    saveReport,getReportData
+    saveReport,getReportData, getNoteData
 };
 
 

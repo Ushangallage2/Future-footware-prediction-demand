@@ -164,12 +164,12 @@
   font-size: 16px;
   cursor: pointer;
   padding: 8px;
-  background-color: #007bff;
+  background-color: #022f60;
   color: #fff;
   border: none;
   border-radius: 4px;
-  margin-left: 900px;
-  margin-bottom: 500px;
+  margin-left: 1000px;
+  margin-top: -10%;
 }
 
 /* Media queries for responsiveness */
@@ -203,9 +203,16 @@
     border: 1px solid #ccc;
     border-radius: 30px;
     margin-bottom: 50px;
+    margin-left: 1000%;
+    width: 200px;
+    overflow-y: scroll;
+    height: 200px;
   }
   
   .note-container{
+    margin-top: -22.8%;
+    max-width: 100px;
+   margin-left: -5%;
     
   }  
 
