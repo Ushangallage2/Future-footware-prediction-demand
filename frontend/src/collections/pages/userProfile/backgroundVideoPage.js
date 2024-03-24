@@ -203,7 +203,7 @@ const BackgroundVideoPage = () => {
       </div>
 
       <div className="background-video-page">
-        {/* <video
+        <video
           ref={videoRef}
           autoPlay
           loop
@@ -213,10 +213,10 @@ const BackgroundVideoPage = () => {
         >
           <source src={Backgroundvid} type="video/mp4" />
           Your browser does not support the video tag.
-        </video> */}
-        {/* <button className="pause-resume-button" onClick={handleTogglePlay}>
+        </video>
+        <button className="pause-resume-button" onClick={handleTogglePlay}>
           {isPlaying ? 'Pause' : 'Resume'}
-        </button> */}
+        </button>
 
         {/* <div className="profile-picture-container">
           <div className="profile-picture-overlay">
