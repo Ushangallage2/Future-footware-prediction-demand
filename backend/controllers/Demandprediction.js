@@ -1,26 +1,5 @@
-
-
-
 const { getAllModels, getModelDetails } = require('../service/Demandprediction');
 const { updateModelImage,getImageByModelNumber,SalesCount} = require('../service/Demandprediction');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // const uploadImageController = (req, res) => {
@@ -36,7 +15,6 @@ const { updateModelImage,getImageByModelNumber,SalesCount} = require('../service
 //       res.status(500).json({ error: 'Internal Server Error' });
 //     });
 // };
-
 
 
 const uploadImageController = (req, res) => {
