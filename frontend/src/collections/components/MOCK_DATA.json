@@ -1,43 +1,30 @@
 [
   {
     "model_id": 495,
-    "predicted_time_range": "Florette",
-    "no_of_shoes_forecasted": "Powelee"
-  },
-  {
-    "model_id": 496,
-    "first_name": "Bobine",
-    "last_name": "Fmodel_iddian",
-    "email": "bfmodel_iddiandr@ucla.edu",
-    "gender": "Female",
-    "university": "Irbmodel_id National University"
-  },
-  {
-    "model_id": 497,
-    "first_name": "Murial",
-    "last_name": "Bunt",
-    "email": "mbuntds@nba.com",
-    "gender": "Female",
-    "university": "Divine Word College of Legazpi"
-  },
-  {
-    "model_id": 498,
-    "first_name": "Daniella",
-    "last_name": "Gabrieli",
-    "email": "dgabrielmodel_idt@msu.edu",
-    "gender": "Female",
-    "university": "Universiteit Doesburg (UNDO)"
+    "predicted_time_range": "2024-03-27 10:15:00 to 2024-03-27 17:45:00",
+    "no_of_shoes_forecasted": 18
   },
   {
     "model_id": 499,
-    "first_name": "Ignaz",
-    "last_name": "Shoubrmodel_idge",
-    "email": "ishoubrmodel_idgedu@fotki.com",
-    "gender": "Male",
-    "university": "Davis and Elkins College"
+    "predicted_time_range": "2024-04-08 08:30:00 to 2024-04-08 14:20:00",
+    "no_of_shoes_forecasted": 17
   },
   {
-    "model_id": 500,
+    "model_id": 496,
+    "predicted_time_range": "2024-04-10 13:40:00 to 2024-04-10 20:05:00",
+    "no_of_shoes_forecasted": 16
+  },
+  {
+    "model_id": 498,
+    "predicted_time_range": "2024-04-03 11:55:00 to 2024-04-03 19:25:00",
+    "no_of_shoes_forecasted": 23
+  },
+  {
+    "model_id": 499,
+    "predicted_time_range": "2024-04-01 09:20:00 to 2024-04-01 15:10:00",
+    "no_of_shoes_forecasted": 23
+  },
+  {
     "first_name": "Sonia",
     "last_name": "Courtes",
     "email": "scourtesdv@independent.co.uk",
