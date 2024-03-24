@@ -146,6 +146,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import './newmodel.css';
+import {shoe999} from '../Shoe_Images/shoe02.png';
 
 const NewModel = () => {
   const [startDate, setStartDate] = useState(null);
