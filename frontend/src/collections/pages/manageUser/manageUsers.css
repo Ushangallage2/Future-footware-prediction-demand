@@ -1,5 +1,5 @@
 .new-message-container {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .new-message-textarea {
@@ -11,8 +11,8 @@
   border: 2.5px solid #ff39b0e7;
   transition: background-color 0.3s ease;
   /* margin-top: 2%; */
-  margin-left: 5%;
-  width: 80%;
+  margin-left: 25%;
+  width: 50%;
   padding: 10px 4px 0px 0px;
   padding-left: calc(1em + 32px);
   transition: width 0.3s ease;
@@ -58,7 +58,7 @@ h5{
 }
 
 .send-message-button {
-  margin: 4% 0% 0% 2%;
+  margin: 10px 0px 0px 50px;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.661);
   background: rgba(128, 128, 128, 0);
@@ -91,8 +91,6 @@ h5{
     border-radius: 20px;
 } */
 
-
-
 .writer{
   margin-left: 30%;
 } 
@@ -114,5 +112,6 @@ h5{
 }
 
 .fadein {
-  animation: fadeIn 2s ease-out;
+  animation: fadeIn 1s ease-out;
+  margin: 0px;
 }

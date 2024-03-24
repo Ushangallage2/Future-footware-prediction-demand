@@ -125,6 +125,9 @@ app.use("/profile", userProf);
 const report = require("./routes/report");
 app.use("/report", report);
 
+const getsales  = require("./routes/ManageSalesData");
+app.use("/sales",getsales);
+
 app.use(express.static('public'));
 
 server.listen(port, () => {

@@ -10,7 +10,7 @@ const UsernameTypewriter = ({ onClick }) => {
   const { currentUser } = useUser();
 
   return (
-    <a href="./backgroundVideoPage" onClick={onClick}>
+    <a href="./userprofile" onClick={onClick}>
       <div className='typeWriter-container'>
         <div className="username-typewriter">
           <Typewriter

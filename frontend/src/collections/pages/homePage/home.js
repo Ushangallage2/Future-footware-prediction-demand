@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ScrollReveal from "scrollreveal";
 import fti from "./fti.png";
-import fdfs from "../../sidebar/fdfs.png";
+import fdfs from "../../sidebar/fdfs2.png";
 import "./home.css";
 import "boxicons/css/boxicons.min.css";
 import 'remixicon/fonts/remixicon.css';

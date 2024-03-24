@@ -508,116 +508,139 @@ const BackgroundVideoPage = () => {
     address: 'Address',
     departmentRole: 'Department',
   };
+  const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
 
   return (
-    <>
-      <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}>
-        <Sidebar />
-        <div className="username-typewriter">
-          <UsernameTypewriter />
+    <div style={{ position: 'fixed', display: 'flex', alignItems: 'flex-start' }}>
+      <Sidebar />
+      <img 
+        src={backgroundimg}
+        alt="Background" 
+        style={{ 
+          position: 'fixed', 
+          // width: '19.3%',
+          // width: '20.8%',
+          width: '300px',
+          height: '100vh', 
+          objectFit: 'cover', 
+          zIndex: -1
+        }} 
+      />
+
+      <div className="username-typewriter">
+        <UsernameTypewriter />
+      </div>
+
+      <div className="background-video-page">
+        {/* <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          className="video-element"
+          style={{ width: '80.5%', height: '40%', objectFit: 'cover', opacity: "0.8" }}
+        >
+          <source src={Backgroundvid} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video> */}
+        {/* <button className="pause-resume-button" onClick={handleTogglePlay}>
+          {isPlaying ? 'Pause' : 'Resume'}
+        </button> */}
+
+        {/* <div className="profile-picture-container">
+          <div className="profile-picture-overlay">
+            <label htmlFor="profile-picture-input" className="upload-icon">
+              📷
+            </label>
+            <div className='input-area'>
+              <input
+                type="file"
+                id="profile-picture-input"
+                accept="image/*"
+                onChange={handleProfilePictureUpload}
+              />
+            </div>
+          </div>
+        </div> */}
+
+
+        <div className="profile-picture-container">
+          <div className="profile-picture-overlay">
+            <label htmlFor="profile-picture-input" className="upload-icon"
+              
+              style={{ 
+                opacity: isHovered ? 1 : 0, 
+                transition: "opacity 0.3s ease"
+              }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              
+              >
+              📷
+            </label>
+            <div className='input-area'>
+              <input
+                type="file"
+                id="profile-picture-input"
+                accept="image/*"
+                onChange={handleProfilePictureUpload}
+              
+              />
+            </div>
+          </div>
+          {profileImageUrl && <img src={profileImageUrl} alt="Profile Picture" className="uploaded-profile-picture" />}
         </div>
-        <div className="background-video-page">
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            className="video-element"
-            style={{ width: '80.5%', height: '40%', objectFit: 'cover', opacity: "0.8" }}
-          >
-            <source src={Backgroundvid} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <button className="pause-resume-button" onClick={handleTogglePlay}>
-            {isPlaying ? 'Pause' : 'Resume'}
-          </button>
-          {/* <div className="profile-picture-container">
-            <div className="profile-picture-overlay">
-              <label htmlFor="profile-picture-input" className="upload-icon">
-                📷
-              </label>
-              <div className='input-area'>
-                <input
-                  type="file"
-                  id="profile-picture-input"
-                  accept="image/*"
-                  onChange={handleProfilePictureUpload}
-                />
-              </div>
-            </div>
-          </div> */}
-          <div className="profile-picture-container">
-            <div className="profile-picture-overlay">
-              <label htmlFor="profile-picture-input" className="upload-icon"
-      
-                style={{
-                  opacity: isHovered ? 1 : 0,
-                  transition: "opacity 0.3s ease"
-                }}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-      
+
+
+        
+
+
+
+        <div className="user-data-form">
+          {Object.keys(userData).map((field) => (
+            <div key={field} className={`form-field ${field === 'id' ? 'small-id-field' : ''}`}>
+              <span className="field-label">{fieldTitles[field]}</span>
+              {isEditing[field] ? (
+                <>
+                  <div className="field-value" style={{ maxWidth: '200px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                    <input
+                      type="text"
+                      value={userData[field]}
+                      onChange={(e) => {
+                        handleFieldChange(field, e.target.value);
+                      }}
+                    />
+                  </div>
+                  {error.email && <p style={{ color: 'red', fontSize: '15px', marginLeft: '10px' }}>{error.email}</p>}
+                </>
+              ) : (
+                <span className="field-value" style={{ maxWidth: '200px', height: '35px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>{userData[field]}</span>
+              )}
+              {field !== 'id' && field !== 'departmentRole' && (
+                <button
+                  className={`edit-button ${isEditing[field] ? 'save-button' : ''}`}
+                  onClick={() => handleEditToggle(field)}
+                  disabled={!userData.firstName || !userData.email || error.email !== ''}
                 >
-                📷
-              </label>
-              <div className='input-area'>
-                <input
-                  type="file"
-                  id="profile-picture-input"
-                  accept="image/*"
-                  onChange={handleProfilePictureUpload}
-      
-                />
-              </div>
+                  {isEditing[field] ? 'Save' : 'Edit'}
+                </button>
+              )}
             </div>
-            {profileImageUrl && <img src={profileImageUrl} alt="Profile Picture" className="uploaded-profile-picture" />}
-          </div>
-      
-          <div className="user-data-form">
-            {Object.keys(userData).map((field) => (
-              <div key={field} className={`form-field ${field === 'id' ? 'small-id-field' : ''}`}>
-                <span className="field-label">{fieldTitles[field]}</span>
-                {isEditing[field] ? (
-                  <>
-                    <div className="field-value" style={{ maxWidth: '200px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
-                      <input
-                        type="text"
-                        value={userData[field]}
-                        onChange={(e) => {
-                          handleFieldChange(field, e.target.value);
-                        }}
-                      />
-                    </div>
-                    {error.email && <p style={{ color: 'red', fontSize: '15px', marginLeft: '10px' }}>{error.email}</p>}
-                  </>
-                ) : (
-                  <span className="field-value" style={{ maxWidth: '200px', height: '35px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>{userData[field]}</span>
-                )}
-                {field !== 'id' && field !== 'departmentRole' && (
-                  <button
-                    className={`edit-button ${isEditing[field] ? 'save-button' : ''}`}
-                    onClick={() => handleEditToggle(field)}
-                    disabled={!userData.firstName || !userData.email || error.email !== ''}
-                  >
-                    {isEditing[field] ? 'Save' : 'Edit'}
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="note-container">
-            <button className="toggle-note-button" onClick={handleNoteToggle}>
-              {isNoteVisible ? 'Fold Note' : 'IMPORTANT'}
-            </button>
-            {isNoteVisible && (
-              <div className="note-content">
-                {/* Add your note content here */}
-              </div>
-            )}
-          </div>
+          ))}
+        </div>
+
+        <div className="note-container">
+          <button className="toggle-note-button" onClick={handleNoteToggle}>
+            {isNoteVisible ? 'Fold Note' : 'IMPORTANT'}
+          </button>
+          {isNoteVisible && (
+            <div className="note-content">
+              {/* Add your note content here */}
+            </div>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

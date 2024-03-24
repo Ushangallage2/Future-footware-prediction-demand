@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { sidebarData } from './sidebarData';
-import logo from './fdfs.png';
+import logo from './fdfs2.png';
 import { Button, Modal, Backdrop, Fade } from '@mui/material';
 
 const ExitConfirmationModal = ({ open, onClose, onExit }) => {

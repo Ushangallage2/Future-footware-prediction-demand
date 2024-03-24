@@ -124,7 +124,7 @@
 
 import React, { useState } from 'react';
 import * as Components from './Components';
-import logo from '../../sidebar/fdfs.png';
+import logo from '../../sidebar/fdfs2.png';
 import shoe05 from '../../pages/Shoe_Images/shoe05.png';
 // import axios from '../../../intercepter';
 import { useNavigate } from 'react-router-dom';
@@ -134,8 +134,9 @@ import { jwtDecode } from 'jwt-decode';
 import "./loginPage.css";
 
 
-const successSound = new Audio(require('./loginbutton.mp3'));
 const alertSound = new Audio(require('./alertsound.mp3'));
+
+const successSound = new Audio(require('./loginbutton.mp3'));
 
 export function Testing() {
   const Navigate = useNavigate();

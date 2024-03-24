@@ -1,48 +1,10 @@
 
-
-/* 
-.react-datepicker {
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.3); 
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
-}
-
-
-.react-datepicker__input-container input {
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  background-color: #120237; 
-  color: white;
-  cursor: pointer; 
-  transition: background-color 0.3s ease-in-out;
-  font-weight: bold;
-}
-
-
-
-
-.react-datepicker__input-container input:hover {
-  background-color: #50053b;
-} */
-
-/* .typewriter{
-  margin-left:250px;
-} */
-
-
 .css-b62m3t-container{
- 
-  border: 2px solid #ff4076c6; /* Border with color */
- 
-
+  border: 2px solid #ff4076c6;
   border-radius: 8px;
-
-
-
+  max-width: 80%;
+  color: aliceblue;
 }
-
 
 .react-datepicker {
   border: none;
@@ -54,7 +16,6 @@
 
 .react-datepicker__input-container{
   margin-left: 0px;
- 
 }
 
 .center-container class1{
@@ -62,7 +23,9 @@
 background: transparent;
 
 }
-
+.center-container p {
+  color: white;
+}
 
 
 
@@ -71,7 +34,7 @@ background: transparent;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); /* Mirror-like gradient background */
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
   color: rgb(27, 5, 72);
   cursor: pointer; /* Change cursor to pointer */
   transition: background-color 0.3s ease-in-out;
@@ -154,7 +117,7 @@ background: transparent;
 
 /* Apply mirror shining effect to the Select component */
 .Select {
-  background-color: rgb(246, 246, 246); 
+  /* background-color: rgb(246, 246, 246);  */
   border: 1px solid transparent; 
   border-radius: 5px;
   padding: 10px; 
@@ -183,8 +146,8 @@ background: transparent;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  margin-left: 130px;
-  margin-top: 30px;
+  margin-left: 200px;
+  margin-top: 63px;
   /* Apply gradient background */
   
 }
@@ -343,13 +306,20 @@ img {
 
 .demand-img{
 
-  width: 300px;
+  /* width: 300px;
   height: 300px;
 margin-left: 10%;
  margin-top: 45%;
-  overflow: auto; /* Enables scrolling */
-  scrollbar-width: thin; /* Makes scrollbar thinner */
-  scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Sets scrollbar color and background */
+  overflow: auto; 
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;  */
+  
+  width: 350px;
+  height: 230px;
+  margin-left: 100px;
+  overflow: auto; 
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
   
 }
 
@@ -369,10 +339,12 @@ margin-left: 10%;
 
 
 .demand-img img {
-  max-width: 20%; 
-  height: auto; 
+  max-width: 90%; 
+  height: auto;
+  margin-top: 40px;
+  /* margin-left: 80px;  */
 
-  position: fixed;
+  /* position: fixed; */
 
 }
 
@@ -390,7 +362,16 @@ margin-right: 40%;
 }
 
 .r-container {
+  height: auto;
   animation: fadeIn 2s ease-out;
   position: fixed;
-  margin-top: 2%;
+  margin-top: 5%;
+  background-color: #3673c318;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.10);
+}
+
+.r-container p {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }

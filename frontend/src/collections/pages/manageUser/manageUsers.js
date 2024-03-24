@@ -1,5 +1,114 @@
 
 
+// import React, { useEffect, useState } from 'react';
+// import { jwtDecode } from 'jwt-decode';
+// import './manageUsers.css';
+// import '../../../App.css';
+// import Table from './materialtable';
+// import { Sidebar } from '../../sidebar/sidebar';
+// import UsernameTypewriter from '../../components/UsernameTypewriter'; 
+// import io from 'socket.io-client'; 
+
+// function ManageUsers() {
+//   const col = [
+//     { field: "id", title: " ID" },
+//     { field: "fName", title: "First Name" },
+//     { field: "lName", title: "Last Name" },
+//     { field: "email", title: "Email" },
+//     { field: "username", title: "User Name" },
+//     { field: "status", title: "Account Status" },
+//     { field: "role", title: "Role" },
+//   ];
+
+//   const [newMessage, setNewMessage] = useState('');
+
+//   const token = localStorage.getItem('token');
+//   const { id } = jwtDecode(token);
+
+//   const socket = io.connect('http://localhost:8080');
+
+//   useEffect(() => {
+//     socket.on("recieveMessage", (data) => {
+//       console.log(data);
+//       alert(data.message);  // coming back from BE and alerting to all the users but the sender
+//     });
+
+//     // Clean up the Socket.IO connection when the component unmounts
+//     return () => {
+//       socket.disconnect();
+//     };
+//   }, [socket]);
+
+//   const handleSendMessage = async () => {
+//     try {
+//       // Check if the newMessage is empty
+//       if (newMessage.trim() === '') {
+//         // Show an alert or handle the empty message case accordingly
+//         alert('Please enter a message before sending.');
+//         return;
+//       }
+
+//       // Emit a message event to the Socket.IO server
+//       socket.emit('sendMessage', { message: newMessage, senderId: id });
+
+//       // Save the message to the database
+//       const response = await fetch(`http://localhost:8080/user/request/${id}`, {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ message: newMessage, senderId: id }),
+//       });
+
+//       if (response.ok) {
+//         console.log('Message sent and saved successfully');
+       
+//         alert('Message sent and saved successfully');
+//       } else {
+//         console.error('Failed to send and save message');
+     
+//         alert('Failed to send and save message');
+//       }
+//     } catch (error) {
+//       console.log('Error sending and saving message:', error);
+      
+//       alert('Error sending and saving message');
+//     } finally {
+//       // Reset the message input
+//       setNewMessage('');
+//     }
+//   };
+
+//   return (
+//     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
+//       <Sidebar />
+//       <div className="form-container">
+//         <div className="writer">
+//           <UsernameTypewriter />
+//         </div>
+        
+//         {/* New message area */}
+//         <div className="new-message-container">
+//           <textarea
+//             className='new-message-textarea'
+//             placeholder='Type a message to send all the users ...'
+//             value={newMessage}
+//             onChange={(e) => setNewMessage(e.target.value)}
+//           />
+//           <button className='send-message-button' onClick={handleSendMessage}>
+//             Send Message
+//           </button>
+//         </div>
+
+//         <Table col={col} />
+//       </div>
+//     </div>
+//   );
+// }
+
+// export { ManageUsers };
+
+
 import React, {  useContext,useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import './manageUsers.css';
@@ -25,7 +134,24 @@ function ManageUsers() {
   const [newMessage, setNewMessage] = useState('');
 
   const token = localStorage.getItem('token');
-  const { id } = jwtDecode(token);
+
+  let id = null;
+
+
+  // const { id } = jwtDecode(token);
+
+  if (token && typeof token === 'string') {
+    try {
+      const decoded = jwtDecode(token);
+      id = decoded.id;
+    } catch (error) {
+      console.error('Invalid token:', error);
+      // Handle the invalid token case (e.g., redirect to login or show an error)
+    }
+  } else {
+    console.error('No token found or token is not a string');
+    // Handle the case where no token is found or token is not a string
+  }
 
   const socket = io.connect('http://localhost:8080');
 
@@ -67,6 +193,15 @@ function ManageUsers() {
         return;
       }
 
+
+
+       // Ensure id is not null or undefined before proceeding
+    if (!id) {
+      console.error('Invalid user ID. Cannot send the message.');
+      alert('Invalid user ID. Cannot send the message.');
+      return;
+    }
+
       // Emit a message event to the Socket.IO server
       socket.emit('sendMessage', { message: newMessage, senderId: id });
 
@@ -98,17 +233,19 @@ function ManageUsers() {
     }
   };
 
-  const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
-  const backgroundimg2 = new URL("../Shoe_Images/bgimg.jpg", import.meta.url);
+  const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
+  const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
   return (
 
     <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start' }}>
+        
       <img 
         src={backgroundimg}
         alt="Background" 
         style={{ 
           position: 'fixed', 
-          width: '20%', 
+          // width: '19.5%', 
+          width: '300px', 
           height: '100vh', 
           objectFit: 'cover', 
           zIndex: -1
@@ -120,35 +257,34 @@ function ManageUsers() {
           position: 'fixed',
           width: '90%', 
           height: '100vh', 
-          marginLeft: '20%',
+          // marginLeft: '19.5%',
+          marginLeft: '300px',
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',
-          opacity: '0.5'
+          opacity: '0.7'
         }} 
       ></div>
       <Sidebar />
-      <div className="form-container">
-        <div className="writer">
-          <UsernameTypewriter />
-        </div>
-        
+      <div className="form-container" style={{width:'75vw'}}>
         {/* New message area */}
         <div className="new-message-container">
           <textarea
-            className='new-message-textarea'
-            placeholder='Type a message to send all the users ...'
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-          />
+          className='new-message-textarea'
+          placeholder='Type a message to send all the users ...'
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}/>
+          
           <button className='send-message-button' onClick={handleSendMessage}>
             Send Message
-          </button>
+            </button>
         </div>
-
-        <div className="fadein">
-        <Table col={col} />
-      </div>
+        <div className="fadein" style={{ marginTop: '8%' }}>
+          <Table col={col} />
+        </div>
+        <div className="writer">
+          <UsernameTypewriter />
+        </div>
       </div>
     </div>
   );

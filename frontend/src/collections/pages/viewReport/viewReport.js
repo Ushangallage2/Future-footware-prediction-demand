@@ -1,7 +1,3 @@
-
-
-// src/collections/pages/viewReport/ViewReport.js
-
 import React, { useState } from 'react';
 import axios from 'axios'; // Axios for making HTTP requests
 
@@ -27,8 +23,8 @@ function ViewReport() {
     }
   };
 
-  const backgroundimg = new URL("../Shoe_Images/footwearbg.jpg", import.meta.url);
-  const backgroundimg2 = new URL("../Shoe_Images/bgimg.jpg", import.meta.url);
+  const backgroundimg = new URL("./footwearbg.jpg", import.meta.url);
+  const backgroundimg2 = new URL("./bgimg.jpg", import.meta.url);
 
   return (
     <div className="App">
@@ -37,7 +33,8 @@ function ViewReport() {
         alt="Background" 
         style={{ 
           position: 'fixed', 
-          width: '20%', 
+          // width: '19.5%', 
+          width: '300px', 
           height: '100vh', 
           objectFit: 'cover', 
           zIndex: -1
@@ -49,11 +46,12 @@ function ViewReport() {
           position: 'fixed',
           width: '90%', 
           height: '100vh', 
-          marginLeft: '20%',
+          // marginLeft: '19.5%',
+          marginLeft: '300px',
           zIndex: -1,
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 100%, transparent 100%), url(${backgroundimg2})`,
           backgroundSize: 'cover',
-          opacity: '0.5'
+          opacity: '0.7'
         }} 
       ></div>
       <Sidebar />
@@ -67,4 +65,4 @@ function ViewReport() {
   );
 };
 
-export default ViewReport;
+export default  ViewReport;

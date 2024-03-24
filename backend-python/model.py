@@ -8,6 +8,7 @@ from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.metrics import MeanSquaredError
 
 
+
 # Load your sales data (replace this with your data loading logic)
 df = pd.read_csv('./DataFiles/model E [MConverter.eu].csv')
 
@@ -53,5 +54,5 @@ model.compile(optimizer='adam', loss='mse')
 
 
 # Train the model
-model.fit(X_train, y_train, epochs=700, batch_size=32, verbose=2)
+model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=2)
 model.save("./lstm_model_e.h5")
