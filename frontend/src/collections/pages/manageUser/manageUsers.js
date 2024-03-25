@@ -267,7 +267,10 @@ function ManageUsers() {
       ></div>
       <Sidebar />
       <div className="form-container" style={{width:'75vw'}}>
-        {/* New message area */}
+      <div className="writer">
+          <UsernameTypewriter />
+        </div>
+        
         <div className="new-message-container">
           <textarea
           className='new-message-textarea'
@@ -281,9 +284,6 @@ function ManageUsers() {
         </div>
         <div className="fadein" style={{ marginTop: '8%' }}>
           <Table col={col} />
-        </div>
-        <div className="writer">
-          <UsernameTypewriter />
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import '../../../App.css';
 import Table from './materialtable';
 import { Sidebar } from '../../sidebar/sidebar';
 import UsernameTypewriter from '../../components/UsernameTypewriter';
+import './viewReport.css';
 
 function ViewReport () {
   const col = [
@@ -52,12 +53,12 @@ function ViewReport () {
       <div style={{marginLeft:'0%'}}>
     <Sidebar  />
     </div>
-      <div className="form-container">
+      <div className="form-container" style={{width:'75vw', height:'800px'}}>
         <div className="writer" style={{ marginLeft:'24%'   }}>
           <UsernameTypewriter />
         </div>
 
-        <div className="fadein">
+        <div className="fadein" style={{ marginTop: '8%' }}>
         <Table col={col} />
       </div>
       </div>

@@ -137,6 +137,7 @@ import axios from 'axios';
 import { saveAs } from 'file-saver';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import '../manageUser/manageUsers.css' ;
 
 const Table = (props) => {
     const [tblData, setTblData] = useState([]);
@@ -205,11 +206,11 @@ const Table = (props) => {
 
     return (
         <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
-            <div className="container-fluid calculated-bodywidth" style={{ marginTop: '7%', marginLeft: '8%', width: '80%' }} id="bla">
+            <div className="container-fluid calculated-bodywidth" style={{ marginTop: '8%', marginLeft: '3%', width: '100%' }} id="bla">
                 <div className="row gutters mt-3">
-                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" >
-                        <div className="card h-100" id="contentcard">
-                            <div className="card-body">
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div className="card h-100" id="contentcard" style={{ height:'80vh'}}>
+                            <div className="card-body" style={{ height:'80vh'}}>
                                 <h5>Reports</h5>
                                 <div style={{ marginBottom: '10px' }}>
                                     <Button variant="contained" color="primary" onClick={handleDownloadPDF}>
