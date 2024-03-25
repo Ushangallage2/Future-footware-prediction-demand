@@ -352,23 +352,13 @@ useEffect(() => {
 </div>
 
 
-             <button
-          style={{
-            position: 'fixed',
-            padding: '10px 18px',
-            border: '2px solid #ff4076c6',
-            background: 'transparent',
-            color: 'white',
-            fontSize: '16px',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            marginLeft: '55%',
-            marginTop: '9%'
-          }}
-          onClick={() => setIsChangeCredentialsOpen(true)} // Open the popup when clicked
-        >
-          Change username or password
-        </button>
+<button
+    className="change-credentials-button"
+    onClick={() => setIsChangeCredentialsOpen(true)}
+>
+    Change username & password
+</button>
+
         <ChangeCredentialsPopup
         isOpen={isChangeCredentialsOpen}
         onClose={() => setIsChangeCredentialsOpen(false)}
