@@ -324,7 +324,7 @@ useEffect(() => {
 
 
         {showWarning && (
-          <div style={{ color: 'red', fontSize: '20px', marginTop: '200px',marginLeft:'70px' }}>
+          <div style={{ color: 'red', fontSize: '20px', marginTop: '200px',marginLeft:'250px' }}>
            ⚠️ Please choose a date!
           </div>
         )}
