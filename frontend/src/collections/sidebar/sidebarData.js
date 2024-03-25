@@ -101,10 +101,7 @@ export const setSidebarData = (userRole) => {
       },{
         title: "Manage Sales Data",
         link: "/manageSalesData",
-      }, {
-        title: "Manage Users",
-        link: "/manageUsers",
-      },
+      }, 
       {
         title: "Logout",
         handleLogout: () => {
