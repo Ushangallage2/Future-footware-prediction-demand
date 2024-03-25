@@ -201,6 +201,7 @@ useEffect(() => {
       });
       console.log("fetching imag...")
       console.log(response);
+      window.location.reload();
     } catch (error) {
       console.log('Error uploading profile picture:', error);
     }

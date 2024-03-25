@@ -11,8 +11,9 @@ const verifyRole = (role) => async (req, res, next) => {
         try {
             const token = req.headers.authorization?.split(" ")[1];
             const decoded = jwt.verify(token, 'secret');
-            const queryString = "SELECT * FROM users WHERE username = ?";
-            const [user] = await query(queryString, [decoded.username]);
+            const queryString = "SELECT * FROM users WHERE id= ?";
+            const [user] = await query(queryString, [decoded.id]);
+            console.log(token);
 
             if (!user) {
                 return res.status(401).send({ message: 'User not found' });
