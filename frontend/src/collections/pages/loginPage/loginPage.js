@@ -143,7 +143,7 @@ export function Testing() {
   const { setUser } = useUser();
   const [userName, setUserName] = useState('');
   const [passWord, setPassWord] = useState('');
-  const [loginError, setLoginError] = useState({ message: '', attemptsLeft: 0 });
+  const [loginError, setLoginError] = useState({ message: alert('Contact the administration for password recovery.'), attemptsLeft: 0 });
 
   const login = (e) => {
     e.preventDefault();
